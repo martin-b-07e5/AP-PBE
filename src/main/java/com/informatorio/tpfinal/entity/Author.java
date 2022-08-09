@@ -1,7 +1,7 @@
 package com.informatorio.tpfinal.entity;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
@@ -13,14 +13,14 @@ public class Author {
     private String firstName;
     private String lastName;
     private String fullName;
-    private Date createdAt;
+    private LocalDate createdAt;
 
     // constructor
     public Author() {
     }
 
     // constructor
-    public Author(Long id_author, String firstName, String lastName, String fullName, Date createdAt) {
+    public Author(Long id_author, String firstName, String lastName, String fullName, LocalDate createdAt) {
         this.id_author = id_author;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -61,11 +61,11 @@ public class Author {
         this.fullName = fullName;
     }
 
-    public Date getCreatedAt() {
+    public LocalDate getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(LocalDate createdAt) {
         this.createdAt = createdAt;
     }
 

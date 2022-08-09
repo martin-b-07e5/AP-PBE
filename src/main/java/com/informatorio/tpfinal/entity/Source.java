@@ -1,7 +1,7 @@
 package com.informatorio.tpfinal.entity;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
@@ -13,14 +13,14 @@ public class Source {
     private String name;
     private Long code;
     private String content;
-    private Date created_at;
+    private LocalDate created_at;
 
     // constructor
     public Source() {
     }
 
     // constructor
-    public Source(Long id_source, String name, Long code, String content, Date created_at) {
+    public Source(Long id_source, String name, Long code, String content, LocalDate created_at) {
         this.id_source = id_source;
         this.name = name;
         this.code = code;
@@ -61,11 +61,11 @@ public class Source {
         this.content = content;
     }
 
-    public Date getCreated_at() {
+    public LocalDate getCreated_at() {
         return created_at;
     }
 
-    public void setCreated_at(Date created_at) {
+    public void setCreated_at(LocalDate created_at) {
         this.created_at = created_at;
     }
 

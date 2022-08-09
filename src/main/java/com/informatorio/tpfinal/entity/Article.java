@@ -1,6 +1,7 @@
 package com.informatorio.tpfinal.entity;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
@@ -13,7 +14,7 @@ public class Article {
     private String description;
     private String url;
     private String urlToImage;
-    private String publishedAt;
+    private LocalDate publishedAt;
     private String content;
     private Long id_author; // FK_id_author
     private Long id_source; // FK_id_source
@@ -23,7 +24,7 @@ public class Article {
     }
 
     // constructor
-    public Article(Long id_article, String title, String description, String url, String urlToImage, String publishedAt, String content, Long id_author, Long id_source) {
+    public Article(Long id_article, String title, String description, String url, String urlToImage, LocalDate publishedAt, String content, Long id_author, Long id_source) {
         this.id_article = id_article;
         this.title = title;
         this.description = description;
@@ -76,11 +77,11 @@ public class Article {
         this.urlToImage = urlToImage;
     }
 
-    public String getPublishedAt() {
+    public LocalDate getPublishedAt() {
         return publishedAt;
     }
 
-    public void setPublishedAt(String publishedAt) {
+    public void setPublishedAt(LocalDate publishedAt) {
         this.publishedAt = publishedAt;
     }
 
