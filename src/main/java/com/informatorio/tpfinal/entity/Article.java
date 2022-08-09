@@ -9,40 +9,45 @@ import java.util.Objects;
 public class Article {
     @Id // for PK
     @GeneratedValue(strategy = GenerationType.IDENTITY) // for AI
-    private Long id_article;
+    @Column(name = "id_article") // DB column name
+    private Long idArticle;
     private String title;
     private String description;
     private String url;
+    @Column(name = "url_to_image") // DB column name
     private String urlToImage;
+    @Column(name = "published_at") // DB column name
     private LocalDate publishedAt;
     private String content;
-    private Long id_author; // FK_id_author
-    private Long id_source; // FK_id_source
+    @Column(name = "id_author") // DB column name
+    private Long idAuthor; // FK_id_author
+    @Column(name = "id_source") // DB column name
+    private Long idSource; // FK_id_source
 
     // constructor
     public Article() {
     }
 
     // constructor
-    public Article(Long id_article, String title, String description, String url, String urlToImage, LocalDate publishedAt, String content, Long id_author, Long id_source) {
-        this.id_article = id_article;
+    public Article(Long idArticle, String title, String description, String url, String urlToImage, LocalDate publishedAt, String content, Long idAuthor, Long idSource) {
+        this.idArticle = idArticle;
         this.title = title;
         this.description = description;
         this.url = url;
         this.urlToImage = urlToImage;
         this.publishedAt = publishedAt;
         this.content = content;
-        this.id_author = id_author;
-        this.id_source = id_source;
+        this.idAuthor = idAuthor;
+        this.idSource = idSource;
     }
 
     // getters and setters
-    public Long getId_article() {
-        return id_article;
+    public Long getIdArticle() {
+        return idArticle;
     }
 
-    public void setId_article(Long id_article) {
-        this.id_article = id_article;
+    public void setIdArticle(Long idArticle) {
+        this.idArticle = idArticle;
     }
 
     public String getTitle() {
@@ -93,20 +98,20 @@ public class Article {
         this.content = content;
     }
 
-    public Long getId_author() {
-        return id_author;
+    public Long getIdAuthor() {
+        return idAuthor;
     }
 
-    public void setId_author(Long id_author) {
-        this.id_author = id_author;
+    public void setIdAuthor(Long idAuthor) {
+        this.idAuthor = idAuthor;
     }
 
-    public Long getId_source() {
-        return id_source;
+    public Long getIdSource() {
+        return idSource;
     }
 
-    public void setId_source(Long id_source) {
-        this.id_source = id_source;
+    public void setIdSource(Long idSource) {
+        this.idSource = idSource;
     }
 
     // equals
@@ -115,27 +120,27 @@ public class Article {
         if (this == o) return true;
         if (!(o instanceof Article)) return false;
         Article article = (Article) o;
-        return getId_article().equals(article.getId_article()) && getTitle().equals(article.getTitle()) && getDescription().equals(article.getDescription()) && getUrl().equals(article.getUrl()) && getUrlToImage().equals(article.getUrlToImage()) && getPublishedAt().equals(article.getPublishedAt()) && getContent().equals(article.getContent()) && getId_author().equals(article.getId_author()) && getId_source().equals(article.getId_source());
+        return getIdArticle().equals(article.getIdArticle()) && getTitle().equals(article.getTitle()) && getDescription().equals(article.getDescription()) && getUrl().equals(article.getUrl()) && getUrlToImage().equals(article.getUrlToImage()) && getPublishedAt().equals(article.getPublishedAt()) && getContent().equals(article.getContent()) && getIdAuthor().equals(article.getIdAuthor()) && getIdSource().equals(article.getIdSource());
     }
 
     // hashCode
     @Override
     public int hashCode() {
-        return Objects.hash(getId_article(), getTitle(), getDescription(), getUrl(), getUrlToImage(), getPublishedAt(), getContent(), getId_author(), getId_source());
+        return Objects.hash(getIdArticle(), getTitle(), getDescription(), getUrl(), getUrlToImage(), getPublishedAt(), getContent(), getIdAuthor(), getIdSource());
     }
 
     @Override
     public String toString() {
         return "Article{" +
-                "id_article=" + id_article +
+                "id_article=" + idArticle +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", url='" + url + '\'' +
                 ", urlToImage='" + urlToImage + '\'' +
                 ", publishedAt='" + publishedAt + '\'' +
                 ", content='" + content + '\'' +
-                ", id_author=" + id_author +
-                ", id_source=" + id_source +
+                ", id_author=" + idAuthor +
+                ", id_source=" + idSource +
                 '}';
     }
 }
