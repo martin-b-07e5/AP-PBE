@@ -9,32 +9,34 @@ import java.util.Objects;
 public class Source {
     @Id  // for PK
     @GeneratedValue(strategy = GenerationType.IDENTITY) // for AI
-    private Long id_source;
+    @Column(name = "id_source") // column name
+    private Long idSource;
     private String name;
     private Long code;
     private String content;
-    private LocalDate created_at;
+    @Column(name = "created_at") // column name
+    private LocalDate createdAt;
 
     // constructor
     public Source() {
     }
 
     // constructor
-    public Source(Long id_source, String name, Long code, String content, LocalDate created_at) {
-        this.id_source = id_source;
+    public Source(Long idSource, String name, Long code, String content, LocalDate createdAt) {
+        this.idSource = idSource;
         this.name = name;
         this.code = code;
         this.content = content;
-        this.created_at = created_at;
+        this.createdAt = createdAt;
     }
 
     // getters and setters
-    public Long getId_source() {
-        return id_source;
+    public Long getIdSource() {
+        return idSource;
     }
 
-    public void setId_source(Long id_source) {
-        this.id_source = id_source;
+    public void setIdSource(Long idSource) {
+        this.idSource = idSource;
     }
 
     public String getName() {
@@ -61,12 +63,12 @@ public class Source {
         this.content = content;
     }
 
-    public LocalDate getCreated_at() {
-        return created_at;
+    public LocalDate getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreated_at(LocalDate created_at) {
-        this.created_at = created_at;
+    public void setCreatedAt(LocalDate createdAt) {
+        this.createdAt = createdAt;
     }
 
     // Equals
@@ -75,28 +77,28 @@ public class Source {
         if (this == o) return true;
         if (!(o instanceof Source)) return false;
         Source source = (Source) o;
-        return id_source.equals(source.id_source) &&
+        return idSource.equals(source.idSource) &&
                 name.equals(source.name) &&
                 code.equals(source.code) &&
                 content.equals(source.content) &&
-                created_at.equals(source.created_at);
+                createdAt.equals(source.createdAt);
     }
 
     // HashCode
     @Override
     public int hashCode() {
-        return Objects.hash(id_source, name, code, content, created_at);
+        return Objects.hash(idSource, name, code, content, createdAt);
     }
 
     // ToString
     @Override
     public String toString() {
         return "Source{" +
-                "id_source=" + id_source +
+                "id_source=" + idSource +
                 ", name='" + name + '\'' +
                 ", code=" + code +
                 ", content='" + content + '\'' +
-                ", created_at=" + created_at +
+                ", created_at=" + createdAt +
                 '}';
     }
 }
