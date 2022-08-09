@@ -4,8 +4,8 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Objects;
 
-@Entity
-@Table(name = "articles")
+@Entity  // this is a tab
+@Table(name = "articles")  // table name
 public class Article {
     @Id // for PK
     @GeneratedValue(strategy = GenerationType.IDENTITY) // for AI
