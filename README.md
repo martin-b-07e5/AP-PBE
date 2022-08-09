@@ -1,6 +1,6 @@
 # aas-v0.1
 ## Article Author Source
-![mer description](/home/pepe/IdeaProjects/java--tpFinal/aas-v0.1/src/main/resources/static/mer.png "mer title")
+![mer description](./src/main/resources/static/mer.png "mer title")
 
 ## DESCRIPCIÓN DE LA APLICACIÓN (API)
 Aplicación donde se publicaran varios articulos de noticias.
