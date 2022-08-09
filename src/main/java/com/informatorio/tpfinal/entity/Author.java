@@ -5,14 +5,19 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
-@Table(name = "authors")
+@Table(name = "authors")  // table name
 public class Author {
     @Id  // for PK
     @GeneratedValue(strategy = GenerationType.IDENTITY)  // for AI
-    private Long id_author;
+    @Column(name = "id_author") // DB column name
+    private Long idAuthor;
+    @Column(name = "first_name") // DB column name
     private String firstName;
+    @Column(name = "last_name") // DB column name
     private String lastName;
+    @Column(name = "full_name") // DB column name
     private String fullName;
+    @Column(name = "created_at") // DB column name
     private LocalDate createdAt;
 
     // constructor
@@ -20,8 +25,8 @@ public class Author {
     }
 
     // constructor
-    public Author(Long id_author, String firstName, String lastName, String fullName, LocalDate createdAt) {
-        this.id_author = id_author;
+    public Author(Long idAuthor, String firstName, String lastName, String fullName, LocalDate createdAt) {
+        this.idAuthor = idAuthor;
         this.firstName = firstName;
         this.lastName = lastName;
         this.fullName = fullName;
@@ -29,12 +34,12 @@ public class Author {
     }
 
     // getter and setter
-    public Long getId_author() {
-        return id_author;
+    public Long getIdAuthor() {
+        return idAuthor;
     }
 
-    public void setId_author(Long id_author) {
-        this.id_author = id_author;
+    public void setIdAuthor(Long idAuthor) {
+        this.idAuthor = idAuthor;
     }
 
     public String getFirstName() {
@@ -75,20 +80,20 @@ public class Author {
         if (this == o) return true;
         if (!(o instanceof Author)) return false;
         Author author = (Author) o;
-        return getId_author().equals(author.getId_author()) && getFirstName().equals(author.getFirstName()) && getLastName().equals(author.getLastName()) && getFullName().equals(author.getFullName()) && getCreatedAt().equals(author.getCreatedAt());
+        return getIdAuthor().equals(author.getIdAuthor()) && getFirstName().equals(author.getFirstName()) && getLastName().equals(author.getLastName()) && getFullName().equals(author.getFullName()) && getCreatedAt().equals(author.getCreatedAt());
     }
 
     // hashCode
     @Override
     public int hashCode() {
-        return Objects.hash(getId_author(), getFirstName(), getLastName(), getFullName(), getCreatedAt());
+        return Objects.hash(getIdAuthor(), getFirstName(), getLastName(), getFullName(), getCreatedAt());
     }
 
     // toString
     @Override
     public String toString() {
         return "Author{" +
-                "id_author=" + id_author +
+                "id_author=" + idAuthor +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", fullName='" + fullName + '\'' +

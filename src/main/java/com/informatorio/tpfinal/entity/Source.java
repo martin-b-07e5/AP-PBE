@@ -5,7 +5,7 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
-@Table(name = "sources")
+@Table(name = "sources")  // table name
 public class Source {
     @Id  // for PK
     @GeneratedValue(strategy = GenerationType.IDENTITY) // for AI
@@ -76,10 +76,10 @@ public class Source {
         if (!(o instanceof Source)) return false;
         Source source = (Source) o;
         return id_source.equals(source.id_source) &&
-               name.equals(source.name) &&
-               code.equals(source.code) &&
-               content.equals(source.content) &&
-               created_at.equals(source.created_at);
+                name.equals(source.name) &&
+                code.equals(source.code) &&
+                content.equals(source.content) &&
+                created_at.equals(source.created_at);
     }
 
     // HashCode
