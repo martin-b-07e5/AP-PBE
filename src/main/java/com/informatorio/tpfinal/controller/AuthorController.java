@@ -9,14 +9,13 @@ import org.springframework.web.bind.annotation.*;
 //@RequestMapping("/author")  //https://www.baeldung.com/spring-requestmapping
 public class AuthorController {
 
-    @Autowired
-    private AuthorRepository repository;
-
     //    private HelloService helloService = new HelloService();
     /*  Aplico el concepto de INYECCIÓN DE DEPENDENCIA,
       no lo instancio, lo delego.
       Ya no tengo el control, invierto el control (con @Autowired)
       y el que tiene el control es SPRING */
+    @Autowired
+    private AuthorRepository authorRepository;
 
     @GetMapping("/")
     public String hello() {
@@ -25,6 +24,6 @@ public class AuthorController {
 
     @RequestMapping(value = "/author", method = RequestMethod.GET)
     public @ResponseBody Iterable<Author> findAuthors() {
-        return repository.findAll();
+        return authorRepository.findAll();
     }
 }
