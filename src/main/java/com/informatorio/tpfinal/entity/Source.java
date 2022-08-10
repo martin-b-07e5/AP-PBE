@@ -13,7 +13,7 @@ public class Source {
     private Long idSource;
     private String name;
     private Long code;
-    private String content;
+
     @Column(name = "created_at") // column name
     private LocalDate createdAt;
 
@@ -22,11 +22,10 @@ public class Source {
     }
 
     // constructor
-    public Source(Long idSource, String name, Long code, String content, LocalDate createdAt) {
+    public Source(Long idSource, String name, Long code, LocalDate createdAt) {
         this.idSource = idSource;
         this.name = name;
         this.code = code;
-        this.content = content;
         this.createdAt = createdAt;
     }
 
@@ -55,14 +54,6 @@ public class Source {
         this.code = code;
     }
 
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
     public LocalDate getCreatedAt() {
         return createdAt;
     }
@@ -80,14 +71,13 @@ public class Source {
         return idSource.equals(source.idSource) &&
                 name.equals(source.name) &&
                 code.equals(source.code) &&
-                content.equals(source.content) &&
                 createdAt.equals(source.createdAt);
     }
 
     // HashCode
     @Override
     public int hashCode() {
-        return Objects.hash(idSource, name, code, content, createdAt);
+        return Objects.hash(idSource, name, code, createdAt);
     }
 
     // ToString
@@ -97,7 +87,6 @@ public class Source {
                 "id_source=" + idSource +
                 ", name='" + name + '\'' +
                 ", code=" + code +
-                ", content='" + content + '\'' +
                 ", created_at=" + createdAt +
                 '}';
     }
