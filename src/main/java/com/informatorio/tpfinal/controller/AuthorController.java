@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController  //https://www.baeldung.com/spring-controller-vs-restcontroller
-//@RequestMapping("/author")  //https://www.baeldung.com/spring-requestmapping
+@RequestMapping("/author")  //https://www.baeldung.com/spring-requestmapping
 public class AuthorController {
 
     @Autowired
@@ -24,7 +24,7 @@ public class AuthorController {
     }
 
     @RequestMapping(value = "/author", method = RequestMethod.GET)
-    public @ResponseBody Iterable<Author> findEmpleados() {
+    public @ResponseBody Iterable<Author> findAuthors() {
         return repository.findAll();
     }
 }
