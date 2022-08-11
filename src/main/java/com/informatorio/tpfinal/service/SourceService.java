@@ -12,8 +12,14 @@ public class SourceService {
 
     @Autowired
     private SourceRepository sourceRepository;
-    // this method is called from the controller
+
+    // this function is called from the controller
     public List<Source> getAllSources() {
         return sourceRepository.findAll();
+    }
+
+    // this function is called from the controller
+    public Source getById(Long idSource){
+        return sourceRepository.findById(idSource).get();
     }
 }
