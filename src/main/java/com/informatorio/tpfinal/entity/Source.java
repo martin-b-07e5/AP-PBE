@@ -4,13 +4,6 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Objects;
 
-// https://www.arquitecturajava.com/java-lombok-clases-y-productividad/
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-
 @Entity
 @Table(name = "sources")  // table name
 public class Source {
@@ -19,25 +12,24 @@ public class Source {
     @Column(name = "id_source") // column name
     private Long idSource;
     private String name;
-    private Long code;
+    private String code;
 
     @Column(name = "created_at") // column name
     private LocalDate createdAt;
 
-    // constructor
+//     constructor
     public Source() {
     }
 
     // constructor
-    public Source(Long idSource, String name, Long code, LocalDate createdAt) {
+    public Source(Long idSource, String name, String code, LocalDate createdAt) {
         this.idSource = idSource;
         this.name = name;
         this.code = code;
         this.createdAt = createdAt;
     }
-
     // getters and setters
-    /*public Long getIdSource() {
+    public Long getIdSource() {
         return idSource;
     }
 
@@ -53,11 +45,11 @@ public class Source {
         this.name = name;
     }
 
-    public Long getCode() {
+    public String getCode() {
         return code;
     }
 
-    public void setCode(Long code) {
+    public void setCode(String code) {
         this.code = code;
     }
 
@@ -67,10 +59,10 @@ public class Source {
 
     public void setCreatedAt(LocalDate createdAt) {
         this.createdAt = createdAt;
-    }*/
+    }
 
     // Equals
-    /*@Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Source)) return false;
@@ -79,16 +71,16 @@ public class Source {
                 name.equals(source.name) &&
                 code.equals(source.code) &&
                 createdAt.equals(source.createdAt);
-    }*/
+    }
 
     // HashCode
-    /*@Override
+    @Override
     public int hashCode() {
         return Objects.hash(idSource, name, code, createdAt);
-    }*/
+    }
 
     // ToString
-    /*@Override
+    @Override
     public String toString() {
         return "Source{" +
                 "id_source=" + idSource +
@@ -96,6 +88,6 @@ public class Source {
                 ", code=" + code +
                 ", created_at=" + createdAt +
                 '}';
-    }*/
+    }
 
 }

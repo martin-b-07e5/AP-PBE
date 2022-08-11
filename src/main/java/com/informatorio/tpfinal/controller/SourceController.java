@@ -6,14 +6,17 @@ import com.informatorio.tpfinal.service.SourceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.time.LocalDate;
 
-@RestController
-@RequestMapping(value = "/source")
+@RestController  //https://www.baeldung.com/spring-controller-vs-restcontroller
+@RequestMapping(value = "/source")  //https://www.baeldung.com/spring-requestmapping
 public class SourceController {
 
+    //    private HelloService helloService = new HelloService();
+    /*  Aplico el concepto de INYECCIÓN DE DEPENDENCIA,
+      no lo instancio, lo delego.
+      Ya no tengo el control, invierto el control (con @Autowired)
+      y el que tiene el control es SPRING */
     @Autowired
     private SourceRepository sourceRepository;
 
@@ -47,17 +50,16 @@ public class SourceController {
         return sourceService.getById(idSource);
     }
 
-//    https://www.arquitecturajava.com/java-lombok-clases-y-productividad/
-    @RequestMapping(value = "/buscarTodas")
-    List<Source> buscarTodas() {
-        List<Source> sourceList = new ArrayList<>();
-        sourceList.add(new Source(5L, "diarioTag", 3L, LocalDate.now()));
-        sourceList.add(new Source(6L, "dataTag", 3L, LocalDate.now()));
-        return sourceList;
+    // Create a new source
+    @PostMapping("/create")
+    public Source createSource(@RequestBody Source source) {
+        return sourceService.createSource(source);
     }
-    @RequestMapping(value = "/buscarTodas2", method = RequestMethod.GET)
-    public @ResponseBody Iterable<Source> buscarTodas2() {
-        return sourceRepository.findAll();
+
+    // Update a source
+    @PutMapping("/update")
+    public Source updateSource(@RequestBody Source source) {
+        return sourceService.updateSource(source);
     }
 
 }
