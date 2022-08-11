@@ -2,24 +2,41 @@ package com.informatorio.tpfinal.controller;
 
 import com.informatorio.tpfinal.entity.Source;
 import com.informatorio.tpfinal.repository.SourceRepository;
+import com.informatorio.tpfinal.service.SourceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-//@RequestMapping(value = "/source")
+@RequestMapping(value = "/source")
 public class SourceController {
 
     @Autowired
-    private SourceRepository repository;
+    private SourceRepository sourceRepository;
 
-//    @GetMapping("/getAllSources")
-//    public List<Source> getAllSources() {
-//        return sourceService.getAllSources();
-//    }
+    @Autowired
+    private SourceService sourceService;
 
-    @RequestMapping(value = "/source", method = RequestMethod.GET)
+    @GetMapping("")
+    public String helloE() {
+        return "HELLO from the SourceController";
+    }
+    @GetMapping("/")
+    public String helloR() {
+        return "HELLO from the SourceController/";
+    }
+
+
+    @RequestMapping(value = "/getAllSources2", method = RequestMethod.GET)
     public @ResponseBody Iterable<Source> findSources() {
-        return repository.findAll();
+        return sourceRepository.findAll();
+    }
+
+    // call the method in the service
+    @GetMapping("/getAllSources")
+    public List<Source> getAllSources() {
+        return sourceService.getAllSources();
     }
 
 }
