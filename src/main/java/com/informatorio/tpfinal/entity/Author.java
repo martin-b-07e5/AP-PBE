@@ -3,10 +3,15 @@ package com.informatorio.tpfinal.entity;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "authors")  // table name
 public class Author {
+
+    @OneToMany(mappedBy = "author")
+    private Set<Article> articles;
+
     @Id  // for PK
     @GeneratedValue(strategy = GenerationType.IDENTITY)  // for AI
     @Column(name = "id_author") // DB column name
@@ -20,14 +25,10 @@ public class Author {
     @Column(name = "created_at") // DB column name
     private LocalDate createdAt;
 
-//    @OneToMany(mappedBy = Article)
-
-
-    // constructor
+    // constructors
     public Author() {
     }
 
-    // constructor
     public Author(Long idAuthor, String firstName, String lastName, String fullName, LocalDate createdAt) {
         this.idAuthor = idAuthor;
         this.firstName = firstName;
@@ -77,7 +78,6 @@ public class Author {
         this.createdAt = createdAt;
     }
 
-    // equals
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -86,13 +86,11 @@ public class Author {
         return getIdAuthor().equals(author.getIdAuthor()) && getFirstName().equals(author.getFirstName()) && getLastName().equals(author.getLastName()) && getFullName().equals(author.getFullName()) && getCreatedAt().equals(author.getCreatedAt());
     }
 
-    // hashCode
     @Override
     public int hashCode() {
         return Objects.hash(getIdAuthor(), getFirstName(), getLastName(), getFullName(), getCreatedAt());
     }
 
-    // toString
     @Override
     public String toString() {
         return "Author{" +
@@ -103,4 +101,5 @@ public class Author {
                 ", createdAt=" + createdAt +
                 '}';
     }
+
 }

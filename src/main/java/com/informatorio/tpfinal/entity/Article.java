@@ -10,7 +10,7 @@ import java.util.Set;
 @Entity  // this is a tab
 @Table(name = "articles")  // table name
 public class Article {
-
+    //    ----------------------------------------------------------------
     /* https://www.baeldung.com/jpa-many-to-many
      The joinColumn attribute will connect to the owner side of the relationship,
        and the inverseJoinColumn to the other side.*/
@@ -21,7 +21,12 @@ public class Article {
             inverseJoinColumns = @JoinColumn(name = "source_id")
     )
     Set<Source> sources;
-
+    //    ----------------------------------------------------------------
+    // https://www.baeldung.com/hibernate-one-to-many
+    @ManyToOne
+    @JoinColumn(name = "id_author", nullable = false)
+    private Author author;
+    //    ----------------------------------------------------------------
     @Id // for PK
     @GeneratedValue(strategy = GenerationType.IDENTITY) // for AI
     @Column(name = "id_article") // DB column name
@@ -37,10 +42,7 @@ public class Article {
     @Column(name = "published_at") // DB column name
     private LocalDate publishedAt;
     private String content;
-    @Column(name = "id_author") // DB column name
-    private Long idAuthor; // FK_id_author
-//    @Column(name = "id_source") // DB column name
-//    private Long idSource; // FK_id_source
+
 
     // constructors
     public Article() {
@@ -54,8 +56,6 @@ public class Article {
         this.urlToImage = urlToImage;
         this.publishedAt = publishedAt;
         this.content = content;
-        this.idAuthor = idAuthor;
-//        this.idSource = idSource;
     }
 
     // getters and setters
@@ -115,23 +115,6 @@ public class Article {
         this.content = content;
     }
 
-    public Long getIdAuthor() {
-        return idAuthor;
-    }
-
-    public void setIdAuthor(Long idAuthor) {
-        this.idAuthor = idAuthor;
-    }
-
-//    public Long getIdSource() {
-//        return idSource;
-//    }
-
-//    public void setIdSource(Long idSource) {
-//        this.idSource = idSource;
-//    }
-
-    // equals
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -143,14 +126,12 @@ public class Article {
                 getUrl().equals(article.getUrl()) &&
                 getUrlToImage().equals(article.getUrlToImage()) &&
                 getPublishedAt().equals(article.getPublishedAt()) &&
-                getContent().equals(article.getContent()) &&
-                getIdAuthor().equals(article.getIdAuthor());
+                getContent().equals(article.getContent());
     }
 
-    // hashCode
     @Override
     public int hashCode() {
-        return Objects.hash(getIdArticle(), getTitle(), getDescription(), getUrl(), getUrlToImage(), getPublishedAt(), getContent(), getIdAuthor());
+        return Objects.hash(getIdArticle(), getTitle(), getDescription(), getUrl(), getUrlToImage(), getPublishedAt(), getContent());
     }
 
     @Override
@@ -163,8 +144,6 @@ public class Article {
                 ", urlToImage='" + urlToImage + '\'' +
                 ", publishedAt='" + publishedAt + '\'' +
                 ", content='" + content + '\'' +
-                ", id_author=" + idAuthor +
-//                ", id_source=" + idSource +
                 '}';
     }
 }
