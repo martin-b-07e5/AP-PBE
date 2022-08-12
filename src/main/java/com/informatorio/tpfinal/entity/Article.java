@@ -17,8 +17,8 @@ public class Article {
     @ManyToMany
     @JoinTable(
 //            name = "articles_sources_join_table",
-            joinColumns = @JoinColumn(name = "article_id"),
-            inverseJoinColumns = @JoinColumn(name = "source_id")
+            joinColumns = @JoinColumn(name = "id_article"),
+            inverseJoinColumns = @JoinColumn(name = "id_source")
     )
     Set<Source> sources;
     //    ----------------------------------------------------------------
