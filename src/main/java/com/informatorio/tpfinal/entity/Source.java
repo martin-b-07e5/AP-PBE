@@ -24,11 +24,10 @@ public class Source {
     @Column(name = "created_at") // column name
     private LocalDate createdAt;
 
-    //     constructor
+    //     constructors
     public Source() {
     }
 
-    //     constructor
     public Source(Long idSource, String name, String code, LocalDate createdAt) {
         this.idSource = idSource;
         this.name = name;
