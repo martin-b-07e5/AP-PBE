@@ -17,18 +17,19 @@ public class Source {
     @Column(name = "created_at") // column name
     private LocalDate createdAt;
 
-//     constructor
+    //     constructor
     public Source() {
     }
 
-    // constructor
+    //     constructor
     public Source(Long idSource, String name, String code, LocalDate createdAt) {
         this.idSource = idSource;
         this.name = name;
         this.code = code;
         this.createdAt = createdAt;
     }
-    // getters and setters
+
+    //     getters and setters
     public Long getIdSource() {
         return idSource;
     }
@@ -61,7 +62,7 @@ public class Source {
         this.createdAt = createdAt;
     }
 
-    // Equals
+    //     Equals
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -73,13 +74,13 @@ public class Source {
                 createdAt.equals(source.createdAt);
     }
 
-    // HashCode
+    //     HashCode
     @Override
     public int hashCode() {
         return Objects.hash(idSource, name, code, createdAt);
     }
 
-    // ToString
+    //     ToString
     @Override
     public String toString() {
         return "Source{" +

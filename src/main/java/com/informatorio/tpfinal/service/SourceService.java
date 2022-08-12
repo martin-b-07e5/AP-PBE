@@ -18,25 +18,32 @@ public class SourceService {
     @Autowired
     private SourceRepository sourceRepository;
 
-    // this function is called from the controller
+    //  Below functions are called from the controller
+    //    ------------------------
     public List<Source> getAllSources() {
         return sourceRepository.findAll();
     }
 
-    // this function is called from the controller
+    //    ------------------------
     public Source getById(Long idSource) {
         return sourceRepository.findById(idSource).get();
     }
 
-    // this function is called from the controller
+    //        ------------------------
     public Source createSource(Source source) {
         return sourceRepository.save(source);
     }
 
-    // this function is called from the controller
-    public void updateSource(Source source) {
-        return sourceRepository.update(source);
+    //    ------------------------
+    public Source updateSource(Source source) {
+        return sourceRepository.save(source);
     }
 
+    //    ------------------------
+
+    public String deleteSource(Long idSource) {
+        sourceRepository.deleteById(idSource);
+        return "source " + idSource + " deleted";
+    }
 
 }
