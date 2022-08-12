@@ -5,10 +5,17 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PastOrPresent;
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "sources")  // table name
 public class Source {
+
+    // https://www.baeldung.com/jpa-many-to-many
+//    @ManyToMany(mappedBy = "sources")
+    @ManyToMany
+    Set<Article> articles;
+
     @Id  // for PK
     @GeneratedValue(strategy = GenerationType.IDENTITY) // for AI
     @Column(name = "id_source") // column name
