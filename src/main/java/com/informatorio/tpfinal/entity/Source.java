@@ -1,6 +1,8 @@
 package com.informatorio.tpfinal.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.PastOrPresent;
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -11,9 +13,14 @@ public class Source {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // for AI
     @Column(name = "id_source") // column name
     private Long idSource;
+
+    @NotBlank(message = "Name is mandatory")
     private String name;
+    @NotBlank(message = "Code is mandatory")
     private String code;
 
+    //    baeldung.com/javax-validation
+    @PastOrPresent
     @Column(name = "created_at") // column name
     private LocalDate createdAt;
 
