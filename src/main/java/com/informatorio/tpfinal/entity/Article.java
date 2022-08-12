@@ -3,10 +3,23 @@ package com.informatorio.tpfinal.entity;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity  // this is a tab
 @Table(name = "articles")  // table name
 public class Article {
+
+    /* https://www.baeldung.com/jpa-many-to-many
+     The joinColumn attribute will connect to the owner side of the relationship,
+       and the inverseJoinColumn to the other side.*/
+    @ManyToMany
+    @JoinTable(
+            name = "articles_sources_join_table",
+            joinColumns = @JoinColumn(name = "article_id"),
+            inverseJoinColumns = @JoinColumn(name = "source_id")
+    )
+    Set<Source> sources;
+
     @Id // for PK
     @GeneratedValue(strategy = GenerationType.IDENTITY) // for AI
     @Column(name = "id_article") // DB column name
@@ -24,11 +37,10 @@ public class Article {
     @Column(name = "id_source") // DB column name
     private Long idSource; // FK_id_source
 
-    // constructor
+    // constructors
     public Article() {
     }
 
-    // constructor
     public Article(Long idArticle, String title, String description, String url, String urlToImage, LocalDate publishedAt, String content, Long idAuthor, Long idSource) {
         this.idArticle = idArticle;
         this.title = title;
