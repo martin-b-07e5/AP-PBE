@@ -20,6 +20,9 @@ public class Author {
     @Column(name = "created_at") // DB column name
     private LocalDate createdAt;
 
+//    @OneToMany(mappedBy = Article)
+
+
     // constructor
     public Author() {
     }

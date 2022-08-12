@@ -1,6 +1,8 @@
 package com.informatorio.tpfinal.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.PastOrPresent;
 import java.time.LocalDate;
 import java.util.Objects;
 import java.util.Set;
@@ -14,7 +16,7 @@ public class Article {
        and the inverseJoinColumn to the other side.*/
     @ManyToMany
     @JoinTable(
-            name = "articles_sources_join_table",
+//            name = "articles_sources_join_table",
             joinColumns = @JoinColumn(name = "article_id"),
             inverseJoinColumns = @JoinColumn(name = "source_id")
     )
@@ -24,18 +26,21 @@ public class Article {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // for AI
     @Column(name = "id_article") // DB column name
     private Long idArticle;
+    @NotBlank(message = "Title is mandatory")
     private String title;
+    @NotBlank(message = "Description is mandatory")
     private String description;
     private String url;
     @Column(name = "url_to_image") // DB column name
     private String urlToImage;
+    @PastOrPresent
     @Column(name = "published_at") // DB column name
     private LocalDate publishedAt;
     private String content;
     @Column(name = "id_author") // DB column name
     private Long idAuthor; // FK_id_author
-    @Column(name = "id_source") // DB column name
-    private Long idSource; // FK_id_source
+//    @Column(name = "id_source") // DB column name
+//    private Long idSource; // FK_id_source
 
     // constructors
     public Article() {
@@ -50,7 +55,7 @@ public class Article {
         this.publishedAt = publishedAt;
         this.content = content;
         this.idAuthor = idAuthor;
-        this.idSource = idSource;
+//        this.idSource = idSource;
     }
 
     // getters and setters
@@ -118,13 +123,13 @@ public class Article {
         this.idAuthor = idAuthor;
     }
 
-    public Long getIdSource() {
-        return idSource;
-    }
+//    public Long getIdSource() {
+//        return idSource;
+//    }
 
-    public void setIdSource(Long idSource) {
-        this.idSource = idSource;
-    }
+//    public void setIdSource(Long idSource) {
+//        this.idSource = idSource;
+//    }
 
     // equals
     @Override
@@ -132,13 +137,20 @@ public class Article {
         if (this == o) return true;
         if (!(o instanceof Article)) return false;
         Article article = (Article) o;
-        return getIdArticle().equals(article.getIdArticle()) && getTitle().equals(article.getTitle()) && getDescription().equals(article.getDescription()) && getUrl().equals(article.getUrl()) && getUrlToImage().equals(article.getUrlToImage()) && getPublishedAt().equals(article.getPublishedAt()) && getContent().equals(article.getContent()) && getIdAuthor().equals(article.getIdAuthor()) && getIdSource().equals(article.getIdSource());
+        return getIdArticle().equals(article.getIdArticle()) &&
+                getTitle().equals(article.getTitle()) &&
+                getDescription().equals(article.getDescription()) &&
+                getUrl().equals(article.getUrl()) &&
+                getUrlToImage().equals(article.getUrlToImage()) &&
+                getPublishedAt().equals(article.getPublishedAt()) &&
+                getContent().equals(article.getContent()) &&
+                getIdAuthor().equals(article.getIdAuthor());
     }
 
     // hashCode
     @Override
     public int hashCode() {
-        return Objects.hash(getIdArticle(), getTitle(), getDescription(), getUrl(), getUrlToImage(), getPublishedAt(), getContent(), getIdAuthor(), getIdSource());
+        return Objects.hash(getIdArticle(), getTitle(), getDescription(), getUrl(), getUrlToImage(), getPublishedAt(), getContent(), getIdAuthor());
     }
 
     @Override
@@ -152,7 +164,7 @@ public class Article {
                 ", publishedAt='" + publishedAt + '\'' +
                 ", content='" + content + '\'' +
                 ", id_author=" + idAuthor +
-                ", id_source=" + idSource +
+//                ", id_source=" + idSource +
                 '}';
     }
 }

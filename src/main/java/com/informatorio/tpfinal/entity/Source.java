@@ -12,8 +12,7 @@ import java.util.Set;
 public class Source {
 
     // https://www.baeldung.com/jpa-many-to-many
-//    @ManyToMany(mappedBy = "sources")
-    @ManyToMany
+    @ManyToMany(mappedBy = "sources")
     Set<Article> articles;
 
     @Id  // for PK
