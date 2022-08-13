@@ -17,7 +17,6 @@ public class SourceController {
       no lo instancio, lo delego.
       Ya no tengo el control, invierto el control (con @Autowired)
       y el que tiene el control es SPRING */
-    //    ------------------------
     @Autowired
     private SourceRepository sourceRepository;
 
@@ -41,40 +40,32 @@ public class SourceController {
         return sourceRepository.findAll();
     }
 
-    //    ------------------------
     //    call function defined in SourceService
     @GetMapping("/getAllSources")
     public List<Source> getAllSources() {
         return sourceService.getAllSources();
     }
 
-    //        ------------------------
     //     localhost:8083/source/getById/1
     @GetMapping("/getById/{idSource}")
     public Source getById(@PathVariable Long idSource) {
         return sourceService.getById(idSource);
     }
-
     //    ------------------------
-    //     Create a new source
+
     @PostMapping("/create")
     public Source createSource(@RequestBody Source source) {
         return sourceService.createSource(source);
     }
 
-    //    ------------------------
-    //     Update a source
-    @PutMapping("/update")
+    @PutMapping("/update/{idSource}")
     public Source updateSource(@RequestBody Source source) {
         return sourceService.updateSource(source);
     }
 
-    //    ------------------------
-    //    Delete a source
     @DeleteMapping("/delete/{idSource}")
     public String deleteSource(@PathVariable Long idSource) {
         return sourceService.deleteSource(idSource);
     }
 
-//    ------------------------
 }

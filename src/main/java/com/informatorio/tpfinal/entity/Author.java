@@ -10,7 +10,8 @@ import java.util.Set;
 public class Author {
 
     @OneToMany(mappedBy = "author")
-    private Set<Article> articles;
+//    private Set<Article> articles;
+    Set<Article> articles;
 
     @Id  // for PK
     @GeneratedValue(strategy = GenerationType.IDENTITY)  // for AI

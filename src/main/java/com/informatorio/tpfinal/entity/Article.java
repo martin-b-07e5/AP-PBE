@@ -25,7 +25,8 @@ public class Article {
     // https://www.baeldung.com/hibernate-one-to-many
     @ManyToOne
     @JoinColumn(name = "id_author", nullable = false)
-    private Author author;
+//    private Author author;
+    Author author;
     //    ----------------------------------------------------------------
     @Id // for PK
     @GeneratedValue(strategy = GenerationType.IDENTITY) // for AI

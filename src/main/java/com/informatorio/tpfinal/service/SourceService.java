@@ -24,22 +24,18 @@ public class SourceService {
         return sourceRepository.findAll();
     }
 
-    //    ------------------------
     public Source getById(Long idSource) {
         return sourceRepository.findById(idSource).get();
     }
+    //    ------------------------
 
-    //        ------------------------
     public Source createSource(Source source) {
         return sourceRepository.save(source);
     }
 
-    //    ------------------------
     public Source updateSource(Source source) {
         return sourceRepository.save(source);
     }
-
-    //    ------------------------
 
     public String deleteSource(Long idSource) {
         sourceRepository.deleteById(idSource);
