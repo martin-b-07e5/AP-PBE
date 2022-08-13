@@ -1,6 +1,7 @@
 package com.informatorio.tpfinal.controller;
 
 import com.informatorio.tpfinal.entity.Author;
+import com.informatorio.tpfinal.entity.Source;
 import com.informatorio.tpfinal.repository.AuthorRepository;
 import com.informatorio.tpfinal.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,7 @@ public class AuthorController {
     @Autowired
     private AuthorService authorService;
 
+    //    ------------------------
     @GetMapping("")
     public String helloE() {
         return "HELLO from the AuthorController";
@@ -33,20 +35,37 @@ public class AuthorController {
         return "HELLO from the AuthorController/";
     }
 
-    @RequestMapping(value = "/findAllAuthors", method = RequestMethod.GET)
+    //    ------------------------
+    @RequestMapping(value = "/findAll", method = RequestMethod.GET)
     public @ResponseBody Iterable<Author> findAuthors() {
         return authorRepository.findAll();
     }
 
     // call function defined in SourceService
-    @GetMapping("/getAllAuthors")
-    public List<Author> getAllAuthors() {
-        return authorService.getAllAuthors();
+    @GetMapping("/getAll")
+    public List<Author> getAll() {
+        return authorService.getAll();
     }
 
-    // localhost:8083/author/getById/1
-    @GetMapping("/getById/{idAuthor}")
-    public Author getById(@PathVariable Long idAuthor) {
-        return authorService.getById(idAuthor);
+    @GetMapping("/getById/{id}")
+    public Author getById(@PathVariable Long id) {
+        return authorService.getById(id);
     }
+
+    //    ------------------------
+    @PostMapping("/add")
+    public Author createAuthor(@RequestBody Author author) {
+        return authorService.add(author);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public String deleteById(@PathVariable Long id) {
+        return authorService.deleteById(id);
+    }
+
+    @PutMapping("/update")
+    public Author update(@RequestBody Author author){
+        return authorService.update(author);
+    }
+
 }

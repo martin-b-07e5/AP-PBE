@@ -27,7 +27,6 @@ public class Source {
 
     //    baeldung.com/javax-validation
     @PastOrPresent
-    @NotBlank(message = "Created at is mandatory")
     @Column(name = "created_at") // column name
     private LocalDate createdAt;
 
