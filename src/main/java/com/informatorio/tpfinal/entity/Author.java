@@ -1,6 +1,8 @@
 package com.informatorio.tpfinal.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.PastOrPresent;
 import java.time.LocalDate;
 import java.util.Objects;
 import java.util.Set;
@@ -17,12 +19,20 @@ public class Author {
     @GeneratedValue(strategy = GenerationType.IDENTITY)  // for AI
     @Column(name = "id_author") // DB column name
     private Long idAuthor;
+
+    @NotBlank(message = "firstName is mandatory")
     @Column(name = "first_name") // DB column name
     private String firstName;
+
+    @NotBlank(message = "lastName is mandatory")
     @Column(name = "last_name") // DB column name
     private String lastName;
+    @NotBlank(message = "fullName is mandatory")
     @Column(name = "full_name") // DB column name
     private String fullName;
+
+    @PastOrPresent
+    @NotBlank(message = "createdAt is mandatory")
     @Column(name = "created_at") // DB column name
     private LocalDate createdAt;
 
