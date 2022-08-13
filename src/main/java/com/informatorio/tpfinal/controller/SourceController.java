@@ -40,7 +40,7 @@ public class SourceController {
         return sourceRepository.findAll();
     }
 
-    //    call function defined in SourceService
+    //    below, call function defined in SourceService.
     @GetMapping("/getAllSources")
     public List<Source> getAllSources() {
         return sourceService.getAllSources();
@@ -58,7 +58,8 @@ public class SourceController {
         return sourceService.createSource(source);
     }
 
-    @PutMapping("/update/{idSource}")
+//    @PutMapping("/update/{idSource}")
+    @PutMapping("/update")
     public Source updateSource(@RequestBody Source source) {
         return sourceService.updateSource(source);
     }

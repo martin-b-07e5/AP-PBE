@@ -28,6 +28,7 @@ public class Source {
     //    baeldung.com/javax-validation
     @PastOrPresent
     @Column(name = "created_at") // column name
+    @NotBlank(message = "Created at is mandatory")
     private LocalDate createdAt;
 
     //     constructors
@@ -74,7 +75,6 @@ public class Source {
         this.createdAt = createdAt;
     }
 
-    //     Equals
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -86,13 +86,11 @@ public class Source {
                 createdAt.equals(source.createdAt);
     }
 
-    //     HashCode
     @Override
     public int hashCode() {
         return Objects.hash(idSource, name, code, createdAt);
     }
 
-    //     ToString
     @Override
     public String toString() {
         return "Source{" +
