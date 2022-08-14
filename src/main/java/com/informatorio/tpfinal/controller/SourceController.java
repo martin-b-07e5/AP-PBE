@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController  //https://www.baeldung.com/spring-controller-vs-restcontroller
 @RequestMapping(value = "/source")  //https://www.baeldung.com/spring-requestmapping
+//@RequestMapping(value = "/api/v1/source")  //https://www.baeldung.com/spring-requestmapping
 public class SourceController {
 
     //    private HelloService helloService = new HelloService();

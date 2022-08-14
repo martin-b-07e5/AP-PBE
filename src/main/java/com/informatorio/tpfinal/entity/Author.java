@@ -21,18 +21,18 @@ public class Author {
     @Column(name = "id_author") // DB column name
     private Long id;
 
-    @NotBlank(message = "firstName is mandatory")
+//    @NotBlank(message = "firstName is mandatory")
     @Column(name = "first_name") // DB column name
     private String firstName;
 
-    @NotBlank(message = "lastName is mandatory")
+//    @NotBlank(message = "lastName is mandatory")
     @Column(name = "last_name") // DB column name
     private String lastName;
 
     @Column(name = "full_name") // DB column name
     private String fullName;
 
-    @PastOrPresent
+//    @PastOrPresent
     @Column(name = "created_at") // DB column name
     private LocalDate createdAt = LocalDate.now();
 
@@ -60,17 +60,17 @@ public class Author {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-        setFullName(firstName, lastName);  // without this doesn't work.
-    }
-
     public String getFullName() {
         return fullName;
     }
 
     public LocalDate getCreatedAt() {
         return createdAt;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+        setFullName(firstName, lastName);  // without this doesn't work.
     }
 
     public void setFullName(String firstName, String lastName) {

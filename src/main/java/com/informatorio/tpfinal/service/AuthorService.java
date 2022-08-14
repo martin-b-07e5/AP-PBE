@@ -24,7 +24,7 @@ public class AuthorService {
         return authorRepository.findAll();
     }
 
-    public Author getById(Long idSource){
+    public Author getById(Long idSource) {
         return authorRepository.findById(idSource).get();
     }
 
@@ -41,5 +41,23 @@ public class AuthorService {
         authorRepository.deleteById(id);
         return "author " + id + " deleted";
     }
+
+    //    ------------------------
+
+//    public List<Author> findByFirstNameStartingWith(String firstName) {
+//        return authorRepository.findByFirstNameStartingWith(firstName);
+//    }
+
+    public List<Author> findByFullNameContaining(String fullName) {
+        return authorRepository.findByFullNameContaining(fullName);
+    }
+
+//    public List<Author> findByNameEndingWith(String suffix) {
+//        return authorRepository.findByNameEndingWith(suffix);
+//    }
+
+//    public List<Author> findByNameContaining(String infix) {
+//        return authorRepository.findByNameContaining(infix);
+//    }
 
 }

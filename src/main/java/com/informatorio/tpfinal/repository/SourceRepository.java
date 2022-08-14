@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 // using this repository and the entity Source, we can perform CRUD operations
 @Repository
 public interface SourceRepository extends JpaRepository<Source, Long> {
+    Source findByName(String name);
 }

@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController  //https://www.baeldung.com/spring-controller-vs-restcontroller
 @RequestMapping("/author")  //https://www.baeldung.com/spring-requestmapping
+//@RequestMapping("/api/v1/author")  //https://www.baeldung.com/spring-requestmapping
 public class AuthorController {
 
     //    private HelloService helloService = new HelloService();
@@ -24,14 +25,30 @@ public class AuthorController {
     private AuthorService authorService;
 
     //    ------------------------
-    @GetMapping("")
-    public String helloE() {
-        return "HELLO from the AuthorController";
+//    @GetMapping("")
+//    public String helloE() {
+//        return "HELLO from the AuthorController";
+//    }
+
+//    @GetMapping("/")
+//    public String helloR() {
+//        return "HELLO from the AuthorController/";
+//    }
+
+    //    ------------------------
+    @PostMapping("/add")
+    public Author createAuthor(@RequestBody Author author) {
+        return authorService.add(author);
     }
 
-    @GetMapping("/")
-    public String helloR() {
-        return "HELLO from the AuthorController/";
+    @PutMapping("/update")
+    public Author update(@RequestBody Author author) {
+        return authorService.update(author);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public String deleteById(@PathVariable Long id) {
+        return authorService.deleteById(id);
     }
 
     //    ------------------------
@@ -52,19 +69,10 @@ public class AuthorController {
     }
 
     //    ------------------------
-    @PostMapping("/add")
-    public Author createAuthor(@RequestBody Author author) {
-        return authorService.add(author);
+    @GetMapping("/findByFullNameContaining")
+    public List<Author> findByFullNameContaining(@RequestParam String fullName) {
+//        List<Author> authorList = authorService.findByFullNameContaining(fullName);
+//        return authorList;
+        return authorService.findByFullNameContaining(fullName);
     }
-
-    @PutMapping("/update")
-    public Author update(@RequestBody Author author){
-        return authorService.update(author);
-    }
-
-    @DeleteMapping("/delete/{id}")
-    public String deleteById(@PathVariable Long id) {
-        return authorService.deleteById(id);
-    }
-
 }
