@@ -1,7 +1,6 @@
 package com.informatorio.tpfinal.controller;
 
 import com.informatorio.tpfinal.entity.Author;
-import com.informatorio.tpfinal.entity.Source;
 import com.informatorio.tpfinal.repository.AuthorRepository;
 import com.informatorio.tpfinal.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,14 +57,14 @@ public class AuthorController {
         return authorService.add(author);
     }
 
-    @DeleteMapping("/delete/{id}")
-    public String deleteById(@PathVariable Long id) {
-        return authorService.deleteById(id);
-    }
-
     @PutMapping("/update")
     public Author update(@RequestBody Author author){
         return authorService.update(author);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public String deleteById(@PathVariable Long id) {
+        return authorService.deleteById(id);
     }
 
 }

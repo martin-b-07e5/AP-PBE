@@ -1,7 +1,6 @@
 package com.informatorio.tpfinal.service;
 
 import com.informatorio.tpfinal.entity.Author;
-import com.informatorio.tpfinal.entity.Source;
 import com.informatorio.tpfinal.repository.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,15 +33,13 @@ public class AuthorService {
         return authorRepository.save(author);
     }
 
-    public String deleteById(Long id) {
-        authorRepository.deleteById(id);
-        return "author " + id + " deleted";
-
-    }
-
     public Author update(Author author) {
         return authorRepository.save(author);
     }
 
+    public String deleteById(Long id) {
+        authorRepository.deleteById(id);
+        return "author " + id + " deleted";
+    }
 
 }

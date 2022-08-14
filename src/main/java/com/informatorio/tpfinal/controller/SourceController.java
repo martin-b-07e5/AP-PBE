@@ -35,38 +35,37 @@ public class SourceController {
     }
 
     //    ------------------------
-    @RequestMapping(value = "/findAllSources", method = RequestMethod.GET)
+    @RequestMapping(value = "/findAll", method = RequestMethod.GET)
     public @ResponseBody Iterable<Source> findSources() {
         return sourceRepository.findAll();
     }
 
     //    below, call function defined in SourceService.
-    @GetMapping("/getAllSources")
-    public List<Source> getAllSources() {
-        return sourceService.getAllSources();
+    @GetMapping("/getAll")
+    public List<Source> getAll() {
+        return sourceService.getAll();
     }
 
     //     localhost:8083/source/getById/1
-    @GetMapping("/getById/{idSource}")
+    @GetMapping("/getById/{id}")
     public Source getById(@PathVariable Long idSource) {
         return sourceService.getById(idSource);
     }
 
     //    ------------------------
-    @PostMapping("/create")
+    @PostMapping("/add")
     public Source createSource(@RequestBody Source source) {
-        return sourceService.createSource(source);
+        return sourceService.add(source);
     }
 
-//    @PutMapping("/update/{idSource}")
     @PutMapping("/update")
     public Source updateSource(@RequestBody Source source) {
-        return sourceService.updateSource(source);
+        return sourceService.update(source);
     }
 
     @DeleteMapping("/delete/{idSource}")
     public String deleteSource(@PathVariable Long idSource) {
-        return sourceService.deleteSource(idSource);
+        return sourceService.deleteById(idSource);
     }
 
 }

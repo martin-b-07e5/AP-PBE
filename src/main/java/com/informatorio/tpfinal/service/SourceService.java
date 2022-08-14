@@ -20,7 +20,7 @@ public class SourceService {
 
     //  Below functions are called from the controller
     //    ------------------------
-    public List<Source> getAllSources() {
+    public List<Source> getAll() {
         return sourceRepository.findAll();
     }
 
@@ -29,17 +29,17 @@ public class SourceService {
     }
 
     //    ------------------------
-    public Source createSource(Source source) {
+    public Source add(Source source) {
         return sourceRepository.save(source);
     }
 
-    public Source updateSource(Source source) {
+    public Source update(Source source) {
         return sourceRepository.save(source);
     }
 
-    public String deleteSource(Long idSource) {
-        sourceRepository.deleteById(idSource);
-        return "source " + idSource + " deleted";
+    public String deleteById(Long id) {
+        sourceRepository.deleteById(id);
+        return "source " + id + " deleted";
     }
 
 }

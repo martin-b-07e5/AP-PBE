@@ -16,7 +16,6 @@ public class Article {
        and the inverseJoinColumn to the other side.*/
     @ManyToMany
     @JoinTable(
-//            name = "articles_sources_join_table",
             joinColumns = @JoinColumn(name = "id_article"),
             inverseJoinColumns = @JoinColumn(name = "id_source")
     )
@@ -25,7 +24,6 @@ public class Article {
     // https://www.baeldung.com/hibernate-one-to-many
     @ManyToOne
     @JoinColumn(name = "id_author", nullable = false)
-//    private Author author;
     Author author;
     //    ----------------------------------------------------------------
     @Id // for PK

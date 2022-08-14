@@ -13,73 +13,67 @@ public class Source {
 
     // https://www.baeldung.com/jpa-many-to-many
     @ManyToMany(mappedBy = "sources")
-    Set<Article> articles;
+    Set<Article> articles;  // don't delete this line.
 
     @Id  // for PK
     @GeneratedValue(strategy = GenerationType.IDENTITY) // for AI
     @Column(name = "id_source") // column name
-    private Long idSource;
+    private Long id;
 
     @NotBlank(message = "Name is mandatory")
     private String name;
+
     @NotBlank(message = "Code is mandatory")
     private String code;
 
     //    baeldung.com/javax-validation
     @PastOrPresent
     @Column(name = "created_at") // column name
-    private LocalDate createdAt;
+    private LocalDate createdAt = LocalDate.now();
+
 
     //     constructors
     public Source() {
     }
 
-    public Source(Long idSource, String name, String code, LocalDate createdAt) {
-        this.idSource = idSource;
+    public Source(String name) {
         this.name = name;
-        this.code = code;
-        this.createdAt = createdAt;
     }
+
 
     //     getters and setters
-    public Long getIdSource() {
-        return idSource;
-    }
-
-    public void setIdSource(Long idSource) {
-        this.idSource = idSource;
+    public Long getId() {
+        return id;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getCode() {
         return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
     }
 
     public LocalDate getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDate createdAt) {
-        this.createdAt = createdAt;
+    public void setName(String name) {
+        this.name = name.trim();
+        setCode(this.name);  // without this doesn't work.
     }
+
+    public void setCode(String name) {
+        this.code = name.toLowerCase().replace(" ", "-");
+    }
+
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Source)) return false;
         Source source = (Source) o;
-        return idSource.equals(source.idSource) &&
+        return id.equals(source.id) &&
                 name.equals(source.name) &&
                 code.equals(source.code) &&
                 createdAt.equals(source.createdAt);
@@ -87,13 +81,13 @@ public class Source {
 
     @Override
     public int hashCode() {
-        return Objects.hash(idSource, name, code, createdAt);
+        return Objects.hash(id, name, code, createdAt);
     }
 
     @Override
     public String toString() {
         return "Source{" +
-                "id_source=" + idSource +
+                "id_source=" + id +
                 ", name='" + name + '\'' +
                 ", code=" + code +
                 ", created_at=" + createdAt +
