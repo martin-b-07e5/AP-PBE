@@ -11,23 +11,30 @@ import java.util.Set;
 @Table(name = "authors")  // table name
 public class Author {
 
-    @PastOrPresent
-    @Column(name = "created_at") // DB column name
-    private final LocalDate createdAt = LocalDate.now();
+    //    ----------------------------------------------------------------
+    // https://www.baeldung.com/hibernate-one-to-many
     @OneToMany(mappedBy = "author")
     Set<Article> articles;  // don't delete this line
+    //    ----------------------------------------------------------------
     @Id  // for PK
     @GeneratedValue(strategy = GenerationType.IDENTITY)  // for AI
     @Column(name = "id_author") // DB column name
     private Long id;
+
     @NotBlank(message = "firstName is mandatory")
     @Column(name = "first_name") // DB column name
     private String firstName;
+
     @NotBlank(message = "lastName is mandatory")
     @Column(name = "last_name") // DB column name
     private String lastName;
+
     @Column(name = "full_name") // DB column name
     private String fullName;
+
+    @PastOrPresent
+    @Column(name = "created_at") // DB column name
+    private LocalDate createdAt = LocalDate.now();
 
 
     // constructors
