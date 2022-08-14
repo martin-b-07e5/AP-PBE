@@ -25,15 +25,15 @@ public class AuthorController {
     private AuthorService authorService;
 
     //    ------------------------
-//    @GetMapping("")
-//    public String helloE() {
-//        return "HELLO from the AuthorController";
-//    }
+    @GetMapping("")
+    public String helloE() {
+        return "HELLO from the AuthorController";
+    }
 
-//    @GetMapping("/")
-//    public String helloR() {
-//        return "HELLO from the AuthorController/";
-//    }
+    @GetMapping("/")
+    public String helloR() {
+        return "HELLO from the AuthorController/";
+    }
 
     //    ------------------------
     @PostMapping("/add")
@@ -71,8 +71,7 @@ public class AuthorController {
     //    ------------------------
     @GetMapping("/findByFullNameContaining")
     public List<Author> findByFullNameContaining(@RequestParam String fullName) {
-//        List<Author> authorList = authorService.findByFullNameContaining(fullName);
-//        return authorList;
         return authorService.findByFullNameContaining(fullName);
     }
+
 }

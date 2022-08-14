@@ -5,6 +5,7 @@ import com.informatorio.tpfinal.repository.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -43,21 +44,13 @@ public class AuthorService {
     }
 
     //    ------------------------
-
-//    public List<Author> findByFirstNameStartingWith(String firstName) {
-//        return authorRepository.findByFirstNameStartingWith(firstName);
-//    }
-
     public List<Author> findByFullNameContaining(String fullName) {
         return authorRepository.findByFullNameContaining(fullName);
     }
 
-//    public List<Author> findByNameEndingWith(String suffix) {
-//        return authorRepository.findByNameEndingWith(suffix);
-//    }
+    public Author findByCreatedAtGreaterThanEqual(LocalDate createdAt) {
+        return authorRepository.findByCreatedAtGreaterThanEqual(createdAt);
+    }
 
-//    public List<Author> findByNameContaining(String infix) {
-//        return authorRepository.findByNameContaining(infix);
-//    }
 
 }
