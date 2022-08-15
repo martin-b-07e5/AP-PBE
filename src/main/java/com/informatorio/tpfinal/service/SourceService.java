@@ -24,8 +24,8 @@ public class SourceService {
         return sourceRepository.findAll();
     }
 
-    public Source getById(Long idSource) {
-        return sourceRepository.findById(idSource).get();
+    public Source getById(Long id) {
+        return sourceRepository.findById(id).get();
     }
 
     //    ------------------------
@@ -42,4 +42,8 @@ public class SourceService {
         return "source " + id + " deleted";
     }
 
+    //    ------------------------
+    public List<Source> findByNameContaining(String name) {
+        return sourceRepository.findByNameContaining(name);
+    }
 }

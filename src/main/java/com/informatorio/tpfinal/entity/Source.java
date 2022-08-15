@@ -23,7 +23,7 @@ public class Source {
     @NotBlank(message = "Name is mandatory")
     private String name;
 
-    @NotBlank(message = "Code is mandatory")
+//    @NotBlank(message = "Code is mandatory")
     private String code;
 
     //    baeldung.com/javax-validation

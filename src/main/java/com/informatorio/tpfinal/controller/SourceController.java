@@ -36,6 +36,22 @@ public class SourceController {
     }
 
     //    ------------------------
+    @PostMapping("/add")
+    public Source createSource(@RequestBody Source source) {
+        return sourceService.add(source);
+    }
+
+    @PutMapping("/update")
+    public Source updateSource(@RequestBody Source source) {
+        return sourceService.update(source);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public String deleteSource(@PathVariable Long id) {
+        return sourceService.deleteById(id);
+    }
+
+    //    ------------------------
     @RequestMapping(value = "/findAll", method = RequestMethod.GET)
     public @ResponseBody Iterable<Source> findSources() {
         return sourceRepository.findAll();
@@ -47,26 +63,21 @@ public class SourceController {
         return sourceService.getAll();
     }
 
-    //     localhost:8083/source/getById/1
     @GetMapping("/getById/{id}")
-    public Source getById(@PathVariable Long idSource) {
-        return sourceService.getById(idSource);
+    public Source getById(@PathVariable Long id) {
+        return sourceService.getById(id);
     }
 
     //    ------------------------
-    @PostMapping("/add")
-    public Source createSource(@RequestBody Source source) {
-        return sourceService.add(source);
-    }
+//    @GetMapping("/findByFullNameContaining")
+//    //    it must be @RequestParam
+//    public List<Source> findByFullNameContaining(@RequestParam String name) {
+//        return sourceService.findByFullNameContaining(name);
+//    }
 
-    @PutMapping("/update")
-    public Source updateSource(@RequestBody Source source) {
-        return sourceService.update(source);
-    }
-
-    @DeleteMapping("/delete/{idSource}")
-    public String deleteSource(@PathVariable Long idSource) {
-        return sourceService.deleteById(idSource);
+    @GetMapping("/findByNameContaining")
+    public List<Source> findByNameContaining(@RequestParam String name) {
+        return sourceService.findByNameContaining(name);
     }
 
 }

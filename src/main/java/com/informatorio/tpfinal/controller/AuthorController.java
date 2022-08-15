@@ -6,6 +6,7 @@ import com.informatorio.tpfinal.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController  //https://www.baeldung.com/spring-controller-vs-restcontroller
@@ -57,7 +58,7 @@ public class AuthorController {
         return authorRepository.findAll();
     }
 
-    // call function defined in SourceService
+    // call function defined in AuthorService
     @GetMapping("/getAll")
     public List<Author> getAll() {
         return authorService.getAll();
@@ -70,8 +71,16 @@ public class AuthorController {
 
     //    ------------------------
     @GetMapping("/findByFullNameContaining")
+    //    it must be @RequestParam
     public List<Author> findByFullNameContaining(@RequestParam String fullName) {
         return authorService.findByFullNameContaining(fullName);
+    }
+
+    @GetMapping("/findByCreatedAtGreaterThanEqual")
+    // 💡 String type comes from postman.
+    public List<Author> findByCreatedAtGreaterThanEqual(@RequestParam String createdAt) {
+    // LocalDate date = LocalDate.parse(createdAt);
+        return authorService.findByCreatedAtGreaterThanEqual(LocalDate.parse(createdAt));
     }
 
 }

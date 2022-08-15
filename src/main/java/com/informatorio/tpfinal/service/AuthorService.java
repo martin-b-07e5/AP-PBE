@@ -25,8 +25,8 @@ public class AuthorService {
         return authorRepository.findAll();
     }
 
-    public Author getById(Long idSource) {
-        return authorRepository.findById(idSource).get();
+    public Author getById(Long id) {
+        return authorRepository.findById(id).get();
     }
 
     //    ------------------------
@@ -48,7 +48,7 @@ public class AuthorService {
         return authorRepository.findByFullNameContaining(fullName);
     }
 
-    public Author findByCreatedAtGreaterThanEqual(LocalDate createdAt) {
+    public List<Author> findByCreatedAtGreaterThanEqual(LocalDate createdAt) {
         return authorRepository.findByCreatedAtGreaterThanEqual(createdAt);
     }
 
