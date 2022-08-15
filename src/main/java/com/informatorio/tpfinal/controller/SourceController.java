@@ -19,10 +19,10 @@ public class SourceController {
       Ya no tengo el control, invierto el control (con @Autowired)
       y el que tiene el control es SPRING */
     @Autowired
-    private SourceRepository sourceRepository;
+    private SourceService sourceService;
 
     @Autowired
-    private SourceService sourceService;
+    private SourceRepository sourceRepository;
 
     //    ------------------------
     @GetMapping("")

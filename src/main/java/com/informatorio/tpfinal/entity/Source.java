@@ -11,14 +11,17 @@ import java.util.Set;
 @Table(name = "sources")  // table name
 public class Source {
     //    ----------------------------------------------------------------
+    @OneToMany(mappedBy = "source")
+    Set<Article> articles;  // don't delete this line
+    //    ----------------------------------------------------------------
     // https://www.baeldung.com/jpa-many-to-many
-    @ManyToMany(mappedBy = "sources")
-    Set<Article> articles;  // don't delete this line.
+//    @ManyToMany(mappedBy = "sources")
+//    Set<Article> articles;  // don't delete this line.
     //    ----------------------------------------------------------------
     @Id  // for PK
     @GeneratedValue(strategy = GenerationType.IDENTITY) // for AI
     @Column(name = "id_source") // column name
-    private Long id;
+    private Long id_source;
 
     @NotBlank(message = "Name is mandatory")
     private String name;
@@ -42,8 +45,8 @@ public class Source {
 
 
     //     getters and setters
-    public Long getId() {
-        return id;
+    public Long getId_source() {
+        return id_source;
     }
 
     public String getName() {
@@ -73,7 +76,7 @@ public class Source {
         if (this == o) return true;
         if (!(o instanceof Source)) return false;
         Source source = (Source) o;
-        return id.equals(source.id) &&
+        return id_source.equals(source.id_source) &&
                 name.equals(source.name) &&
                 code.equals(source.code) &&
                 createdAt.equals(source.createdAt);
@@ -81,13 +84,13 @@ public class Source {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, code, createdAt);
+        return Objects.hash(id_source, name, code, createdAt);
     }
 
     @Override
     public String toString() {
         return "Source{" +
-                "id_source=" + id +
+                "id_source=" + id_source +
                 ", name='" + name + '\'' +
                 ", code=" + code +
                 ", created_at=" + createdAt +

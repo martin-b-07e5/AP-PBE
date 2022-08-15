@@ -20,15 +20,6 @@ public class SourceService {
 
     //  Below functions are called from the controller
     //    ------------------------
-    public List<Source> getAll() {
-        return sourceRepository.findAll();
-    }
-
-    public Source getById(Long id) {
-        return sourceRepository.findById(id).get();
-    }
-
-    //    ------------------------
     public Source add(Source source) {
         return sourceRepository.save(source);
     }
@@ -40,6 +31,15 @@ public class SourceService {
     public String deleteById(Long id) {
         sourceRepository.deleteById(id);
         return "source " + id + " deleted";
+    }
+
+    //    ------------------------
+    public List<Source> getAll() {
+        return sourceRepository.findAll();
+    }
+
+    public Source getById(Long id) {
+        return sourceRepository.findById(id).get();
     }
 
     //    ------------------------
