@@ -10,11 +10,11 @@ import java.util.Set;
 @Entity
 @Table(name = "sources")  // table name
 public class Source {
-
+    //    ----------------------------------------------------------------
     // https://www.baeldung.com/jpa-many-to-many
     @ManyToMany(mappedBy = "sources")
     Set<Article> articles;  // don't delete this line.
-
+    //    ----------------------------------------------------------------
     @Id  // for PK
     @GeneratedValue(strategy = GenerationType.IDENTITY) // for AI
     @Column(name = "id_source") // column name
@@ -23,7 +23,7 @@ public class Source {
     @NotBlank(message = "Name is mandatory")
     private String name;
 
-    @NotBlank(message = "Code is mandatory")
+    @NotBlank(message = "Code (like slug) is mandatory")
     private String code;
 
     //    baeldung.com/javax-validation
@@ -60,7 +60,7 @@ public class Source {
 
     public void setName(String name) {
         this.name = name.trim();
-        setCode(this.name);  // without this doesn't work.
+        setCode(this.name);  // necessary
     }
 
     public void setCode(String name) {

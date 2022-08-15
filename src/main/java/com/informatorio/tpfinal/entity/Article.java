@@ -19,107 +19,112 @@ public class Article {
             joinColumns = @JoinColumn(name = "id_article"),
             inverseJoinColumns = @JoinColumn(name = "id_source")
     )
-    Set<Source> sources;
+    Set<Source> sources;  // don't delete this line.
     //    ----------------------------------------------------------------
     // https://www.baeldung.com/hibernate-one-to-many
     @ManyToOne
     @JoinColumn(name = "id_author", nullable = false)
-    Author author;
+    Author author;  // don't delete this line.
     //    ----------------------------------------------------------------
     @Id // for PK
     @GeneratedValue(strategy = GenerationType.IDENTITY) // for AI
     @Column(name = "id_article") // DB column name
-    private Long idArticle;
+    private Long id;
+
     @NotBlank(message = "Title is mandatory")
     private String title;
-    @NotBlank(message = "Description is mandatory")
+
+    @NotBlank(message = "A short description is mandatory")
     private String description;
+
+    @NotBlank(message = "A full content description is mandatory")
+    private String content;
+
     private String url;
+
     @Column(name = "url_to_image") // DB column name
     private String urlToImage;
+
     @PastOrPresent
+    @NotBlank(message = "PublishedAt is mandatory")
     @Column(name = "published_at") // DB column name
-    private LocalDate publishedAt;
-    private String content;
+    private LocalDate publishedAt = LocalDate.now();
 
 
     // constructors
     public Article() {
     }
 
-    public Article(Long idArticle, String title, String description, String url, String urlToImage, LocalDate publishedAt, String content, Long idAuthor, Long idSource) {
-        this.idArticle = idArticle;
+    public Article(String title, String description, String content, String url, String urlToImage, LocalDate publishedAt) {
         this.title = title;
         this.description = description;
+        this.content = content;
         this.url = url;
         this.urlToImage = urlToImage;
         this.publishedAt = publishedAt;
-        this.content = content;
     }
 
     // getters and setters
-    public Long getIdArticle() {
-        return idArticle;
-    }
-
-    public void setIdArticle(Long idArticle) {
-        this.idArticle = idArticle;
+    public Long getId() {
+        return id;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public String getDescription() {
         return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getUrlToImage() {
-        return urlToImage;
-    }
-
-    public void setUrlToImage(String urlToImage) {
-        this.urlToImage = urlToImage;
-    }
-
-    public LocalDate getPublishedAt() {
-        return publishedAt;
-    }
-
-    public void setPublishedAt(LocalDate publishedAt) {
-        this.publishedAt = publishedAt;
     }
 
     public String getContent() {
         return content;
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public String getUrlToImage() {
+        return urlToImage;
+    }
+
+    public LocalDate getPublishedAt() {
+        return publishedAt;
+    }
+
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public void setContent(String content) {
         this.content = content;
     }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public void setUrlToImage(String urlToImage) {
+        this.urlToImage = urlToImage;
+    }
+
+    public void setPublishedAt(LocalDate publishedAt) {
+        this.publishedAt = publishedAt;
+    }
+
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Article)) return false;
         Article article = (Article) o;
-        return getIdArticle().equals(article.getIdArticle()) &&
+        return getId().equals(article.getId()) &&
                 getTitle().equals(article.getTitle()) &&
                 getDescription().equals(article.getDescription()) &&
                 getUrl().equals(article.getUrl()) &&
@@ -130,13 +135,13 @@ public class Article {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getIdArticle(), getTitle(), getDescription(), getUrl(), getUrlToImage(), getPublishedAt(), getContent());
+        return Objects.hash(getId(), getTitle(), getDescription(), getUrl(), getUrlToImage(), getPublishedAt(), getContent());
     }
 
     @Override
     public String toString() {
         return "Article{" +
-                "id_article=" + idArticle +
+                "id_article=" + id +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", url='" + url + '\'' +
@@ -145,4 +150,5 @@ public class Article {
                 ", content='" + content + '\'' +
                 '}';
     }
+
 }
