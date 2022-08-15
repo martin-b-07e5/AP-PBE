@@ -4,18 +4,12 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PastOrPresent;
 import java.time.LocalDate;
-import java.util.HashSet;
 import java.util.Objects;
-import java.util.Set;
 
-@Entity  // this is a tab
+@Entity
 @Table(name = "articles")  // table name
 public class Article {
 
-    //    ----------------------------------------------------------------
-    @ManyToOne
-    @JoinColumn(name = "id_source")
-    Author source;  // don't delete this line.
     //    ----------------------------------------------------------------
     /* https://www.baeldung.com/jpa-many-to-many
      The joinColumn attribute will connect to the owner side of the relationship,
@@ -28,9 +22,13 @@ public class Article {
 //    private Set<Source> sources;  // don't delete this line.
     //    ----------------------------------------------------------------
     // https://www.baeldung.com/hibernate-one-to-many
-    @ManyToOne
+    @ManyToOne  // 0k
     @JoinColumn(name = "id_author")
     Author author;  // don't delete this line.
+    //    ----------------------------------------------------------------
+    @ManyToOne  //    no está funcionando
+    @JoinColumn(name = "id_source")
+    Source source;  // don't delete this line.
     //    ----------------------------------------------------------------
     @Id // for PK
     @GeneratedValue(strategy = GenerationType.IDENTITY) // for AI
@@ -63,9 +61,7 @@ public class Article {
     }
 
 
-    public Article(Set<Source> sources, Author author, String title, String description, String content, String url, String urlToImage, LocalDate publishedAt) {
-        this.sources = sources;
-        this.author = author;
+    public Article(String title, String description, String content, String url, String urlToImage, LocalDate publishedAt) {
         this.title = title;
         this.description = description;
         this.content = content;
@@ -125,14 +121,6 @@ public class Article {
 
     public void setPublishedAt(LocalDate publishedAt) {
         this.publishedAt = publishedAt;
-    }
-
-    public Set<Source> getSources() {
-        return sources;
-    }
-
-    public void setSources(Set<Source> sources) {
-        this.sources = sources;
     }
 
     public Author getAuthor() {
