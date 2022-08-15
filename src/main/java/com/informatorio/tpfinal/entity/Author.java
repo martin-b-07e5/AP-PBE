@@ -19,7 +19,7 @@ public class Author {
     @Id  // for PK
     @GeneratedValue(strategy = GenerationType.IDENTITY)  // for AI
     @Column(name = "id_author") // DB column name
-    private Long id_author;
+    private Long id;
 
     @NotBlank(message = "firstName is mandatory")
     @Column(name = "first_name") // DB column name
@@ -48,8 +48,8 @@ public class Author {
 
 
     // getter and setter
-    public Long getId_author() {
-        return id_author;
+    public Long getId() {
+        return id;
     }
 
     public String getFirstName() {
@@ -83,18 +83,18 @@ public class Author {
         if (this == o) return true;
         if (!(o instanceof Author)) return false;
         Author author = (Author) o;
-        return getId_author().equals(author.getId_author()) && getFirstName().equals(author.getFirstName()) && getLastName().equals(author.getLastName()) && getFullName().equals(author.getFullName()) && getCreatedAt().equals(author.getCreatedAt());
+        return getId().equals(author.getId()) && getFirstName().equals(author.getFirstName()) && getLastName().equals(author.getLastName()) && getFullName().equals(author.getFullName()) && getCreatedAt().equals(author.getCreatedAt());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId_author(), getFirstName(), getLastName(), getFullName(), getCreatedAt());
+        return Objects.hash(getId(), getFirstName(), getLastName(), getFullName(), getCreatedAt());
     }
 
     @Override
     public String toString() {
         return "Author{" +
-                "id_author=" + id_author +
+                "id_author=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", fullName='" + fullName + '\'' +

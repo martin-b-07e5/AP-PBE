@@ -1,0 +1,1121 @@
+{
+	"info": {
+		"_postman_id": "90944160-22ba-44c8-97c3-66deab4efe44",
+		"name": "Java",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21532879"
+	},
+	"item": [
+		{
+			"name": "TpFinal",
+			"item": [
+				{
+					"name": "CRUD",
+					"item": [
+						{
+							"name": "author",
+							"item": [
+								{
+									"name": "getAll",
+									"request": {
+										"method": "GET",
+										"header": []
+									},
+									"response": [
+										{
+											"name": "react",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:8083/api/v1/author/getAll",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8083",
+													"path": [
+														"api",
+														"v1",
+														"author",
+														"getAll"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Sun, 14 Aug 2022 03:51:22 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "[\n    {\n        \"id\": 2,\n        \"firstName\": \"Homero\",\n        \"lastName\": \"Simpson\",\n        \"fullName\": \"Homero-Simpson\",\n        \"createdAt\": \"2022-08-09\"\n    },\n    {\n        \"id\": 3,\n        \"firstName\": \"Marge\",\n        \"lastName\": \"Simpson\",\n        \"fullName\": \"Marge-Simpson\",\n        \"createdAt\": \"2022-08-09\"\n    },\n    {\n        \"id\": 11,\n        \"firstName\": \"Lisa\",\n        \"lastName\": \"Simpson\",\n        \"fullName\": \"Lisa Simpson\",\n        \"createdAt\": \"2022-08-13\"\n    }\n]"
+										}
+									]
+								},
+								{
+									"name": "findAll",
+									"request": {
+										"method": "GET",
+										"header": []
+									},
+									"response": [
+										{
+											"name": "react",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:8083/api/v1/author/findAll",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8083",
+													"path": [
+														"api",
+														"v1",
+														"author",
+														"findAll"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Sun, 14 Aug 2022 03:51:56 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "[\n    {\n        \"id\": 2,\n        \"firstName\": \"Homero\",\n        \"lastName\": \"Simpson\",\n        \"fullName\": \"Homero-Simpson\",\n        \"createdAt\": \"2022-08-09\"\n    },\n    {\n        \"id\": 3,\n        \"firstName\": \"Marge\",\n        \"lastName\": \"Simpson\",\n        \"fullName\": \"Marge-Simpson\",\n        \"createdAt\": \"2022-08-09\"\n    },\n    {\n        \"id\": 11,\n        \"firstName\": \"Lisa\",\n        \"lastName\": \"Simpson\",\n        \"fullName\": \"Lisa Simpson\",\n        \"createdAt\": \"2022-08-13\"\n    }\n]"
+										}
+									]
+								},
+								{
+									"name": "getById",
+									"request": {
+										"method": "GET",
+										"header": []
+									},
+									"response": [
+										{
+											"name": "getById",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:8083/api/v1/author/getById/2",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8083",
+													"path": [
+														"api",
+														"v1",
+														"author",
+														"getById",
+														"2"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Sun, 14 Aug 2022 03:54:14 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"id\": 2,\n    \"firstName\": \"Homero\",\n    \"lastName\": \"Simpson\",\n    \"fullName\": \"Homero-Simpson\",\n    \"createdAt\": \"2022-08-09\"\n}"
+										}
+									]
+								},
+								{
+									"name": "findByFullNameContaining",
+									"request": {
+										"method": "GET",
+										"header": []
+									},
+									"response": [
+										{
+											"name": "react",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:8083/api/v1/author/getById/2",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8083",
+													"path": [
+														"api",
+														"v1",
+														"author",
+														"getById",
+														"2"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Sun, 14 Aug 2022 03:54:14 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"id\": 2,\n    \"firstName\": \"Homero\",\n    \"lastName\": \"Simpson\",\n    \"fullName\": \"Homero-Simpson\",\n    \"createdAt\": \"2022-08-09\"\n}"
+										},
+										{
+											"name": "findByFullNameContaining",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:8083/author/findByFullNameContaining?fullName=li",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8083",
+													"path": [
+														"author",
+														"findByFullNameContaining"
+													],
+													"query": [
+														{
+															"key": "fullName",
+															"value": "li"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Sun, 14 Aug 2022 21:40:10 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "[\n    {\n        \"id\": 3,\n        \"firstName\": \"Lisa\",\n        \"lastName\": \"Simpson\",\n        \"fullName\": \"Lisa Simpson\",\n        \"createdAt\": \"2022-08-14\"\n    }\n]"
+										}
+									]
+								},
+								{
+									"name": "findByCreatedAtGreaterThanEqual",
+									"request": {
+										"method": "GET",
+										"header": []
+									},
+									"response": [
+										{
+											"name": "findByCreatedAtGreaterThanEqual",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:8083/author/findByCreatedAtGreaterThanEqual/?createdAt=2022-01-01",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8083",
+													"path": [
+														"author",
+														"findByCreatedAtGreaterThanEqual",
+														""
+													],
+													"query": [
+														{
+															"key": "createdAt",
+															"value": "2022-01-01"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Mon, 15 Aug 2022 00:17:05 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "[\n    {\n        \"id\": 1,\n        \"firstName\": \"Homero\",\n        \"lastName\": \"Simpson\",\n        \"fullName\": \"Homero Simpson\",\n        \"createdAt\": \"2022-01-14\"\n    },\n    {\n        \"id\": 2,\n        \"firstName\": \"Marge\",\n        \"lastName\": \"Simpson\",\n        \"fullName\": \"Marge Simpson\",\n        \"createdAt\": \"2022-03-14\"\n    },\n    {\n        \"id\": 3,\n        \"firstName\": \"Lisa\",\n        \"lastName\": \"Simpson\",\n        \"fullName\": \"Lisa Simpson\",\n        \"createdAt\": \"2022-08-14\"\n    }\n]"
+										}
+									]
+								},
+								{
+									"name": "add",
+									"request": {
+										"method": "GET",
+										"header": []
+									},
+									"response": [
+										{
+											"name": "react",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"firstName\": \"Bartxx\",\n    \"lastName\": \"Simpson\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:8083/api/v1/author/add/",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8083",
+													"path": [
+														"api",
+														"v1",
+														"author",
+														"add",
+														""
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Sun, 14 Aug 2022 03:53:34 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"id\": 50,\n    \"firstName\": \"Bartxx\",\n    \"lastName\": \"Simpson\",\n    \"fullName\": \"Bartxx Simpson\",\n    \"createdAt\": \"2022-08-14\"\n}"
+										}
+									]
+								},
+								{
+									"name": "update",
+									"request": {
+										"method": "GET",
+										"header": []
+									},
+									"response": [
+										{
+											"name": "react",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"id\": 2,\n    \"firstName\": \"Homero\",\n    \"lastName\": \"Simpson\",\n    \"fullName\": \"Homero Simpson\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:8083/api/v1/author/update/",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8083",
+													"path": [
+														"api",
+														"v1",
+														"author",
+														"update",
+														""
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Sun, 14 Aug 2022 03:56:41 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"id\": 2,\n    \"firstName\": \"Homero\",\n    \"lastName\": \"Simpson\",\n    \"fullName\": \"Homero Simpson\",\n    \"createdAt\": \"2022-08-14\"\n}"
+										}
+									]
+								},
+								{
+									"name": "delete",
+									"request": {
+										"method": "GET",
+										"header": []
+									},
+									"response": [
+										{
+											"name": "react",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:8083/api/v1/author/delete/11",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8083",
+													"path": [
+														"api",
+														"v1",
+														"author",
+														"delete",
+														"11"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "plain",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain;charset=UTF-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "17"
+												},
+												{
+													"key": "Date",
+													"value": "Sun, 14 Aug 2022 03:57:42 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "author 11 deleted"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "article",
+							"item": [
+								{
+									"name": "getAll",
+									"request": {
+										"method": "GET",
+										"header": []
+									},
+									"response": [
+										{
+											"name": "getAll",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:8083/article/getAll",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8083",
+													"path": [
+														"article",
+														"getAll"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Mon, 15 Aug 2022 22:50:14 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "[\n    {\n        \"author\": {\n            \"id_author\": 1,\n            \"firstName\": \"Homero\",\n            \"lastName\": \"Simpson\",\n            \"fullName\": \"Homero Simpson\",\n            \"createdAt\": \"2022-08-15\"\n        },\n        \"id_article\": 1,\n        \"title\": \"t1\",\n        \"description\": \"d1\",\n        \"content\": \"c1\",\n        \"url\": \"url1\",\n        \"urlToImage\": \"url-img1\",\n        \"publishedAt\": \"2022-08-15\"\n    }\n]"
+										}
+									]
+								},
+								{
+									"name": "add",
+									"request": {
+										"method": "GET",
+										"header": []
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "source",
+							"item": [
+								{
+									"name": "getAll",
+									"request": {
+										"method": "GET",
+										"header": []
+									},
+									"response": [
+										{
+											"name": "getAll",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:8083/source/getAll",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8083",
+													"path": [
+														"source",
+														"getAll"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Sun, 14 Aug 2022 00:28:24 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "[]"
+										},
+										{
+											"name": "react",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:8083/api/v1/source/getAll",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8083",
+													"path": [
+														"api",
+														"v1",
+														"source",
+														"getAll"
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Vary",
+													"value": "Origin"
+												},
+												{
+													"key": "Vary",
+													"value": "Access-Control-Request-Method"
+												},
+												{
+													"key": "Vary",
+													"value": "Access-Control-Request-Headers"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Mon, 15 Aug 2022 01:33:28 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"timestamp\": \"2022-08-15T01:33:28.893+00:00\",\n    \"status\": 404,\n    \"error\": \"Not Found\",\n    \"message\": \"No message available\",\n    \"path\": \"/api/v1/source/getAll\"\n}"
+										}
+									]
+								},
+								{
+									"name": "findAll",
+									"request": {
+										"method": "GET",
+										"header": []
+									},
+									"response": [
+										{
+											"name": "findAll",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:8083/source/findAll",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8083",
+													"path": [
+														"source",
+														"findAll"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 11 Aug 2022 05:01:12 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "[\n    {\n        \"idAuthor\": 1,\n        \"firstName\": \"Homero\",\n        \"lastName\": \"Simpson\",\n        \"fullName\": \"Homero-Simpson\",\n        \"createdAt\": \"2022-08-09\"\n    },\n    {\n        \"idAuthor\": 2,\n        \"firstName\": \"Marge\",\n        \"lastName\": \"Simpson\",\n        \"fullName\": \"Homero-Simpson\",\n        \"createdAt\": \"2022-08-09\"\n    },\n    {\n        \"idAuthor\": 3,\n        \"firstName\": \"Lisa\",\n        \"lastName\": \"Simpson\",\n        \"fullName\": \"Homero-Simpson\",\n        \"createdAt\": \"2022-08-09\"\n    },\n    {\n        \"idAuthor\": 4,\n        \"firstName\": \"Bart\",\n        \"lastName\": \"Simpson\",\n        \"fullName\": \"Homero-Simpson\",\n        \"createdAt\": \"2022-08-09\"\n    },\n    {\n        \"idAuthor\": 5,\n        \"firstName\": \"Maggie\",\n        \"lastName\": \"Simpson\",\n        \"fullName\": \"Homero-Simpson\",\n        \"createdAt\": \"2022-08-09\"\n    }\n]"
+										}
+									]
+								},
+								{
+									"name": "getById",
+									"request": {
+										"method": "GET",
+										"header": []
+									},
+									"response": [
+										{
+											"name": "getById",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:8083/source/getById/1",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8083",
+													"path": [
+														"source",
+														"getById",
+														"1"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Mon, 15 Aug 2022 01:44:32 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"id\": 1,\n    \"name\": \"La Nación\",\n    \"code\": \"la-nación\",\n    \"createdAt\": \"2022-08-14\"\n}"
+										}
+									]
+								},
+								{
+									"name": "findByNameContaining",
+									"request": {
+										"method": "GET",
+										"header": []
+									},
+									"response": [
+										{
+											"name": "findByNameContaining",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:8083/source/findByNameContaining?name=rRiE",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8083",
+													"path": [
+														"source",
+														"findByNameContaining"
+													],
+													"query": [
+														{
+															"key": "name",
+															"value": "rRiE"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Mon, 15 Aug 2022 03:34:43 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "[\n    {\n        \"id\": 4,\n        \"name\": \"Diario Corrientes\",\n        \"code\": \"diario-corrientes\",\n        \"createdAt\": \"2022-08-14\"\n    }\n]"
+										}
+									]
+								},
+								{
+									"name": "add",
+									"request": {
+										"method": "GET",
+										"header": []
+									},
+									"response": [
+										{
+											"name": "add",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"name\": \"DIARIO la nacion\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:8083/source/add",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8083",
+													"path": [
+														"source",
+														"add"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Sun, 14 Aug 2022 01:00:44 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"id\": 4,\n    \"name\": \"DIARIO la nacion\",\n    \"code\": null,\n    \"createdAt\": \"2022-08-13\"\n}"
+										}
+									]
+								},
+								{
+									"name": "update",
+									"request": {
+										"method": "GET",
+										"header": []
+									},
+									"response": [
+										{
+											"name": "update",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"id\": 4,\n    \"name\": \"DIARIO la Nación\"\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:8083/source/update",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8083",
+													"path": [
+														"source",
+														"update"
+													],
+													"query": [
+														{
+															"key": "",
+															"value": "",
+															"disabled": true
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Sun, 14 Aug 2022 01:02:39 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"id\": 4,\n    \"name\": \"DIARIO la Nación\",\n    \"code\": null,\n    \"createdAt\": \"2022-08-13\"\n}"
+										}
+									]
+								},
+								{
+									"name": "delete",
+									"request": {
+										"method": "GET",
+										"header": []
+									},
+									"response": [
+										{
+											"name": "deleteSource",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:8083/source/delete/10",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8083",
+													"path": [
+														"source",
+														"delete",
+														"10"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "plain",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain;charset=UTF-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "17"
+												},
+												{
+													"key": "Date",
+													"value": "Fri, 12 Aug 2022 02:12:04 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "source 10 deleted"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

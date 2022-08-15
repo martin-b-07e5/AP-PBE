@@ -5,6 +5,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PastOrPresent;
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "articles")  // table name
@@ -14,26 +15,22 @@ public class Article {
     /* https://www.baeldung.com/jpa-many-to-many
      The joinColumn attribute will connect to the owner side of the relationship,
        and the inverseJoinColumn to the other side.*/
-//    @ManyToMany
-//    @JoinTable(
-//            joinColumns = @JoinColumn(name = "id_article"),
-//            inverseJoinColumns = @JoinColumn(name = "id_source")
-//    )
-//    private Set<Source> sources;  // don't delete this line.
+    @ManyToMany
+    @JoinTable(
+            joinColumns = @JoinColumn(name = "id_source"),
+            inverseJoinColumns = @JoinColumn(name = "id_article")
+    )
+    Set<Source> sources;  // don't delete this line.
     //    ----------------------------------------------------------------
     // https://www.baeldung.com/hibernate-one-to-many
     @ManyToOne  // 0k
     @JoinColumn(name = "id_author")
     Author author;  // don't delete this line.
     //    ----------------------------------------------------------------
-    @ManyToOne  //    no está funcionando
-    @JoinColumn(name = "id_source")
-    Source source;  // don't delete this line.
-    //    ----------------------------------------------------------------
     @Id // for PK
     @GeneratedValue(strategy = GenerationType.IDENTITY) // for AI
     @Column(name = "id_article") // DB column name
-    private Long id_article;
+    private Long id;
 
     @NotBlank(message = "Title is mandatory")
     private String title;
@@ -71,8 +68,8 @@ public class Article {
     }
 
     // getters and setters
-    public Long getId_article() {
-        return id_article;
+    public Long getId() {
+        return id;
     }
 
     public String getTitle() {
@@ -137,7 +134,7 @@ public class Article {
         if (this == o) return true;
         if (!(o instanceof Article)) return false;
         Article article = (Article) o;
-        return getId_article().equals(article.getId_article()) &&
+        return getId().equals(article.getId()) &&
                 getTitle().equals(article.getTitle()) &&
                 getDescription().equals(article.getDescription()) &&
                 getUrl().equals(article.getUrl()) &&
@@ -148,13 +145,13 @@ public class Article {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId_article(), getTitle(), getDescription(), getUrl(), getUrlToImage(), getPublishedAt(), getContent());
+        return Objects.hash(getId(), getTitle(), getDescription(), getUrl(), getUrlToImage(), getPublishedAt(), getContent());
     }
 
     @Override
     public String toString() {
         return "Article{" +
-                "id_article=" + id_article +
+                "id_article=" + id +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", url='" + url + '\'' +
