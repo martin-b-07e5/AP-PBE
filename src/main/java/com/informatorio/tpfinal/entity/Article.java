@@ -132,15 +132,6 @@ public class Article {
         this.author = author;
     }
 
-    /*public Long getIdAutor() {
-        return idAutor;
-    }
-
-    public void setIdAutor(Long idAutor) {
-        this.idAutor = idAutor;
-    }*/
-
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
