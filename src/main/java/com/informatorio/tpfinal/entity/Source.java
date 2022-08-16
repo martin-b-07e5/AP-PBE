@@ -18,7 +18,7 @@ public class Source {
     @Id  // for PK
     @GeneratedValue(strategy = GenerationType.IDENTITY) // for AI
     @Column(name = "id_source") // column name
-    private Long id;
+    private Long idSource;
 
     @NotBlank(message = "Name is mandatory")
     private String name;
@@ -42,8 +42,8 @@ public class Source {
 
 
     //     getters and setters
-    public Long getId() {
-        return id;
+    public Long getIdSource() {
+        return idSource;
     }
 
     public String getName() {
@@ -73,7 +73,7 @@ public class Source {
         if (this == o) return true;
         if (!(o instanceof Source)) return false;
         Source source = (Source) o;
-        return id.equals(source.id) &&
+        return idSource.equals(source.idSource) &&
                 name.equals(source.name) &&
                 code.equals(source.code) &&
                 createdAt.equals(source.createdAt);
@@ -81,13 +81,13 @@ public class Source {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, code, createdAt);
+        return Objects.hash(idSource, name, code, createdAt);
     }
 
     @Override
     public String toString() {
         return "Source{" +
-                "id_source=" + id +
+                "id_source=" + idSource +
                 ", name='" + name + '\'' +
                 ", code=" + code +
                 ", created_at=" + createdAt +
