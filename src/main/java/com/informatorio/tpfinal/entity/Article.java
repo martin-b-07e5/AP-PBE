@@ -30,7 +30,7 @@ public class Article {
     @Id // for PK
     @GeneratedValue(strategy = GenerationType.IDENTITY) // for AI
     @Column(name = "id_article") // DB column name
-    private Long id;
+    private Long idArticle;
 
     @NotBlank(message = "Title is mandatory")
     private String title;
@@ -68,8 +68,8 @@ public class Article {
     }
 
     // getters and setters
-    public Long getId() {
-        return id;
+    public Long getIdArticle() {
+        return idArticle;
     }
 
     public String getTitle() {
@@ -134,7 +134,7 @@ public class Article {
         if (this == o) return true;
         if (!(o instanceof Article)) return false;
         Article article = (Article) o;
-        return getId().equals(article.getId()) &&
+        return getIdArticle().equals(article.getIdArticle()) &&
                 getTitle().equals(article.getTitle()) &&
                 getDescription().equals(article.getDescription()) &&
                 getUrl().equals(article.getUrl()) &&
@@ -145,13 +145,13 @@ public class Article {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getTitle(), getDescription(), getUrl(), getUrlToImage(), getPublishedAt(), getContent());
+        return Objects.hash(getIdArticle(), getTitle(), getDescription(), getUrl(), getUrlToImage(), getPublishedAt(), getContent());
     }
 
     @Override
     public String toString() {
         return "Article{" +
-                "id_article=" + id +
+                "id_article=" + idArticle +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", url='" + url + '\'' +
