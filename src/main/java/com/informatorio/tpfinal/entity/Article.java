@@ -1,5 +1,7 @@
 package com.informatorio.tpfinal.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PastOrPresent;
@@ -25,6 +27,10 @@ public class Article {
     @Column(name = "published_at") // DB column name
     private LocalDate publishedAt = LocalDate.now();
 
+//    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+//    private Long Id_author;
+
+
     //    ----------------------------------------------------------------
     /* https://www.baeldung.com/jpa-many-to-many
      The joinColumn attribute will connect to the owner side of the relationship,
@@ -41,7 +47,6 @@ public class Article {
     @JoinColumn(name = "id_author")
     Author author;  // don't delete this line.
     //    ----------------------------------------------------------------
-
 
 
     // constructors

@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
 @RestController  //https://www.baeldung.com/spring-controller-vs-restcontroller
 @RequestMapping(value = "/article")  //https://www.baeldung.com/spring-requestmapping
 //@RequestMapping(value = "/api/v1/article")  //https://www.baeldung.com/spring-requestmapping
@@ -39,7 +38,5 @@ public class ArticleController {
     public Article addArticle(@RequestBody com.informatorio.tpfinal.entity.Article article) {
         return articleService.add(article);
     }
-
-
 
 }

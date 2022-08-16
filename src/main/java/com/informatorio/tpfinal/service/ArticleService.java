@@ -24,7 +24,6 @@ public class ArticleService {
         return articleRepository.save(article);
     }
 
-
     public List<Article> getAll() {return articleRepository.findAll();}
 
 }
