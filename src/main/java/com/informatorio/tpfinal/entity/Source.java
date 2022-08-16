@@ -12,8 +12,8 @@ import java.util.Set;
 public class Source {
     //    ----------------------------------------------------------------
     // https://www.baeldung.com/jpa-many-to-many
-    @ManyToMany(mappedBy = "sources")
-    Set<Article> articles;  // don't delete this line.
+//    @ManyToMany(mappedBy = "sources")
+//    Set<Article> articles;
     //    ----------------------------------------------------------------
     @Id  // for PK
     @GeneratedValue(strategy = GenerationType.IDENTITY) // for AI
