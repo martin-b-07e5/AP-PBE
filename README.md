@@ -1,5 +1,9 @@
 # aas-v0.1
 ## Article Author Source
+![01-sources](./src/main/resources/static/01-sources.png)
+![02-articles](./src/main/resources/static/02-articles.png)
+![03-authors](./src/main/resources/static/03-authors.png)
+![04-articles_sources](./src/main/resources/static/04-articles_sources.png)
 ![mer description](./src/main/resources/static/mer.png "mer title")
 
 ## DESCRIPCIÓN DE LA APLICACIÓN (API)
