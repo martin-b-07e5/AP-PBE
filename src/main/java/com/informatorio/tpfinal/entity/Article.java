@@ -127,38 +127,6 @@ public class Article {
     public void setAuthor(Author author) {
         this.author = author;
     }
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Article)) return false;
-        Article article = (Article) o;
-        return getIdArticle().equals(article.getIdArticle()) &&
-                getTitle().equals(article.getTitle()) &&
-                getDescription().equals(article.getDescription()) &&
-                getUrl().equals(article.getUrl()) &&
-                getUrlToImage().equals(article.getUrlToImage()) &&
-                getPublishedAt().equals(article.getPublishedAt()) &&
-                getContent().equals(article.getContent());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getIdArticle(), getTitle(), getDescription(), getUrl(), getUrlToImage(), getPublishedAt(), getContent());
-    }
-
-    @Override
-    public String toString() {
-        return "Article{" +
-                "id_article=" + idArticle +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", url='" + url + '\'' +
-                ", urlToImage='" + urlToImage + '\'' +
-                ", publishedAt='" + publishedAt + '\'' +
-                ", content='" + content + '\'' +
-                '}';
-    }
+    
 
 }
