@@ -21,4 +21,8 @@ public interface AuthorRepository extends JpaRepository<Author, Long> {
     List<Author> findByCreatedAtGreaterThanEqual(LocalDate createdAt);
 
 
+    //    tratando de hacer funcionar la relacion manyToOne
+    Author findByIdContaining(Long idAuthor);
+
+
 }
