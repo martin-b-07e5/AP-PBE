@@ -17,8 +17,8 @@ public class Article {
        and the inverseJoinColumn to the other side.*/
     @ManyToMany
     @JoinTable(
-            joinColumns = @JoinColumn(name = "id_article"),
-            inverseJoinColumns = @JoinColumn(name = "id_source")
+            joinColumns = @JoinColumn(name = "id_source"),
+            inverseJoinColumns = @JoinColumn(name = "id_article")
     )
     Set<Source> sources;  // don't delete this line.
     //    ----------------------------------------------------------------
