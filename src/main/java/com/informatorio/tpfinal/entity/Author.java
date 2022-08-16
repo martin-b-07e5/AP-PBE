@@ -4,46 +4,54 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PastOrPresent;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name = "authors")  // table name
+@Table(name = "authors")
 public class Author {
 
-    //    ----------------------------------------------------------------
-    // https://www.baeldung.com/hibernate-one-to-many
-    @OneToMany(mappedBy = "author")
-    Set<Article> articles;  // don't delete this line
-    //    ----------------------------------------------------------------
+
     @Id  // for PK
     @GeneratedValue(strategy = GenerationType.IDENTITY)  // for AI
     @Column(name = "id_author") // DB column name
     private Long idAuthor;
 
     @NotBlank(message = "firstName is mandatory")
-    @Column(name = "first_name") // DB column name
+    @Column(name = "first_name")
     private String firstName;
 
     @NotBlank(message = "lastName is mandatory")
-    @Column(name = "last_name") // DB column name
+    @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "full_name") // DB column name
+    @Column(name = "full_name")
     private String fullName;
 
     @PastOrPresent
-    @Column(name = "created_at") // DB column name
+    @Column(name = "created_at")
     private LocalDate createdAt = LocalDate.now();
+
+    //    ----------------------------------------------------------------
+    // https://www.baeldung.com/hibernate-one-to-many
+//    @OneToMany(mappedBy = "author")
+//    private Set<Article> articles;
+    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Article> articles = new ArrayList<>();
+    //    ----------------------------------------------------------------
 
 
     // constructors
     public Author() {
     }
 
-    public Author(String firstName, String lastName) {
+    public Author(String firstName, String lastName, String fullName, LocalDate createdAt) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.fullName = fullName;
+        this.createdAt = createdAt;
     }
 
 
@@ -52,20 +60,20 @@ public class Author {
         return idAuthor;
     }
 
+    public void setIdAuthor(Long idAuthor) {
+        this.idAuthor = idAuthor;
+    }
+
     public String getFirstName() {
         return firstName;
     }
 
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
     public String getLastName() {
         return lastName;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public LocalDate getCreatedAt() {
-        return createdAt;
     }
 
     public void setLastName(String lastName) {
@@ -73,32 +81,56 @@ public class Author {
         setFullName(firstName, lastName);  // without this doesn't work.
     }
 
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
     public void setFullName(String firstName, String lastName) {
         this.fullName = firstName + " " + lastName;
     }
 
+    public LocalDate getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDate createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public List<Article> getArticles() {
+        return articles;
+    }
+
+    public void setArticles(List<Article> articles) {
+        this.articles = articles;
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Author)) return false;
         Author author = (Author) o;
-        return getIdAuthor().equals(author.getIdAuthor()) && getFirstName().equals(author.getFirstName()) && getLastName().equals(author.getLastName()) && getFullName().equals(author.getFullName()) && getCreatedAt().equals(author.getCreatedAt());
+        return getIdAuthor().equals(author.getIdAuthor()) && Objects.equals(getFirstName(), author.getFirstName()) && Objects.equals(getLastName(), author.getLastName()) && Objects.equals(getFullName(), author.getFullName()) && Objects.equals(getCreatedAt(), author.getCreatedAt()) && Objects.equals(getArticles(), author.getArticles());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getIdAuthor(), getFirstName(), getLastName(), getFullName(), getCreatedAt());
+        return Objects.hash(getIdAuthor(), getFirstName(), getLastName(), getFullName(), getCreatedAt(), getArticles());
     }
 
     @Override
     public String toString() {
         return "Author{" +
-                "id_author=" + idAuthor +
+                "idAuthor=" + idAuthor +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", fullName='" + fullName + '\'' +
                 ", createdAt=" + createdAt +
+                ", articles=" + articles +
                 '}';
     }
 

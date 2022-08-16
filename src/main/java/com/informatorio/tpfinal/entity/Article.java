@@ -28,7 +28,7 @@ public class Article {
     private LocalDate publishedAt = LocalDate.now();
 
 //    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-//    private Long Id_author;
+//    private Long idAutor;
 
 
     //    ----------------------------------------------------------------
@@ -43,9 +43,11 @@ public class Article {
     Set<Source> sources;*/
     //    ----------------------------------------------------------------
     // https://www.baeldung.com/hibernate-one-to-many
-    @ManyToOne  // 0k
-    @JoinColumn(name = "id_author")
-    Author author;  // don't delete this line.
+//    @ManyToOne
+//    @JoinColumn(name = "id_author")
+//    Author author;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Author author;
     //    ----------------------------------------------------------------
 
 
@@ -63,6 +65,8 @@ public class Article {
         this.publishedAt = publishedAt;
         this.author = author;
     }
+
+
 
     public Long getIdArticle() {
         return idArticle;
@@ -127,6 +131,15 @@ public class Article {
     public void setAuthor(Author author) {
         this.author = author;
     }
+
+    /*public Long getIdAutor() {
+        return idAutor;
+    }
+
+    public void setIdAutor(Long idAutor) {
+        this.idAutor = idAutor;
+    }*/
+
 
     @Override
     public boolean equals(Object o) {
