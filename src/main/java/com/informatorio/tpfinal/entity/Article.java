@@ -120,13 +120,13 @@ public class Article {
         this.publishedAt = publishedAt;
     }
 
-    public Author getAuthor() {
+    /*public Author getAuthor() {
         return author;
     }
 
     public void setAuthor(Author author) {
         this.author = author;
-    }
-    
+    }*/
+
 
 }
