@@ -6,7 +6,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PastOrPresent;
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -40,13 +39,10 @@ public class Article {
     Set<Source> sources;*/
     //    ----------------------------------------------------------------
     // https://www.baeldung.com/hibernate-one-to-many
+    //    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
     @ManyToOne
-//    @JoinColumn(name = "id_author")
+    @JoinColumn(name = "id_author")
     Author author;
-
-//    @JsonIgnore
-//    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
-//    private Author author;
     //    ----------------------------------------------------------------
 
     // constructors
@@ -127,19 +123,7 @@ public class Article {
     }
 
     public void setAuthor(Author author) {
-        author.setArticles(author.getArticles());
         this.author = author;
-    }
-
-    /*
-    * public void agregarArticle(Article article) {
-        articles.add(article);
-//        article.getAuthor().add(this);
-        article.setAuthor(this);
-    }*/
-
-    public void agregarAuthor(Author author) {
-        author.setArticles(author.getArticles());
     }
 
 

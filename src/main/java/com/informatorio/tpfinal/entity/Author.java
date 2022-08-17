@@ -12,15 +12,12 @@ public class Author {
 
     //    ----------------------------------------------------------------
     // https://www.baeldung.com/hibernate-one-to-many
+    //    @OneToMany(mappedBy = "author", cascade = CascadeType.REFRESH, orphanRemoval = true)
     @OneToMany(mappedBy = "author")
     Set<Article> articles;
-//    List<Article> articles = new ArrayList<>();
-
-    //    Set<Article> articles = new HashSet<Article>();
-
-    //    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, orphanRemoval = true)
-//    private List<Article> articles;
+//    Set<Article> articles = new HashSet<Article>();
     //    ----------------------------------------------------------------
+
     @Id  // for PK
     @GeneratedValue(strategy = GenerationType.IDENTITY)  // for AI
     @Column(name = "id_author") // DB column name
@@ -42,14 +39,14 @@ public class Author {
     public Author() {
     }
 
-    public Author(Long idAuthor, String firstName, String lastName, String fullName, LocalDate createdAt, Set<Article> articles) {
+    public Author(Long idAuthor, String firstName, String lastName, String fullName, LocalDate createdAt) {
         this.idAuthor = idAuthor;
         this.firstName = firstName;
         this.lastName = lastName;
         this.fullName = fullName;
         this.createdAt = createdAt;
-        this.articles = articles;
     }
+
 
     // getter and setter
     public Long getIdAuthor() {
@@ -81,10 +78,6 @@ public class Author {
         return fullName;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
     public void setFullName(String firstName, String lastName) {
         this.fullName = firstName + " " + lastName;
     }
@@ -93,52 +86,24 @@ public class Author {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDate createdAt) {
-        this.createdAt = createdAt;
-    }
+//    public void setCreatedAt(LocalDate createdAt) {
+//        this.createdAt = createdAt;
+//    }
 
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(getIdAuthor(), getFirstName(), getLastName(), getFullName(), getCreatedAt(), getArticles());
-    }
+//    public Set<Article> getArticles() {
+//        return articles;
+//    }
 
-    public Set<Article> getArticles() {
-        return articles;
-    }
-
-    public void setArticles(Set<Article> articles) {
-        this.articles = articles;
-    }
+//    public void setArticles(Set<Article> articles) {
+//        this.articles = articles;
+//    }
 
 
-    public void agregarArticle(Article article) {
+    // sin usar, ver video 12.3.4-Relaciones_-_ManyToMany.mkv
+    /*public void agregarArticle(Article article) {
         articles.add(article);
-//        article.getAuthor().add(this);
         article.setAuthor(this);
-    }
-
-
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Author)) return false;
-        Author author = (Author) o;
-        return getIdAuthor().equals(author.getIdAuthor()) && Objects.equals(getFirstName(), author.getFirstName()) && Objects.equals(getLastName(), author.getLastName()) && Objects.equals(getFullName(), author.getFullName()) && Objects.equals(getCreatedAt(), author.getCreatedAt()) && Objects.equals(getArticles(), author.getArticles());
-    }
-
-    @Override
-    public String toString() {
-        return "Author{" +
-                "idAuthor=" + idAuthor +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", fullName='" + fullName + '\'' +
-                ", createdAt=" + createdAt +
-                ", articles=" + articles +
-                '}';
-    }
+    }*/
 
 }
