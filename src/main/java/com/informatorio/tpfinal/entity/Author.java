@@ -9,14 +9,9 @@ import java.util.*;
 @Entity
 @Table(name = "authors")
 public class Author {
-
-    //    ----------------------------------------------------------------
     // https://www.baeldung.com/hibernate-one-to-many
-    //    @OneToMany(mappedBy = "author", cascade = CascadeType.REFRESH, orphanRemoval = true)
     @OneToMany(mappedBy = "author")
     Set<Article> articles;
-//    Set<Article> articles = new HashSet<Article>();
-    //    ----------------------------------------------------------------
 
     @Id  // for PK
     @GeneratedValue(strategy = GenerationType.IDENTITY)  // for AI
@@ -46,7 +41,6 @@ public class Author {
         this.fullName = fullName;
         this.createdAt = createdAt;
     }
-
 
     // getter and setter
     public Long getIdAuthor() {
@@ -85,25 +79,5 @@ public class Author {
     public LocalDate getCreatedAt() {
         return createdAt;
     }
-
-//    public void setCreatedAt(LocalDate createdAt) {
-//        this.createdAt = createdAt;
-//    }
-
-
-//    public Set<Article> getArticles() {
-//        return articles;
-//    }
-
-//    public void setArticles(Set<Article> articles) {
-//        this.articles = articles;
-//    }
-
-
-    // sin usar, ver video 12.3.4-Relaciones_-_ManyToMany.mkv
-    /*public void agregarArticle(Article article) {
-        articles.add(article);
-        article.setAuthor(this);
-    }*/
 
 }

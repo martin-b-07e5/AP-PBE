@@ -52,9 +52,4 @@ public class AuthorService {
         return authorRepository.findByCreatedAtGreaterThanEqual(createdAt);
     }
 
-    /*Author findByIdAuthorContaining(Long idAuthor) {
-        return authorRepository.findByIdAuthorContaining(idAuthor);
-    }*/
-
-
 }

@@ -4,29 +4,23 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PastOrPresent;
 import java.time.LocalDate;
-import java.util.Objects;
 import java.util.Set;
 
 @Entity
 @Table(name = "sources")  // table name
 public class Source {
-    //    ----------------------------------------------------------------
     // https://www.baeldung.com/jpa-many-to-many
-//    @ManyToMany(mappedBy = "sources")
-//    Set<Article> articles;
-    //    ----------------------------------------------------------------
+    @ManyToMany(mappedBy = "sources")
+    Set<Article> articles;
+
     @Id  // for PK
     @GeneratedValue(strategy = GenerationType.IDENTITY) // for AI
     @Column(name = "id_source") // column name
     private Long idSource;
-
     @NotBlank(message = "Name is mandatory")
     private String name;
-
-    @NotBlank(message = "Code (like slug) is mandatory")
     private String code;
-
-    //    baeldung.com/javax-validation
+    // baeldung.com/javax-validation
     @PastOrPresent
     @Column(name = "created_at") // column name
     private LocalDate createdAt = LocalDate.now();
@@ -36,8 +30,11 @@ public class Source {
     public Source() {
     }
 
-    public Source(String name) {
+    public Source(Long idSource, String name, String code, LocalDate createdAt) {
+        this.idSource = idSource;
         this.name = name;
+        this.code = code;
+        this.createdAt = createdAt;
     }
 
 
@@ -50,48 +47,39 @@ public class Source {
         return name;
     }
 
-    public String getCode() {
-        return code;
-    }
-
-    public LocalDate getCreatedAt() {
-        return createdAt;
-    }
-
     public void setName(String name) {
         this.name = name.trim();
         setCode(this.name);  // necessary
+    }
+
+    public String getCode() {
+        return code;
     }
 
     public void setCode(String name) {
         this.code = name.toLowerCase().replace(" ", "-");
     }
 
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Source)) return false;
-        Source source = (Source) o;
-        return idSource.equals(source.idSource) &&
-                name.equals(source.name) &&
-                code.equals(source.code) &&
-                createdAt.equals(source.createdAt);
+    public LocalDate getCreatedAt() {
+        return createdAt;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(idSource, name, code, createdAt);
+    public void setCreatedAt(LocalDate createdAt) {
+        this.createdAt = createdAt;
     }
 
-    @Override
-    public String toString() {
-        return "Source{" +
-                "id_source=" + idSource +
-                ", name='" + name + '\'' +
-                ", code=" + code +
-                ", created_at=" + createdAt +
-                '}';
-    }
+//    public Set<Article> getArticles() {
+//        return articles;
+//    }
+
+//    public void setArticles(Set<Article> articles) {
+//        this.articles = articles;
+//    }
+
+    // Ver video 12.3.4-Relaciones_-_ManyToMany.mkv
+    /* public void agregarArticle(Article article) {
+        articles.add(article);
+        article.setAuthor(this);  // line suggested by M-discord
+    }*/
 
 }

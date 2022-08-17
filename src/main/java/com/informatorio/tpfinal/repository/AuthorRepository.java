@@ -20,8 +20,4 @@ public interface AuthorRepository extends JpaRepository<Author, Long> {
 //    https://www.bezkoder.com/jpa-repository-query/#JPA_find_by_multiple_Columns
     List<Author> findByCreatedAtGreaterThanEqual(LocalDate createdAt);
 
-
-//    Author findByIdAuthorContaining(Long idAuthor);
-
-
 }
