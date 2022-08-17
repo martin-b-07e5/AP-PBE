@@ -43,6 +43,7 @@ public class Article {
     @ManyToOne
 //    @JoinColumn(name = "id_author")
     Author author;
+
 //    @JsonIgnore
 //    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
 //    private Author author;
@@ -128,6 +129,17 @@ public class Article {
     public void setAuthor(Author author) {
         author.setArticles(author.getArticles());
         this.author = author;
+    }
+
+    /*
+    * public void agregarArticle(Article article) {
+        articles.add(article);
+//        article.getAuthor().add(this);
+        article.setAuthor(this);
+    }*/
+
+    public void agregarAuthor(Author author) {
+        author.setArticles(author.getArticles());
     }
 
 

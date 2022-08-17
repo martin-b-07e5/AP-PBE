@@ -114,12 +114,11 @@ public class Author {
 
     public void agregarArticle(Article article) {
         articles.add(article);
-        article.getAuthor().add(this);
-        
+//        article.getAuthor().add(this);
+        article.setAuthor(this);
     }
 
-    private void add(Author author) {
-    }
+
 
 
     @Override
