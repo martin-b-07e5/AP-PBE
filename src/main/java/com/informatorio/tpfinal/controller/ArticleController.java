@@ -30,13 +30,27 @@ public class ArticleController {
     public String helloR() {return "HELLO from the ArticleController/";}
 
     //    ------------------------
-    @GetMapping("/getAll")
-    public List<Article> getAll() {return articleService.getAll();}
-
     //    ------------------------
     @PostMapping("/add")
     public Article addArticle(@RequestBody Article article) {
         return articleService.add(article);
     }
+
+    @PutMapping("/update")
+    public Article updateArticle(@RequestBody Article article) {
+        return articleService.update(article);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public String deleteById(@PathVariable Long id) {
+        return articleService.deleteById(id);
+    }
+
+
+    //    ------------------------
+    @GetMapping("/getAll")
+    public List<Article> getAll() {return articleService.getAll();}
+
+
 
 }

@@ -20,10 +20,21 @@ public class ArticleService {
 
     //  Below functions are called from the controller
     //    ------------------------
+    public List<Article> getAll() {return articleRepository.findAll();}
+
+    public Article getById(Long id) {return articleRepository.findById(id).get();}
+
+    //    ------------------------
     public Article add(Article article) {
         return articleRepository.save(article);
     }
 
-    public List<Article> getAll() {return articleRepository.findAll();}
+    public Article update(Article article) {
+        return articleRepository.save(article);
+    }
 
+    public String deleteById(Long id) {
+        articleRepository.deleteById(id);
+        return "article" + id + " deleted";
+    }
 }

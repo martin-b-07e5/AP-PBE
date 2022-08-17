@@ -68,18 +68,4 @@ public class Source {
         this.createdAt = createdAt;
     }
 
-//    public Set<Article> getArticles() {
-//        return articles;
-//    }
-
-//    public void setArticles(Set<Article> articles) {
-//        this.articles = articles;
-//    }
-
-    // Ver video 12.3.4-Relaciones_-_ManyToMany.mkv
-    /* public void agregarArticle(Article article) {
-        articles.add(article);
-        article.setAuthor(this);  // line suggested by M-discord
-    }*/
-
 }
