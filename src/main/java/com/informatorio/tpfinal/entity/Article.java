@@ -40,6 +40,7 @@ public class Article {
     @Column(name = "published_at") // DB column name
     private LocalDate publishedAt = LocalDate.now();
 
+
     // constructors
     public Article() {
     }
@@ -58,16 +59,8 @@ public class Article {
         this.sources = sources;
     }
 
-    public Article(Set<Source> sources, Author author, String title, String description, String content) {
-        this.sources = sources;
-        this.author = author;
-        this.title = title;
-        this.description = description;
-        this.content = content;
-    }
 
-
-      // getters and setters
+    // getters and setters
     public Long getIdArticle() {
         return idArticle;
     }
