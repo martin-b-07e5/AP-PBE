@@ -40,12 +40,12 @@ public class Article {
     Set<Source> sources;*/
     //    ----------------------------------------------------------------
     // https://www.baeldung.com/hibernate-one-to-many
-//    @ManyToOne
+    @ManyToOne
 //    @JoinColumn(name = "id_author")
-//    Author author;
+    Author author;
 //    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
-    private Author author;
+//    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
+//    private Author author;
     //    ----------------------------------------------------------------
 
     // constructors

@@ -13,8 +13,8 @@ public class Author {
     //    ----------------------------------------------------------------
     // https://www.baeldung.com/hibernate-one-to-many
     @OneToMany(mappedBy = "author")
-//    Set<Article> articles;
-    List<Article> articles = new ArrayList<>();
+    Set<Article> articles;
+//    List<Article> articles = new ArrayList<>();
 
     //    Set<Article> articles = new HashSet<Article>();
 
@@ -42,7 +42,7 @@ public class Author {
     public Author() {
     }
 
-    public Author(Long idAuthor, String firstName, String lastName, String fullName, LocalDate createdAt, List<Article> articles) {
+    public Author(Long idAuthor, String firstName, String lastName, String fullName, LocalDate createdAt, Set<Article> articles) {
         this.idAuthor = idAuthor;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -103,11 +103,11 @@ public class Author {
         return Objects.hash(getIdAuthor(), getFirstName(), getLastName(), getFullName(), getCreatedAt(), getArticles());
     }
 
-    public List<Article> getArticles() {
+    public Set<Article> getArticles() {
         return articles;
     }
 
-    public void setArticles(List<Article> articles) {
+    public void setArticles(Set<Article> articles) {
         this.articles = articles;
     }
 
