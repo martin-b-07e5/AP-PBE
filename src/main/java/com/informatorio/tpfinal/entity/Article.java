@@ -1,11 +1,12 @@
 package com.informatorio.tpfinal.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PastOrPresent;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -27,10 +28,6 @@ public class Article {
     @Column(name = "published_at") // DB column name
     private LocalDate publishedAt = LocalDate.now();
 
-//    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-//    private Long idAutor;
-
-
     //    ----------------------------------------------------------------
     /* https://www.baeldung.com/jpa-many-to-many
      The joinColumn attribute will connect to the owner side of the relationship,
@@ -46,10 +43,10 @@ public class Article {
 //    @ManyToOne
 //    @JoinColumn(name = "id_author")
 //    Author author;
-    @ManyToOne(fetch = FetchType.LAZY)
+//    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
     private Author author;
     //    ----------------------------------------------------------------
-
 
     // constructors
     public Article() {
@@ -67,7 +64,7 @@ public class Article {
     }
 
 
-
+    // getters and setters
     public Long getIdArticle() {
         return idArticle;
     }
@@ -129,15 +126,17 @@ public class Article {
     }
 
     public void setAuthor(Author author) {
+        author.setArticles(author.getArticles());
         this.author = author;
     }
+
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Article)) return false;
         Article article = (Article) o;
-        return getIdArticle().equals(article.getIdArticle()) && getTitle().equals(article.getTitle()) && Objects.equals(getDescription(), article.getDescription()) && Objects.equals(getContent(), article.getContent()) && Objects.equals(getUrl(), article.getUrl()) && Objects.equals(getUrlToImage(), article.getUrlToImage()) && Objects.equals(getPublishedAt(), article.getPublishedAt()) && getAuthor().equals(article.getAuthor());
+        return getIdArticle().equals(article.getIdArticle()) && Objects.equals(getTitle(), article.getTitle()) && Objects.equals(getDescription(), article.getDescription()) && Objects.equals(getContent(), article.getContent()) && Objects.equals(getUrl(), article.getUrl()) && Objects.equals(getUrlToImage(), article.getUrlToImage()) && Objects.equals(getPublishedAt(), article.getPublishedAt()) && Objects.equals(getAuthor(), article.getAuthor());
     }
 
     @Override

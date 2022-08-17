@@ -35,7 +35,7 @@ public class ArticleController {
 
     //    ------------------------
     @PostMapping("/add")
-    public Article addArticle(@RequestBody com.informatorio.tpfinal.entity.Article article) {
+    public Article addArticle(@RequestBody Article article) {
         return articleService.add(article);
     }
 
