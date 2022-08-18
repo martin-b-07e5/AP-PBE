@@ -48,7 +48,7 @@ public class ArticleService {
         if (query >= 3) {
             return articleRepository.findByTitleContainingAndDescriptionContaining(title, description);
         }
-        else throw new IllegalArgumentException("La palabra a buscar debe ser mayor a 3 caracteres: " + "title = " + title + ", " + " description = " + description);
+        else throw new IllegalArgumentException("The query must be 3 characters or more: " + "title = " + title + ", " + " description = " + description);
     }
 
 }
