@@ -63,9 +63,4 @@ public class ArticleController {
         return articleService.findByTitleContainingAndDescriptionContaining(title, description);
     }
 
-    @GetMapping("/getValues")
-    public List<Article> getValues(@RequestParam String title, String description, String content, String fullName) {
-        return articleService.getValues(title, description, content, fullName);
-    }
-
 }
