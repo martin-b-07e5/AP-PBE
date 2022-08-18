@@ -10,11 +10,22 @@ import java.util.List;
 @Repository
 public interface ArticleRepository extends JpaRepository<Article, Long> {
     List<Article> findByTitleContainingAndDescriptionContaining(String title, String description);
+//        List<Article> findByTitleContainingAndDescriptionContainingAndAuthorFullNameContaining(String title, String description, String fullName);
 
-    /*@Query(value = "SELECT articles.title as TITLE, articles.description AS DESCRIPTION, articles.content AS CONTENT, authors.full_name AS \"FULL NAME\"\n" +
+    /*
+    @Query(value = "SELECT articles.title as TITLE, articles.description AS DESCRIPTION, articles.content AS CONTENT, authors.full_name AS \"FULL NAME\"\n" +
             "FROM articles\n" +
             "INNER JOIN authors\n" +
             "on articles.id_author = authors.id_author;\n", nativeQuery = true)
-    List<Article> getValues(String title, String description, String content, String fullName);*/
+    List<Article> getValues(String title, String description, String content, String fullName);
+    */
+
+    /* sql query
+    SELECT articles.title AS TITLE, articles.description AS DESCRIPTION, articles.content AS CONTENT, authors.full_name AS "FULL NAME"
+    FROM articles
+    INNER JOIN authors
+    on articles.id_author = authors.id_author
+    WHERE full_name LIKE '%wang%';
+    */
 
 }
