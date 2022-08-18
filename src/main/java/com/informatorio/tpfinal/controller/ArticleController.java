@@ -5,10 +5,7 @@ import com.informatorio.tpfinal.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 import java.util.List;
-import java.util.Optional;
 
 @RestController  //https://www.baeldung.com/spring-controller-vs-restcontroller
 //@RequestMapping(value = "/article")
