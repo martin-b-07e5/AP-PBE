@@ -11,13 +11,8 @@ import java.util.List;
 @Repository
 //public interface AuthorRepository extends PagingAndSortingRepository<Author, Long> {
 public interface AuthorRepository extends JpaRepository<Author, Long> {
-    //    https://www.baeldung.com/spring-data-derived-queries
-    //    5. Similarity Condition Keywords
     List<Author> findByFullNameContaining(String fullName);
 
-//    https://www.bezkoder.com/jpa-repository-query/#JPA_Repository_Query_with_Comparison
-//    https://www.bezkoder.com/jpa-repository-query/#JPA_find_by_field
-//    https://www.bezkoder.com/jpa-repository-query/#JPA_find_by_multiple_Columns
     List<Author> findByCreatedAtGreaterThanEqual(LocalDate createdAt);
 
 }

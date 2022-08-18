@@ -21,13 +21,15 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:8083/author/getAll",
+											"raw": "http://localhost:8083/api/v1/author/getAll",
 											"protocol": "http",
 											"host": [
 												"localhost"
 											],
 											"port": "8083",
 											"path": [
+												"api",
+												"v1",
 												"author",
 												"getAll"
 											]
@@ -90,13 +92,15 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:8083/author/findAll",
+											"raw": "http://localhost:8083/api/v1/author/findAll",
 											"protocol": "http",
 											"host": [
 												"localhost"
 											],
 											"port": "8083",
 											"path": [
+												"api",
+												"v1",
 												"author",
 												"findAll"
 											]
@@ -159,13 +163,15 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:8083/author/getById/2",
+											"raw": "http://localhost:8083/api/v1/author/getById/2",
 											"protocol": "http",
 											"host": [
 												"localhost"
 											],
 											"port": "8083",
 											"path": [
+												"api",
+												"v1",
 												"author",
 												"getById",
 												"2"
@@ -230,13 +236,15 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:8083/author/findByFullNameContaining?fullName=h",
+											"raw": "http://localhost:8083/api/v1/author/findByFullNameContaining?fullName=h",
 											"protocol": "http",
 											"host": [
 												"localhost"
 											],
 											"port": "8083",
 											"path": [
+												"api",
+												"v1",
 												"author",
 												"findByFullNameContaining"
 											],
@@ -358,13 +366,15 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:8083/author/findByCreatedAtGreaterThanEqual/?createdAt=2022-01-01",
+											"raw": "http://localhost:8083/api/v1/author/findByCreatedAtGreaterThanEqual/?createdAt=2022-01-01",
 											"protocol": "http",
 											"host": [
 												"localhost"
 											],
 											"port": "8083",
 											"path": [
+												"api",
+												"v1",
 												"author",
 												"findByCreatedAtGreaterThanEqual",
 												""
@@ -457,13 +467,15 @@
 											}
 										},
 										"url": {
-											"raw": "http://localhost:8083/author/add/",
+											"raw": "http://localhost:8083/api/v1/author/add/",
 											"protocol": "http",
 											"host": [
 												"localhost"
 											],
 											"port": "8083",
 											"path": [
+												"api",
+												"v1",
 												"author",
 												"add",
 												""
@@ -538,7 +550,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n    \"idAuthor\": 2,\n    \"firstName\": \"Marge\",\n    \"lastName\": \"Simpson\"\n}",
+											"raw": "{\n    \"idAuthor\": 13,\n    \"firstName\": \"Marge\",\n    \"lastName\": \"Simpson\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -546,13 +558,15 @@
 											}
 										},
 										"url": {
-											"raw": "http://localhost:8083/author/update/",
+											"raw": "http://localhost:8083/api/v1/author/update/",
 											"protocol": "http",
 											"host": [
 												"localhost"
 											],
 											"port": "8083",
 											"path": [
+												"api",
+												"v1",
 												"author",
 												"update",
 												""
@@ -682,16 +696,18 @@
 										"method": "DELETE",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:8083/author/delete/3",
+											"raw": "http://localhost:8083/api/v1/author/delete/13",
 											"protocol": "http",
 											"host": [
 												"localhost"
 											],
 											"port": "8083",
 											"path": [
+												"api",
+												"v1",
 												"author",
 												"delete",
-												"3"
+												"13"
 											]
 										}
 									},
@@ -758,13 +774,15 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:8083/article/getAll",
+											"raw": "http://localhost:8083/api/v1/article/getAll",
 											"protocol": "http",
 											"host": [
 												"localhost"
 											],
 											"port": "8083",
 											"path": [
+												"api",
+												"v1",
 												"article",
 												"getAll"
 											]
@@ -820,6 +838,77 @@
 									]
 								},
 								{
+									"name": "findById",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8083/api/v1/article/findById/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8083",
+											"path": [
+												"api",
+												"v1",
+												"article",
+												"findById",
+												"1"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "findById",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:8083/article/findById/2",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8083",
+													"path": [
+														"article",
+														"findById",
+														"2"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 17 Aug 2022 21:06:01 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"sources\": [\n        {\n            \"idSource\": 2,\n            \"name\": \"Clarin\",\n            \"code\": \"clarin\",\n            \"createdAt\": \"2022-08-17\"\n        }\n    ],\n    \"author\": {\n        \"idAuthor\": 2,\n        \"firstName\": \"Marge\",\n        \"lastName\": \"Simpson\",\n        \"fullName\": \"Marge Simpson\",\n        \"createdAt\": \"2022-08-17\"\n    },\n    \"idArticle\": 2,\n    \"title\": \"Marge Simpson\",\n    \"description\": \"Marge is a character, based on the real Marge (Matt Groening's mom)\",\n    \"content\": \"Marjorie Jacqueline \\\"Marge\\\" Simpson[1] (née Bouvier) is a character, based on the real Marge (Matt Groening's mom), in the American animated sitcom The Simpsons and part of the eponymous family. Voiced by Julie Kavner, she first appeared on television in The Tracey Ullman Show short \\\"Good Night\\\" on April 19, 1987. Marge was created and designed by cartoonist Matt Groening while he was waiting in the lobby of James L. Brooks' office. Groening had been called to pitch a series of shorts based on Life in Hell but instead decided to create a new set of characters. He named the character after his mother Margaret Groening. After appearing on The Tracey Ullman Show for three seasons, the Simpson family received their own series on Fox, which debuted December 17, 1989.\",\n    \"url\": \"https://en.wikipedia.org/wiki/Marge_Simpson\",\n    \"urlToImage\": \"https://upload.wikimedia.org/wikipedia/en/0/0b/Marge_Simpson.png\",\n    \"publishedAt\": \"2022-08-17\"\n}"
+										}
+									]
+								},
+								{
 									"name": "ar-add",
 									"request": {
 										"method": "POST",
@@ -834,13 +923,15 @@
 											}
 										},
 										"url": {
-											"raw": "http://localhost:8083/article/add",
+											"raw": "http://localhost:8083/api/v1/article/add",
 											"protocol": "http",
 											"host": [
 												"localhost"
 											],
 											"port": "8083",
 											"path": [
+												"api",
+												"v1",
 												"article",
 												"add"
 											]
@@ -1013,6 +1104,371 @@
 											"body": "{\n    \"sources\": [\n        {\n            \"idSource\": 5,\n            \"name\": null,\n            \"code\": null,\n            \"createdAt\": \"2022-08-17\"\n        }\n    ],\n    \"author\": {\n        \"idAuthor\": 5,\n        \"firstName\": null,\n        \"lastName\": null,\n        \"fullName\": null,\n        \"createdAt\": \"2022-08-17\"\n    },\n    \"idArticle\": 9,\n    \"title\": \"Google ofrecerá resultados más precisos y contrastados gracias a su inteligencia artificial y a una nueva técnica de \\\"consenso\\\"\",\n    \"description\": \"Cuando le preguntamos algo a San Google, en la mayoría de ocasiones nos encontramos con un cuadro destacado en la parte superior con un fragmento de una página web que contiene la respuesta a nuestra pregunta. Sin embargo, los fragmentos destacados no so…\",\n    \"content\": \"Cuando le preguntamos algo a San Google, en la mayoría de ocasiones nos encontramos con un cuadro destacado en la parte superior con un fragmento de una página web que contiene la respuesta a nuestra… [+3077 chars]\",\n    \"url\": \"https://www.genbeta.com/actualidad/google-ofrecera-resultados-precisos-contrastados-gracias-a-su-inteligencia-artificial-a-nueva-tecnica-consenso\",\n    \"urlToImage\": \"https://i.blogs.es/ac987c/firmbee-com-31odwleq-78-unsplash/840_560.jpg\",\n    \"publishedAt\": \"2022-08-11\"\n}"
 										}
 									]
+								},
+								{
+									"name": "ar-update",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n        \"sources\": [\n            {\n                \"idSource\": 1\n            }\n        ],\n        \"author\": {\n            \"idAuthor\": 1\n        },\n        \"idArticle\": 1,\n        \"title\": \"Homer Simpson\",\n        \"description\": \"Homer eating a classic strawberry sprinkled donut\",\n        \"content\": \"Homer Jay Simpson is one of the main characters of the American animated sitcom The Simpsons. He is voiced by Dan Castellaneta and first appeared, along with the rest of his family, in The Tracey Ullman Show short \\\"Good Night\\\" on April 19, 1987. Homer was created and designed by cartoonist Matt Groening while he was waiting in the lobby of producer James L. Brooks's office. Groening had been called to pitch a series of shorts based on his comic strip Life in Hell but instead decided to create a new set of characters. He named the character after his father, Homer Groening. After appearing for three seasons on The Tracey Ullman Show, the Simpson family got their own series on Fox, which debuted December 17, 1989. The show was later acquired by Disney in 2019.\",\n        \"url\": \"https://en.wikipedia.org/wiki/Homer_Simpson\",\n        \"urlToImage\": \"https://upload.wikimedia.org/wikipedia/en/0/02/Homer_Simpson_2006.png\",\n        \"publishedAt\": \"2022-08-17\"\n    }",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:8083/api/v1/article/update/",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8083",
+											"path": [
+												"api",
+												"v1",
+												"article",
+												"update",
+												""
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "ar-update",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n        \"sources\": [\n            {\n                \"idSource\": 1\n            }\n        ],\n        \"author\": {\n            \"idAuthor\": 1\n        },\n        \"idArticle\": 1,\n        \"title\": \"Homer Simpson\",\n        \"description\": \"Homer eating a classic strawberry sprinkled donut\",\n        \"content\": \"Homer Jay Simpson is one of the main characters of the American animated sitcom The Simpsons. He is voiced by Dan Castellaneta and first appeared, along with the rest of his family, in The Tracey Ullman Show short \\\"Good Night\\\" on April 19, 1987. Homer was created and designed by cartoonist Matt Groening while he was waiting in the lobby of producer James L. Brooks's office. Groening had been called to pitch a series of shorts based on his comic strip Life in Hell but instead decided to create a new set of characters. He named the character after his father, Homer Groening. After appearing for three seasons on The Tracey Ullman Show, the Simpson family got their own series on Fox, which debuted December 17, 1989. The show was later acquired by Disney in 2019.\",\n        \"url\": \"https://en.wikipedia.org/wiki/Homer_Simpson\",\n        \"urlToImage\": \"https://upload.wikimedia.org/wikipedia/en/0/02/Homer_Simpson_2006.png\",\n        \"publishedAt\": \"2022-08-17\"\n    }",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:8083/article/update/",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8083",
+													"path": [
+														"article",
+														"update",
+														""
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 17 Aug 2022 16:24:35 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"sources\": [\n        {\n            \"idSource\": 1,\n            \"name\": \"La Nación\",\n            \"code\": \"la-nación\",\n            \"createdAt\": \"2022-08-17\"\n        }\n    ],\n    \"author\": {\n        \"idAuthor\": 1,\n        \"firstName\": \"Homero\",\n        \"lastName\": \"Simpson\",\n        \"fullName\": \"Homero Simpson\",\n        \"createdAt\": \"2022-08-17\"\n    },\n    \"idArticle\": 1,\n    \"title\": \"Homer Simpson\",\n    \"description\": \"Homer eating a classic strawberry sprinkled donut\",\n    \"content\": \"Homer Jay Simpson is one of the main characters of the American animated sitcom The Simpsons. He is voiced by Dan Castellaneta and first appeared, along with the rest of his family, in The Tracey Ullman Show short \\\"Good Night\\\" on April 19, 1987. Homer was created and designed by cartoonist Matt Groening while he was waiting in the lobby of producer James L. Brooks's office. Groening had been called to pitch a series of shorts based on his comic strip Life in Hell but instead decided to create a new set of characters. He named the character after his father, Homer Groening. After appearing for three seasons on The Tracey Ullman Show, the Simpson family got their own series on Fox, which debuted December 17, 1989. The show was later acquired by Disney in 2019.\",\n    \"url\": \"https://en.wikipedia.org/wiki/Homer_Simpson\",\n    \"urlToImage\": \"https://upload.wikimedia.org/wikipedia/en/0/02/Homer_Simpson_2006.png\",\n    \"publishedAt\": \"2022-08-17\"\n}"
+										},
+										{
+											"name": "ar-update",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n        \"sources\": [\n            {\n                \"idSource\": 1,\n                \"name\": \"La Nación\",\n                \"code\": \"la-nación\",\n                \"createdAt\": \"2022-08-17\"\n            }\n        ],\n        \"author\": {\n            \"idAuthor\": 1,\n            \"firstName\": \"Homero\",\n            \"lastName\": \"Simpson\",\n            \"fullName\": \"Homero Simpson\",\n            \"createdAt\": \"2022-08-17\"\n        },\n        \"idArticle\": 17,\n        \"title\": \"Homer Simpson on delete cascade--on update restrict\",\n        \"description\": \"Homer eating a classic strawberry sprinkled donut\",\n        \"content\": \"article-content\",\n        \"url\": \"https://en.wikipedia.org/wiki/Homer_Simpson\",\n        \"urlToImage\": \"https://upload.wikimedia.org/wikipedia/en/0/02/Homer_Simpson_2006.png\",\n        \"publishedAt\": \"2022-08-17\"\n    }",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "http://localhost:8083/article/update/",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8083",
+													"path": [
+														"article",
+														"update",
+														""
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 17 Aug 2022 16:49:49 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"sources\": [\n        {\n            \"idSource\": 1,\n            \"name\": \"La Nación\",\n            \"code\": \"la-nación\",\n            \"createdAt\": \"2022-08-17\"\n        }\n    ],\n    \"author\": {\n        \"idAuthor\": 1,\n        \"firstName\": \"Homero\",\n        \"lastName\": \"Simpson\",\n        \"fullName\": \"Homero Simpson\",\n        \"createdAt\": \"2022-08-17\"\n    },\n    \"idArticle\": 17,\n    \"title\": \"Homer Simpson on delete cascade--on update restrict\",\n    \"description\": \"Homer eating a classic strawberry sprinkled donut\",\n    \"content\": \"article-content\",\n    \"url\": \"https://en.wikipedia.org/wiki/Homer_Simpson\",\n    \"urlToImage\": \"https://upload.wikimedia.org/wikipedia/en/0/02/Homer_Simpson_2006.png\",\n    \"publishedAt\": \"2022-08-17\"\n}"
+										}
+									]
+								},
+								{
+									"name": "ar-delete",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8083/api/v1/article/delete/20",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8083",
+											"path": [
+												"api",
+												"v1",
+												"article",
+												"delete",
+												"20"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "react",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:8083/api/v1/author/delete/11",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8083",
+													"path": [
+														"api",
+														"v1",
+														"author",
+														"delete",
+														"11"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "plain",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "text/plain;charset=UTF-8"
+												},
+												{
+													"key": "Content-Length",
+													"value": "17"
+												},
+												{
+													"key": "Date",
+													"value": "Sun, 14 Aug 2022 03:57:42 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "author 11 deleted"
+										}
+									]
+								},
+								{
+									"name": "ar-findByTitleContainingAndDescriptionContaining",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8083/api/v1/article/findByTitleContainingAndDescriptionContaining?title=simpson&description=Homer",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8083",
+											"path": [
+												"api",
+												"v1",
+												"article",
+												"findByTitleContainingAndDescriptionContaining"
+											],
+											"query": [
+												{
+													"key": "title",
+													"value": "simpson"
+												},
+												{
+													"key": "description",
+													"value": "Homer"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "react",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:8083/api/v1/article/findByTitleContainingAndDescriptionContaining?title=Homer&description=Homer",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8083",
+													"path": [
+														"api",
+														"v1",
+														"article",
+														"findByTitleContainingAndDescriptionContaining"
+													],
+													"query": [
+														{
+															"key": "title",
+															"value": "Homer"
+														},
+														{
+															"key": "description",
+															"value": "Homer"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Sun, 14 Aug 2022 03:54:14 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"id\": 2,\n    \"firstName\": \"Homero\",\n    \"lastName\": \"Simpson\",\n    \"fullName\": \"Homero-Simpson\",\n    \"createdAt\": \"2022-08-09\"\n}"
+										},
+										{
+											"name": "ar-findByTitleContainingAndDescriptionContaining",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:8083/article/findByTitleContainingAndDescriptionContaining?title=Homer&description=Homer",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8083",
+													"path": [
+														"article",
+														"findByTitleContainingAndDescriptionContaining"
+													],
+													"query": [
+														{
+															"key": "title",
+															"value": "Homer"
+														},
+														{
+															"key": "description",
+															"value": "Homer"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Wed, 17 Aug 2022 23:04:30 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "[\n    {\n        \"sources\": [\n            {\n                \"idSource\": 1,\n                \"name\": \"La Nación\",\n                \"code\": \"la-nación\",\n                \"createdAt\": \"2022-08-17\"\n            }\n        ],\n        \"author\": {\n            \"idAuthor\": 1,\n            \"firstName\": \"Homero\",\n            \"lastName\": \"Simpson\",\n            \"fullName\": \"Homero Simpson\",\n            \"createdAt\": \"2022-08-17\"\n        },\n        \"idArticle\": 1,\n        \"title\": \"Homer Simpson\",\n        \"description\": \"Homer eating a classic strawberry sprinkled donut\",\n        \"content\": \"Homer Jay Simpson is one of the main characters of the American animated sitcom The Simpsons. He is voiced by Dan Castellaneta and first appeared, along with the rest of his family, in The Tracey Ullman Show short \\\"Good Night\\\" on April 19, 1987. Homer was created and designed by cartoonist Matt Groening while he was waiting in the lobby of producer James L. Brooks's office. Groening had been called to pitch a series of shorts based on his comic strip Life in Hell but instead decided to create a new set of characters. He named the character after his father, Homer Groening. After appearing for three seasons on The Tracey Ullman Show, the Simpson family got their own series on Fox, which debuted December 17, 1989. The show was later acquired by Disney in 2019.\",\n        \"url\": \"https://en.wikipedia.org/wiki/Homer_Simpson\",\n        \"urlToImage\": \"https://upload.wikimedia.org/wikipedia/en/0/02/Homer_Simpson_2006.png\",\n        \"publishedAt\": \"2022-08-17\"\n    }\n]"
+										}
+									]
 								}
 							]
 						},
@@ -1025,13 +1481,15 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:8083/source/getAll",
+											"raw": "http://localhost:8083/api/v1/source/getAll",
 											"protocol": "http",
 											"host": [
 												"localhost"
 											],
 											"port": "8083",
 											"path": [
+												"api",
+												"v1",
 												"source",
 												"getAll"
 											]
@@ -1152,13 +1610,15 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:8083/source/findAll",
+											"raw": "http://localhost:8083/api/v1/source/findAll",
 											"protocol": "http",
 											"host": [
 												"localhost"
 											],
 											"port": "8083",
 											"path": [
+												"api",
+												"v1",
 												"source",
 												"findAll"
 											]
@@ -1219,13 +1679,15 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:8083/source/getById/1",
+											"raw": "http://localhost:8083/api/v1/source/getById/1",
 											"protocol": "http",
 											"host": [
 												"localhost"
 											],
 											"port": "8083",
 											"path": [
+												"api",
+												"v1",
 												"source",
 												"getById",
 												"1"
@@ -1288,20 +1750,22 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:8083/source/findByNameContaining?name=rRiE",
+											"raw": "http://localhost:8083/api/v1/source/findByNameContaining?name=com",
 											"protocol": "http",
 											"host": [
 												"localhost"
 											],
 											"port": "8083",
 											"path": [
+												"api",
+												"v1",
 												"source",
 												"findByNameContaining"
 											],
 											"query": [
 												{
 													"key": "name",
-													"value": "rRiE"
+													"value": "com"
 												}
 											]
 										}
@@ -1376,13 +1840,15 @@
 											}
 										},
 										"url": {
-											"raw": "http://localhost:8083/source/add",
+											"raw": "http://localhost:8083/api/v1/source/add",
 											"protocol": "http",
 											"host": [
 												"localhost"
 											],
 											"port": "8083",
 											"path": [
+												"api",
+												"v1",
 												"source",
 												"add"
 											]
@@ -1461,13 +1927,15 @@
 											}
 										},
 										"url": {
-											"raw": "http://localhost:8083/source/update",
+											"raw": "http://localhost:8083/api/v1/source/update",
 											"protocol": "http",
 											"host": [
 												"localhost"
 											],
 											"port": "8083",
 											"path": [
+												"api",
+												"v1",
 												"source",
 												"update"
 											]
@@ -1544,13 +2012,15 @@
 										"method": "DELETE",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:8083/source/delete/3",
+											"raw": "http://localhost:8083/api/v1/source/delete/3",
 											"protocol": "http",
 											"host": [
 												"localhost"
 											],
 											"port": "8083",
 											"path": [
+												"api",
+												"v1",
 												"source",
 												"delete",
 												"3"

@@ -10,8 +10,8 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController  //https://www.baeldung.com/spring-controller-vs-restcontroller
-@RequestMapping("/author")  //https://www.baeldung.com/spring-requestmapping
-//@RequestMapping("/api/v1/author")  //https://www.baeldung.com/spring-requestmapping
+//@RequestMapping("/author")
+@RequestMapping("/api/v1/author")  //https://www.baeldung.com/spring-requestmapping
 public class AuthorController {
 
     //    private HelloService helloService = new HelloService();

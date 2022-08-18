@@ -31,6 +31,7 @@ public class Article {
     private Long idArticle;
     @NotBlank(message = "Title is mandatory")
     private String title;
+    @NotBlank(message = "Description is mandatory")
     private String description;
     private String content;
     private String url;
@@ -113,24 +114,12 @@ public class Article {
         return publishedAt;
     }
 
-    public void setPublishedAt(LocalDate publishedAt) {
-        this.publishedAt = publishedAt;
-    }
-
     public Author getAuthor() {
         return author;
     }
 
-    public void setAuthor(Author author) {
-        this.author = author;
-    }
-
     public Set<Source> getSources() {
         return sources;
-    }
-
-    public void setSources(Set<Source> sources) {
-        this.sources = sources;
     }
 
 }

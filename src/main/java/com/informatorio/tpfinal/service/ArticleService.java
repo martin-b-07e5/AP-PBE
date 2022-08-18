@@ -20,9 +20,13 @@ public class ArticleService {
 
     //  Below functions are called from the controller
     //    ------------------------
-    public List<Article> getAll() {return articleRepository.findAll();}
+    public List<Article> getAll() {
+        return articleRepository.findAll();
+    }
 
-    public Article getById(Long id) {return articleRepository.findById(id).get();}
+    public Article findById(Long id) {
+        return articleRepository.findById(id).get();
+    }
 
     //    ------------------------
     public Article add(Article article) {
@@ -37,4 +41,14 @@ public class ArticleService {
         articleRepository.deleteById(id);
         return "article" + id + " deleted";
     }
+
+    //    ------------------------
+    public List<Article> findByTitleContainingAndDescriptionContaining(String title, String description) {
+        int query = title.length() + description.length();
+        if (query >= 3) {
+            return articleRepository.findByTitleContainingAndDescriptionContaining(title, description);
+        }
+        else throw new IllegalArgumentException("La palabra a buscar debe ser mayor a 3 caracteres: " + "title = " + title + ", " + " description = " + description);
+    }
+
 }
