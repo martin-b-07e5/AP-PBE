@@ -843,7 +843,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:8083/api/v1/article/findById/1",
+											"raw": "http://localhost:8083/api/v1/article/findById/35",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -854,7 +854,7 @@
 												"v1",
 												"article",
 												"findById",
-												"1"
+												"35"
 											]
 										}
 									},
@@ -905,6 +905,55 @@
 											],
 											"cookie": [],
 											"body": "{\n    \"sources\": [\n        {\n            \"idSource\": 2,\n            \"name\": \"Clarin\",\n            \"code\": \"clarin\",\n            \"createdAt\": \"2022-08-17\"\n        }\n    ],\n    \"author\": {\n        \"idAuthor\": 2,\n        \"firstName\": \"Marge\",\n        \"lastName\": \"Simpson\",\n        \"fullName\": \"Marge Simpson\",\n        \"createdAt\": \"2022-08-17\"\n    },\n    \"idArticle\": 2,\n    \"title\": \"Marge Simpson\",\n    \"description\": \"Marge is a character, based on the real Marge (Matt Groening's mom)\",\n    \"content\": \"Marjorie Jacqueline \\\"Marge\\\" Simpson[1] (née Bouvier) is a character, based on the real Marge (Matt Groening's mom), in the American animated sitcom The Simpsons and part of the eponymous family. Voiced by Julie Kavner, she first appeared on television in The Tracey Ullman Show short \\\"Good Night\\\" on April 19, 1987. Marge was created and designed by cartoonist Matt Groening while he was waiting in the lobby of James L. Brooks' office. Groening had been called to pitch a series of shorts based on Life in Hell but instead decided to create a new set of characters. He named the character after his mother Margaret Groening. After appearing on The Tracey Ullman Show for three seasons, the Simpson family received their own series on Fox, which debuted December 17, 1989.\",\n    \"url\": \"https://en.wikipedia.org/wiki/Marge_Simpson\",\n    \"urlToImage\": \"https://upload.wikimedia.org/wikipedia/en/0/0b/Marge_Simpson.png\",\n    \"publishedAt\": \"2022-08-17\"\n}"
+										},
+										{
+											"name": "findById-manyToMany",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "http://localhost:8083/api/v1/article/findById/35",
+													"protocol": "http",
+													"host": [
+														"localhost"
+													],
+													"port": "8083",
+													"path": [
+														"api",
+														"v1",
+														"article",
+														"findById",
+														"35"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Transfer-Encoding",
+													"value": "chunked"
+												},
+												{
+													"key": "Date",
+													"value": "Thu, 18 Aug 2022 03:01:51 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"sources\": [\n        {\n            \"idSource\": 6,\n            \"name\": \"Xataka\",\n            \"code\": \"xataka\",\n            \"createdAt\": \"1999-08-17\"\n        },\n        {\n            \"idSource\": 5,\n            \"name\": \"Genbeta.com\",\n            \"code\": \"genbeta.com\",\n            \"createdAt\": \"2022-08-17\"\n        }\n    ],\n    \"author\": {\n        \"idAuthor\": 6,\n        \"firstName\": \"Javier\",\n        \"lastName\": \"Marquez\",\n        \"fullName\": \"Javier Marquez\",\n        \"createdAt\": \"2001-08-17\"\n    },\n    \"idArticle\": 35,\n    \"title\": \"Apple está considerando mostrar más anuncios dirigidos en sus apps del iPhone, según Bloomberg\",\n    \"description\": \"Mientras que Apple limita el negocio publicitario de rivales como Facebook y Google en sus plataformas, la compañía gana millones de dólares con su propio servicio de anuncios dirigidos. Tras años sin demasiados cambios, Apple estaría lista para …\",\n    \"content\": \"Mientras que Apple limita el negocio publicitario de rivales como Facebook y Google en sus plataformas, la compañía gana millones de dólares con su propio servicio de anuncios dirigidos. Tras años si… [+3411 chars]\",\n    \"url\": \"https://www.xataka.com/aplicaciones/apple-esta-considerando-mostrar-anuncios-dirigidos-sus-apps-iphone-bloomberg\",\n    \"urlToImage\": \"https://i.blogs.es/ec2603/apple-anuncios-en-app-store/840_560.jpeg\",\n    \"publishedAt\": \"2022-08-15\"\n}"
 										}
 									]
 								},
