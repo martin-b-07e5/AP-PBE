@@ -46,8 +46,8 @@ public class ArticleController {
     }
 
     //    ------------------------
-    @GetMapping("/getAll")
-    public List<Article> getAll() {return articleService.getAll();}
+    @GetMapping("/findAll")
+    public List<Article> findAll() {return articleService.findAll();}
 
     @GetMapping("/findById/{id}")
     public Article findById(@PathVariable Long id) {
@@ -55,9 +55,9 @@ public class ArticleController {
     }
 
     //    ------------------------
-    @GetMapping("/findByTitleContainingAndDescriptionContaining")
-    public List<Article> findByTitleContainingAndDescriptionContaining(@RequestParam String title, String description) {
-        return articleService.findByTitleContainingAndDescriptionContaining(title, description);
+    @GetMapping("/findByTitleContainingOrDescriptionContaining")
+    public List<Article> findByTitleContainingOrDescriptionContaining(@RequestParam String title, String description) {
+        return articleService.findByTitleContainingOrDescriptionContaining(title, description);
     }
 
 }

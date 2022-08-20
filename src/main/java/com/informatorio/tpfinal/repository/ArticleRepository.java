@@ -9,7 +9,7 @@ import java.util.List;
 // using this repository and the entity Article, we can perform CRUD operations
 @Repository
 public interface ArticleRepository extends JpaRepository<Article, Long> {
-    List<Article> findByTitleContainingAndDescriptionContaining(String title, String description);
+    List<Article> findByTitleContainingOrDescriptionContaining(String title, String description);
 //        List<Article> findByTitleContainingAndDescriptionContainingAndAuthorFullNameContaining(String title, String description, String fullName);
 
     /*

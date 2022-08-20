@@ -769,12 +769,12 @@
 							"name": "article",
 							"item": [
 								{
-									"name": "ar-getAll",
+									"name": "ar-findAll",
 									"request": {
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:8083/api/v1/article/getAll",
+											"raw": "http://localhost:8083/api/v1/article/findAll",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -784,7 +784,7 @@
 												"api",
 												"v1",
 												"article",
-												"getAll"
+												"findAll"
 											]
 										}
 									},
@@ -843,7 +843,7 @@
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:8083/api/v1/article/findById/35",
+											"raw": "http://localhost:8083/api/v1/article/findById/1",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -854,7 +854,7 @@
 												"v1",
 												"article",
 												"findById",
-												"35"
+												"1"
 											]
 										}
 									},
@@ -1373,12 +1373,12 @@
 									]
 								},
 								{
-									"name": "ar-findByTitleContainingAndDescriptionContaining",
+									"name": "ar-findByTitleContainingOrDescriptionContaining",
 									"request": {
 										"method": "GET",
 										"header": [],
 										"url": {
-											"raw": "http://localhost:8083/api/v1/article/findByTitleContainingAndDescriptionContaining?title=simpson&description=Homer",
+											"raw": "http://localhost:8083/api/v1/article/findByTitleContainingOrDescriptionContaining?title=simpson&description=Homer",
 											"protocol": "http",
 											"host": [
 												"localhost"
@@ -1388,7 +1388,7 @@
 												"api",
 												"v1",
 												"article",
-												"findByTitleContainingAndDescriptionContaining"
+												"findByTitleContainingOrDescriptionContaining"
 											],
 											"query": [
 												{

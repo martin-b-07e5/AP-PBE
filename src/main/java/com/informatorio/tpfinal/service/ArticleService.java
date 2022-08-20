@@ -20,7 +20,7 @@ public class ArticleService {
 
     //  Below functions are called from the controller
     //    ------------------------
-    public List<Article> getAll() {
+    public List<Article> findAll() {
         return articleRepository.findAll();
     }
 
@@ -43,10 +43,10 @@ public class ArticleService {
     }
 
     //    ------------------------
-    public List<Article> findByTitleContainingAndDescriptionContaining(String title, String description) {
+    public List<Article> findByTitleContainingOrDescriptionContaining(String title, String description) {
         int query = title.length() + description.length();
         if (query >= 3) {
-            return articleRepository.findByTitleContainingAndDescriptionContaining(title, description);
+            return articleRepository.findByTitleContainingOrDescriptionContaining(title, description);
         }
         else throw new IllegalArgumentException("The query must be 3 characters or more: " + "title = " + title + ", " + " description = " + description);
     }
