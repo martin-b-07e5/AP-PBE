@@ -27,7 +27,9 @@ public class ArticleController {
     }
 
     @GetMapping("/")
-    public String helloR() {return "HELLO from the ArticleController/";}
+    public String helloR() {
+        return "HELLO from the ArticleController/";
+    }
 
     //    ------------------------
     @PostMapping("/add")
@@ -47,7 +49,9 @@ public class ArticleController {
 
     //    ------------------------
     @GetMapping("/findAll")
-    public List<Article> findAll() {return articleService.findAll();}
+    public List<Article> findAll() {
+        return articleService.findAll();
+    }
 
     @GetMapping("/findById/{id}")
     public Article findById(@PathVariable Long id) {
