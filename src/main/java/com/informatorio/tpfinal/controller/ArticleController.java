@@ -37,6 +37,8 @@ public class ArticleController {
         return articleService.add(article);
     }
 
+    // se podría hacer con 'PathVariable' tipo 'deleteById' y 'findById'
+    // y 'RequestParam' tipo 'findByTitleContainingOrDescriptionContaining'
     @PutMapping("/update")
     public Article updateArticle(@RequestBody Article article) {
         return articleService.update(article);
