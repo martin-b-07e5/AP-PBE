@@ -29,14 +29,19 @@ public class Article {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // for AI
     @Column(name = "id_article") // DB column name
     private Long idArticle;
+
     @NotBlank(message = "Title is mandatory")
     private String title;
+
     @NotBlank(message = "Description is mandatory")
     private String description;
+
     private String content;
     private String url;
+
     @Column(name = "url_to_image") // DB column name
     private String urlToImage;
+
     @PastOrPresent
     @Column(name = "published_at") // DB column name
     private LocalDate publishedAt = LocalDate.now();
