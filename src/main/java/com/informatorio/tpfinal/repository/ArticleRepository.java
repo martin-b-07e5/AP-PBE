@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface ArticleRepository extends JpaRepository<Article, Long> {
     List<Article> findByTitleContainingOrDescriptionContaining(String title, String description);
-//        List<Article> findByTitleContainingAndDescriptionContainingAndAuthorFullNameContaining(String title, String description, String fullName);
+//  List<Article> findByTitleContainingAndDescriptionContainingAndAuthorFullNameContaining(String title, String description, String fullName);
 
     /*
     @Query(value = "SELECT articles.title as TITLE, articles.description AS DESCRIPTION, articles.content AS CONTENT, authors.full_name AS \"FULL NAME\"\n" +
