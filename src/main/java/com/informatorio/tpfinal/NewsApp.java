@@ -17,7 +17,6 @@ Let's use this annotation in the main class of the application:
 @ComponentScan({"com.informatorio.tpfinal.controller", "com.informatorio.tpfinal.service"})
 @EnableJpaRepositories("com.informatorio.tpfinal.repository")
 public class NewsApp {
-
     public static void main(String[] args) {
         SpringApplication.run(NewsApp.class, args);
         System.out.println("ok");
