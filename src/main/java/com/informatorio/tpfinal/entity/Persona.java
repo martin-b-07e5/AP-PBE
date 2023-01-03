@@ -5,7 +5,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.util.Set;
 
@@ -15,10 +17,11 @@ import java.util.Set;
 @Setter
 public class Persona {
 
+    // ------------------------------------------------------------
     /* https://www.baeldung.com/jpa-many-to-many
      The joinColumn attribute will connect to the owner side of the relationship,
-       and the inverseJoinColumn to the other side.*/
-//    @ManyToMany
+       and the inverseJoinColumn to the other side.
+     */
     @ManyToMany
     @JoinTable(
             name = "persona_education",
@@ -31,22 +34,25 @@ public class Persona {
     @ManyToOne
     @JoinColumn(name = "id_author")
     Author author;
-
+    // ------------------------------------------------------------
 
     @Id // for PK
     @GeneratedValue(strategy = GenerationType.IDENTITY) // for AI
     @Column(name = "id_persona") // DB column name
     private Long idPersona;
 
-    @NotBlank(message = "fn is mandatory")
+    @NotEmpty(message = "fn is mandatory")
     @Column(name = "first_name") // DB column name
+    @Size(min = 1, max = 50)
     private String firstName;
 
     @NotBlank(message = "ln is mandatory")
-    @Column(name = "last_name") // DB column name
+    @Column(name = "last_name")
+    @Size(min = 1, max = 50)
     private String lastName;
 
-    @NotBlank(message = "Email is mandatory")
+    @NotEmpty
+    @Size(min = 1, max = 100, message = "First name is mandatory")
     private String email;
 
 //    private String content;

@@ -3,6 +3,7 @@ package com.informatorio.tpfinal.entity;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.util.Set;
 
@@ -20,11 +21,13 @@ public class Education {
     private Long idEducation;
 
     @NotBlank(message = "Name is mandatory")
+    @Size(min = 1, max = 50)
     private String name;
 
+    @Size(min = 1, max = 50)
     private String description;
 
-    // baeldung.com/javax-validation
+    // https://www.baeldung.com/javax-validation
     @PastOrPresent
     @Column(name = "created_at")
     private LocalDate createdAt = LocalDate.now();
