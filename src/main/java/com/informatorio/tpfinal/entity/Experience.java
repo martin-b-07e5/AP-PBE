@@ -1,55 +1,65 @@
 package com.informatorio.tpfinal.entity;
 
+import lombok.AccessLevel;
+import lombok.Getter;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.util.Set;
 
+@Getter
 @Entity
-@Table(name = "Education")
-public class Education {
+@Table(name = "Experience")
+public class Experience {
 
     // ------------------------------------------------------------
     // https://www.baeldung.com/jpa-many-to-many
-    @ManyToMany(mappedBy = "educationSet")
+    @ManyToMany(mappedBy = "experienceSet")
     Set<Person> personSet;
     // ------------------------------------------------------------
 
     @Id  // for PK
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // for AI
-    @Column(name = "id_education")
-    private Long idEducation;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)  // for AI
+    @Column(name = "id_experience")
+    private Long idExperience;
 
-    @NotBlank(message = "Name is mandatory")
+    @NotEmpty(message = "Name is mandatory")
     @Size(min = 1, max = 50)
     private String name;
 
-    @Size(min = 1, max = 50)
+    @NotBlank(message = "Description is mandatory")
+    @Size(min = 1, max = 150)
     private String description;
 
-    // https://www.baeldung.com/javax-validation
+    @Getter(AccessLevel.NONE)
     @PastOrPresent
     @Column(name = "created_at")
     private LocalDate createdAt = LocalDate.now();
 
 
-    //     constructors
-    public Education() {
+    // constructors
+    public Experience() {
     }
 
-    public Education(Long idEducation, String name, String description, LocalDate createdAt) {
-        this.idEducation = idEducation;
+    public Experience(Long idExperience, String name, String description, LocalDate createdAt) {
+        this.idExperience = idExperience;
         this.name = name;
         this.description = description;
         this.createdAt = createdAt;
     }
 
 
-    //     getters and setters
-    public Long getIdEducation() {
-        return idEducation;
+    // getter and setter
+    public Long getIdExperience() {
+        return idExperience;
+    }
+
+    public void setIdExperience(Long idExperience) {
+        this.idExperience = idExperience;
     }
 
     public String getName() {
@@ -57,16 +67,15 @@ public class Education {
     }
 
     public void setName(String name) {
-        this.name = name.trim();
-        setDescription(this.name);  // necessary
+        this.name = name;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String name) {
-        this.description = name.toLowerCase().replace(" ", "-");
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public LocalDate getCreatedAt() {

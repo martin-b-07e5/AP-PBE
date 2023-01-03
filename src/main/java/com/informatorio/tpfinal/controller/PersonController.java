@@ -1,16 +1,16 @@
 package com.informatorio.tpfinal.controller;
 
-import com.informatorio.tpfinal.entity.Persona;
-import com.informatorio.tpfinal.service.PersonaService;
+import com.informatorio.tpfinal.entity.Person;
+import com.informatorio.tpfinal.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController  //https://www.baeldung.com/spring-controller-vs-restcontroller
-//@RequestMapping(value = "/persona")
-@RequestMapping(value = "/api/v1/persona")  //https://www.baeldung.com/spring-requestmapping
-public class PersonaController {
+//@RequestMapping(value = "/person")
+@RequestMapping(value = "/api/v1/person")  //https://www.baeldung.com/spring-requestmapping
+public class PersonController {
 
     //    private HelloService helloService = new HelloService();
     /*  Aplico el concepto de INYECCIÓN DE DEPENDENCIA,
@@ -18,50 +18,50 @@ public class PersonaController {
       Ya no tengo el control, invierto el control (con @Autowired)
       y el que tiene el control es SPRING */
     @Autowired
-    private PersonaService personaService;
+    private PersonService personService;
 
     //    ------------------------
     @GetMapping("")
     public String helloE() {
-        return "HELLO from the PersonaController";
+        return "HELLO from the PersonController";
     }
 
     @GetMapping("/")
     public String helloR() {
-        return "HELLO from the PersonaController/";
+        return "HELLO from the PersonController/";
     }
 
     //    ------------------------
     @PostMapping("/add")
-    public Persona addPersona(@RequestBody Persona persona) {
-        return personaService.add(persona);
+    public Person addPerson(@RequestBody Person person) {
+        return personService.add(person);
     }
 
     @PutMapping("/update")
-    public Persona updateArticle(@RequestBody Persona persona) {
-        return personaService.update(persona);
+    public Person updateArticle(@RequestBody Person person) {
+        return personService.update(person);
     }
 
     @DeleteMapping("/delete/{id}")
     public String deleteById(@PathVariable Long id) {
-        return personaService.deleteById(id);
+        return personService.deleteById(id);
     }
 
     //    ------------------------
     @GetMapping("/findAll")
-    public List<Persona> findAll() {
-        return personaService.findAll();
+    public List<Person> findAll() {
+        return personService.findAll();
     }
 
     @GetMapping("/findById/{id}")
-    public Persona findById(@PathVariable Long id) {
-        return personaService.findById(id);
+    public Person findById(@PathVariable Long id) {
+        return personService.findById(id);
     }
 
     //    ------------------------
     @GetMapping("/findByFirstNameContainingOrLastNameContaining")
-    public List<Persona> findByFirstNameContainingOrLastNameContaining(@RequestParam String firstName, String lastName) {
-        return personaService.findByFirstNameContainingOrLastNameContaining(firstName, lastName);
+    public List<Person> findByFirstNameContainingOrLastNameContaining(@RequestParam String firstName, String lastName) {
+        return personService.findByFirstNameContainingOrLastNameContaining(firstName, lastName);
     }
 
 }

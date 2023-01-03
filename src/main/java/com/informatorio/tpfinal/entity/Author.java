@@ -4,15 +4,14 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PastOrPresent;
 import java.time.LocalDate;
-import java.util.Set;
 
 @Entity
 @Table(name = "authors")
 public class Author {
 
     // https://www.baeldung.com/hibernate-one-to-many
-    @OneToMany(mappedBy = "author")
-    Set<Persona> personas;
+//    @OneToMany(mappedBy = "experience")
+//    Set<Person> people;
 
     @Id  // for PK
     @GeneratedValue(strategy = GenerationType.IDENTITY)  // for AI

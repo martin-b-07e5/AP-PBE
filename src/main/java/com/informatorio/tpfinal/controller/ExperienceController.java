@@ -1,8 +1,8 @@
 package com.informatorio.tpfinal.controller;
 
-import com.informatorio.tpfinal.entity.Author;
-import com.informatorio.tpfinal.repository.AuthorRepository;
-import com.informatorio.tpfinal.service.AuthorService;
+import com.informatorio.tpfinal.entity.Experience;
+import com.informatorio.tpfinal.repository.ExperienceRepository;
+import com.informatorio.tpfinal.service.ExperienceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,9 +10,9 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController  //https://www.baeldung.com/spring-controller-vs-restcontroller
-//@RequestMapping("/author")
-@RequestMapping("/api/v1/author")  //https://www.baeldung.com/spring-requestmapping
-public class AuthorController {
+//@RequestMapping("/experience")
+@RequestMapping("/api/v1/experience")  //https://www.baeldung.com/spring-requestmapping
+public class ExperienceController {
 
     //    private HelloService helloService = new HelloService();
     /*  Aplico el concepto de INYECCIÓN DE DEPENDENCIA,
@@ -20,10 +20,10 @@ public class AuthorController {
       Ya no tengo el control, invierto el control (con @Autowired)
       y el que tiene el control es SPRING */
     @Autowired
-    private AuthorRepository authorRepository;
+    private ExperienceRepository experienceRepository;
 
     @Autowired
-    private AuthorService authorService;
+    private ExperienceService experienceService;
 
     //    ------------------------
     @GetMapping("")
@@ -38,49 +38,49 @@ public class AuthorController {
 
     //    ------------------------
     @PostMapping("/add")
-    public Author createAuthor(@RequestBody Author author) {
-        return authorService.add(author);
+    public Experience createAuthor(@RequestBody Experience experience) {
+        return experienceService.add(experience);
     }
 
     @PutMapping("/update")
-    public Author update(@RequestBody Author author) {
-        return authorService.update(author);
+    public Experience update(@RequestBody Experience experience) {
+        return experienceService.update(experience);
     }
 
     @DeleteMapping("/delete/{id}")
     public String deleteById(@PathVariable Long id) {
-        return authorService.deleteById(id);
+        return experienceService.deleteById(id);
     }
 
     //    ------------------------
     @RequestMapping(value = "/findAll", method = RequestMethod.GET)
-    public @ResponseBody Iterable<Author> findAuthors() {
-        return authorRepository.findAll();
+    public @ResponseBody Iterable<Experience> findAuthors() {
+        return experienceRepository.findAll();
     }
 
     // call function defined in AuthorService
     @GetMapping("/getAll")
-    public List<Author> getAll() {
-        return authorService.getAll();
+    public List<Experience> getAll() {
+        return experienceService.getAll();
     }
 
     @GetMapping("/getById/{id}")
-    public Author getById(@PathVariable Long id) {
-        return authorService.getById(id);
+    public Experience getById(@PathVariable Long id) {
+        return experienceService.getById(id);
     }
 
     //    ------------------------
-    @GetMapping("/findByFullNameContaining")
+    @GetMapping("/findByNameContaining")
     //    it must be @RequestParam
-    public List<Author> findByFullNameContaining(@RequestParam String fullName) {
-        return authorService.findByFullNameContaining(fullName);
+    public List<Experience> findByNameContaining(@RequestParam String name) {
+        return experienceService.findByNameContaining(name);
     }
 
     @GetMapping("/findByCreatedAtGreaterThanEqual")
     // 💡 String type comes from postman.
-    public List<Author> findByCreatedAtGreaterThanEqual(@RequestParam String createdAt) {
+    public List<Experience> findByCreatedAtGreaterThanEqual(@RequestParam String createdAt) {
         // LocalDate date = LocalDate.parse(createdAt);
-        return authorService.findByCreatedAtGreaterThanEqual(LocalDate.parse(createdAt));
+        return experienceService.findByCreatedAtGreaterThanEqual(LocalDate.parse(createdAt));
     }
 
 }

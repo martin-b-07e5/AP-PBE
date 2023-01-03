@@ -12,10 +12,10 @@ import java.time.LocalDate;
 import java.util.Set;
 
 @Entity
-@Table(name = "personas")  // table name
+@Table(name = "Person")  // table name
 @Getter
 @Setter
-public class Persona {
+public class Person {
 
     // ------------------------------------------------------------
     /* https://www.baeldung.com/jpa-many-to-many
@@ -24,22 +24,30 @@ public class Persona {
      */
     @ManyToMany
     @JoinTable(
-            name = "persona_education",
-            joinColumns = @JoinColumn(name = "id_persona"),
+            name = "person_education",
+            joinColumns = @JoinColumn(name = "id_person"),
             inverseJoinColumns = @JoinColumn(name = "id_education")
     )
-    Set<Education> education;
-
+    Set<Education> educationSet;
+    // ----------------------------------------
+    @ManyToMany
+    @JoinTable(
+            name = "person_experience",
+            joinColumns = @JoinColumn(name = "id_person"),
+            inverseJoinColumns = @JoinColumn(name = "id_experience")
+    )
+    Set<Experience> experienceSet;
+    // ----------------------------------------
     // https://www.baeldung.com/hibernate-one-to-many
-    @ManyToOne
-    @JoinColumn(name = "id_author")
-    Author author;
+//    @ManyToOne
+//    @JoinColumn(name = "id_author")
+//    Experience experience;
     // ------------------------------------------------------------
 
     @Id // for PK
     @GeneratedValue(strategy = GenerationType.IDENTITY) // for AI
-    @Column(name = "id_persona") // DB column name
-    private Long idPersona;
+    @Column(name = "id_person") // DB column name
+    private Long idPerson;
 
     @NotEmpty(message = "fn is mandatory")
     @Column(name = "first_name") // DB column name
@@ -52,66 +60,23 @@ public class Persona {
     private String lastName;
 
     @NotEmpty
-    @Size(min = 1, max = 100, message = "First name is mandatory")
+    @Size(min = 1, max = 100, message = "Email is mandatory")
     private String email;
 
-//    private String content;
-//    private String url;
-
-//    @Column(name = "url_to_image") // DB column name
-//    private String urlToImage;
-
-    // baeldung.com/javax-validation
+    // http://www.baeldung.com/javax-validation
     @PastOrPresent
     @Column(name = "published_at") // DB column name
     private LocalDate publishedAt = LocalDate.now();
 
     // constructors
-    public Persona() {
+    public Person() {
     }
 
-    public Persona(String firstName, String lastName, String email, LocalDate publishedAt) {
+    public Person(String firstName, String lastName, String email, LocalDate publishedAt) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.publishedAt = publishedAt;
     }
-
-    // getters and setters
-    /*public Long getIdPersona() {
-        return idPersona;
-    }
-
-    public void setIdPersona(Long idPersona) {
-        this.idPersona = idPersona;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-//    public LocalDate getPublishedAt() {
-//        return publishedAt;
-//    }
-
-    public Author getAuthor() {
-        return author;
-    }
-
-    public Set<Education> getSourceSet() {
-        return educationSet;
-    }*/
 
 }

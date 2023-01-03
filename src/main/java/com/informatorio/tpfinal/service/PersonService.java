@@ -1,14 +1,14 @@
 package com.informatorio.tpfinal.service;
 
-import com.informatorio.tpfinal.entity.Persona;
-import com.informatorio.tpfinal.repository.PersonaRepository;
+import com.informatorio.tpfinal.entity.Person;
+import com.informatorio.tpfinal.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class PersonaService {
+public class PersonService {
 
     //    private HelloService helloService = new HelloService();
     /*  Aplico el concepto de INYECCIÓN DE DEPENDENCIA,
@@ -16,38 +16,38 @@ public class PersonaService {
       Ya no tengo el control, invierto el control (con @Autowired)
       y el que tiene el control es SPRING */
     @Autowired
-    private PersonaRepository personaRepository;
+    private PersonRepository personRepository;
 
     //  Below functions are called from the controller
     //    ------------------------
-    public List<Persona> findAll() {
-        return personaRepository.findAll();
+    public List<Person> findAll() {
+        return personRepository.findAll();
     }
 
-    public Persona findById(Long id) {
-//        return personaRepository.findById(id).get();
-        return personaRepository.findById(id).orElse(null);
+    public Person findById(Long id) {
+//        return personRepository.findById(id).get();
+        return personRepository.findById(id).orElse(null);
     }
 
     //    ------------------------
-    public Persona add(Persona persona) {
-        return personaRepository.save(persona);
+    public Person add(Person person) {
+        return personRepository.save(person);
     }
 
-    public Persona update(Persona persona) {
-        return personaRepository.save(persona);
+    public Person update(Person person) {
+        return personRepository.save(person);
     }
 
     public String deleteById(Long id) {
-        personaRepository.deleteById(id);
-        return "persona " + id + " deleted";
+        personRepository.deleteById(id);
+        return "person " + id + " deleted";
     }
 
     //    ------------------------
-    public List<Persona> findByFirstNameContainingOrLastNameContaining(String firstName, String lastName) {
+    public List<Person> findByFirstNameContainingOrLastNameContaining(String firstName, String lastName) {
         int query = firstName.length() + lastName.length();
         if (query >= 3) {
-            return personaRepository.findByFirstNameContainingOrLastNameContaining(firstName, lastName);
+            return personRepository.findByFirstNameContainingOrLastNameContaining(firstName, lastName);
         } else
             throw new IllegalArgumentException("The query must be 3 characters or more: " + "firstName = " + firstName + ", " + " lastName = " + lastName);
     }

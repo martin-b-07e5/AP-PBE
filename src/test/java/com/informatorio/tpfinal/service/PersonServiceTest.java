@@ -1,7 +1,7 @@
 package com.informatorio.tpfinal.service;
 
-import com.informatorio.tpfinal.entity.Persona;
-import com.informatorio.tpfinal.repository.PersonaRepository;
+import com.informatorio.tpfinal.entity.Person;
+import com.informatorio.tpfinal.repository.PersonRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -18,29 +18,29 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class PersonaServiceTest {
+class PersonServiceTest {
 
     @Mock
-    Persona persona;
+    Person person;
     @Mock
-    PersonaRepository personaRepository;
+    PersonRepository personRepository;
 
     @InjectMocks
-    PersonaService personaService;
+    PersonService personService;
 
     @BeforeEach
     void setUp() {
-        persona = new Persona();
-        persona.setIdPersona(1L);
-        persona.setFirstName("Homer");
-        persona.setEmail("eating");
+        person = new Person();
+        person.setIdPerson(1L);
+        person.setFirstName("Homer");
+        person.setEmail("eating");
     }
 
     @Test
     void add() {
-        when(personaRepository.save(persona)).thenReturn(persona);
+        when(personRepository.save(person)).thenReturn(person);
 //        when(articleRepository.save(any(Article.class))).thenReturn(article);
-        assertNotNull(personaService.add(persona));
+        assertNotNull(personService.add(person));
 //        assertNotNull(articleService.add(new Article()));
     }
 
@@ -48,7 +48,7 @@ class PersonaServiceTest {
     void addOld() {
         boolean error = false;
         try {
-            personaService.add(persona);
+            personService.add(person);
             System.out.println("Article added successfully \uD83C\uDF89");
         } catch (EntityNotFoundException e) {
             error = true;
@@ -60,7 +60,7 @@ class PersonaServiceTest {
     void update() {
         boolean error = false;
         try {
-            personaService.update(persona);
+            personService.update(person);
             System.out.println("Article update successfully \uD83C\uDF89");
         } catch (Exception e) {
             error = true;
@@ -72,7 +72,7 @@ class PersonaServiceTest {
     void deleteById() {
         boolean error = false;
         try {
-            personaService.deleteById(1L);
+            personService.deleteById(1L);
             System.out.println("Article deleted successfully \uD83C\uDF89");
         } catch (EntityNotFoundException e) {
             error = true;
@@ -85,12 +85,12 @@ class PersonaServiceTest {
         boolean error = false;
         try {
 //            when(articleRepository.findAll()).thenReturn(Arrays.asList(article));
-            when(personaRepository.findAll()).thenReturn(Collections.singletonList(persona));
+            when(personRepository.findAll()).thenReturn(Collections.singletonList(person));
             System.out.println("Articles found successfully \uD83C\uDF89");
         } catch (EntityNotFoundException e) {
             error = true;
         }
-        assertNotNull(personaRepository.findAll());
+        assertNotNull(personRepository.findAll());
         assertFalse(error, "Error finding All Articles");
     }
 
@@ -98,12 +98,12 @@ class PersonaServiceTest {
     void findById() {
         boolean error = false;
         try {
-            when(personaRepository.findById(1L)).thenReturn(Optional.ofNullable(persona));
+            when(personRepository.findById(1L)).thenReturn(Optional.ofNullable(person));
             System.out.println("Article found successfully \uD83C\uDF89");
         } catch (EntityNotFoundException e) {
             error = true;
         }
-        assertNotNull(personaService.findById(1L));
+        assertNotNull(personService.findById(1L));
     }
 
     @Test
@@ -111,12 +111,12 @@ class PersonaServiceTest {
         boolean error = false;
         try {
 //            when(articleRepository.findByTitleContainingOrDescriptionContaining("Homer", "eating")).thenReturn(Arrays.asList(article));
-            when(personaRepository.findByFirstNameContainingOrLastNameContaining("Homer", "eating")).thenReturn(Collections.singletonList(persona));
+            when(personRepository.findByFirstNameContainingOrLastNameContaining("Homer", "eating")).thenReturn(Collections.singletonList(person));
             System.out.println("Articles found successfully \uD83C\uDF89");
         } catch (EntityNotFoundException e) {
             error = true;
         }
-        assertNotNull(personaService.findByFirstNameContainingOrLastNameContaining("Homer", "simp"));
+        assertNotNull(personService.findByFirstNameContainingOrLastNameContaining("Homer", "simp"));
     }
 
 }
