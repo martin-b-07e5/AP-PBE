@@ -7,40 +7,44 @@ import java.time.LocalDate;
 import java.util.Set;
 
 @Entity
-@Table(name = "sources")  // table name
-public class Source {
+@Table(name = "educations")
+public class Education {
+
     // https://www.baeldung.com/jpa-many-to-many
-    @ManyToMany(mappedBy = "sources")
-    Set<Article> articles;
+    @ManyToMany(mappedBy = "education")
+    Set<Persona> personaSet;
 
     @Id  // for PK
     @GeneratedValue(strategy = GenerationType.IDENTITY) // for AI
-    @Column(name = "id_source") // column name
-    private Long idSource;
+    @Column(name = "id_education")
+    private Long idEducation;
+
     @NotBlank(message = "Name is mandatory")
     private String name;
-    private String code;
+
+    private String description;
+
     // baeldung.com/javax-validation
     @PastOrPresent
-    @Column(name = "created_at") // column name
+    @Column(name = "created_at")
     private LocalDate createdAt = LocalDate.now();
 
 
     //     constructors
-    public Source() {
+    public Education() {
     }
 
-    public Source(Long idSource, String name, String code, LocalDate createdAt) {
-        this.idSource = idSource;
+    public Education(Long idEducation, String name, String description, LocalDate createdAt) {
+        this.idEducation = idEducation;
         this.name = name;
-        this.code = code;
+        this.description = description;
         this.createdAt = createdAt;
     }
 
 
     //     getters and setters
-    public Long getIdSource() {
-        return idSource;
+    public Long getIdEducation() {
+        return idEducation;
     }
 
     public String getName() {
@@ -49,23 +53,19 @@ public class Source {
 
     public void setName(String name) {
         this.name = name.trim();
-        setCode(this.name);  // necessary
+        setDescription(this.name);  // necessary
     }
 
-    public String getCode() {
-        return code;
+    public String getDescription() {
+        return description;
     }
 
-    public void setCode(String name) {
-        this.code = name.toLowerCase().replace(" ", "-");
+    public void setDescription(String name) {
+        this.description = name.toLowerCase().replace(" ", "-");
     }
 
     public LocalDate getCreatedAt() {
         return createdAt;
-    }
-
-    public void setCreatedAt(LocalDate createdAt) {
-        this.createdAt = createdAt;
     }
 
 }

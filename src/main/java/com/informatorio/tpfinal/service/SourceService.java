@@ -1,6 +1,6 @@
 package com.informatorio.tpfinal.service;
 
-import com.informatorio.tpfinal.entity.Source;
+import com.informatorio.tpfinal.entity.Education;
 import com.informatorio.tpfinal.repository.SourceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,30 +20,30 @@ public class SourceService {
 
     //  Below functions are called from the controller
     //    ------------------------
-    public Source add(Source source) {
-        return sourceRepository.save(source);
+    public Education add(Education education) {
+        return sourceRepository.save(education);
     }
 
-    public Source update(Source source) {
-        return sourceRepository.save(source);
+    public Education update(Education education) {
+        return sourceRepository.save(education);
     }
 
     public String deleteById(Long id) {
         sourceRepository.deleteById(id);
-        return "source " + id + " deleted";
+        return "education " + id + " deleted";
     }
 
     //    ------------------------
-    public List<Source> getAll() {
+    public List<Education> getAll() {
         return sourceRepository.findAll();
     }
 
-    public Source getById(Long id) {
+    public Education getById(Long id) {
         return sourceRepository.findById(id).get();
     }
 
     //    ------------------------
-    public List<Source> findByNameContaining(String name) {
+    public List<Education> findByNameContaining(String name) {
         return sourceRepository.findByNameContaining(name);
     }
 

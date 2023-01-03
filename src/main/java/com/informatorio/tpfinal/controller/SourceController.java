@@ -1,6 +1,6 @@
 package com.informatorio.tpfinal.controller;
 
-import com.informatorio.tpfinal.entity.Source;
+import com.informatorio.tpfinal.entity.Education;
 import com.informatorio.tpfinal.repository.SourceRepository;
 import com.informatorio.tpfinal.service.SourceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController  //https://www.baeldung.com/spring-controller-vs-restcontroller
-//@RequestMapping(value = "/source")
-@RequestMapping(value = "/api/v1/source")  //https://www.baeldung.com/spring-requestmapping
+//@RequestMapping(value = "/education")
+@RequestMapping(value = "/api/v1/education")  //https://www.baeldung.com/spring-requestmapping
 public class SourceController {
 
     //    private HelloService helloService = new HelloService();
@@ -37,13 +37,13 @@ public class SourceController {
 
     //    ------------------------
     @PostMapping("/add")
-    public Source createSource(@RequestBody Source source) {
-        return sourceService.add(source);
+    public Education createSource(@RequestBody Education education) {
+        return sourceService.add(education);
     }
 
     @PutMapping("/update")
-    public Source updateSource(@RequestBody Source source) {
-        return sourceService.update(source);
+    public Education updateSource(@RequestBody Education education) {
+        return sourceService.update(education);
     }
 
     @DeleteMapping("/delete/{id}")
@@ -53,18 +53,18 @@ public class SourceController {
 
     //    ------------------------
     @RequestMapping(value = "/findAll", method = RequestMethod.GET)
-    public @ResponseBody Iterable<Source> findSources() {
+    public @ResponseBody Iterable<Education> findSources() {
         return sourceRepository.findAll();
     }
 
     //    below, call function defined in SourceService.
     @GetMapping("/getAll")
-    public List<Source> getAll() {
+    public List<Education> getAll() {
         return sourceService.getAll();
     }
 
     @GetMapping("/getById/{id}")
-    public Source getById(@PathVariable Long id) {
+    public Education getById(@PathVariable Long id) {
         return sourceService.getById(id);
     }
 
@@ -76,7 +76,7 @@ public class SourceController {
 //    }
 
     @GetMapping("/findByNameContaining")
-    public List<Source> findByNameContaining(@RequestParam String name) {
+    public List<Education> findByNameContaining(@RequestParam String name) {
         return sourceService.findByNameContaining(name);
     }
 

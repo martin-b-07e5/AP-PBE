@@ -4,27 +4,32 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PastOrPresent;
 import java.time.LocalDate;
-import java.util.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "authors")
 public class Author {
+
     // https://www.baeldung.com/hibernate-one-to-many
     @OneToMany(mappedBy = "author")
-    Set<Article> articles;
+    Set<Persona> personas;
 
     @Id  // for PK
     @GeneratedValue(strategy = GenerationType.IDENTITY)  // for AI
-    @Column(name = "id_author") // DB column name
+    @Column(name = "id_author")
     private Long idAuthor;
+
     @NotBlank(message = "firstName is mandatory")
     @Column(name = "first_name")
     private String firstName;
+
     @NotBlank(message = "lastName is mandatory")
     @Column(name = "last_name")
     private String lastName;
+
     @Column(name = "full_name")
     private String fullName;
+
     @PastOrPresent
     @Column(name = "created_at")
     private LocalDate createdAt = LocalDate.now();
