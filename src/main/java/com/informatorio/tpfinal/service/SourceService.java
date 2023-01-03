@@ -39,7 +39,8 @@ public class SourceService {
     }
 
     public Education getById(Long id) {
-        return sourceRepository.findById(id).get();
+//        return sourceRepository.findById(id).get();
+        return sourceRepository.findById(id).orElse(null);
     }
 
     //    ------------------------

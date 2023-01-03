@@ -25,7 +25,8 @@ public class PersonaService {
     }
 
     public Persona findById(Long id) {
-        return personaRepository.findById(id).get();
+//        return personaRepository.findById(id).get();
+        return personaRepository.findById(id).orElse(null);
     }
 
     //    ------------------------
