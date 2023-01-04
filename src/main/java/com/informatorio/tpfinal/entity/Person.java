@@ -30,10 +30,14 @@ public class Person {
     )
     Set<Education> educationSet;
     // ----------------------------------------
-    // https://www.baeldung.com/hibernate-one-to-many
-//    @ManyToOne
-//    @JoinColumn(name = "id_author")
-//    Experience experience;
+    @ManyToMany
+    @JoinTable(
+            name = "person_experience",
+            joinColumns = @JoinColumn(name = "id_person"),
+            inverseJoinColumns = @JoinColumn(name = "id_experience")
+    )
+    Set<Experience> experienceSet;
+
     // ------------------------------------------------------------
 
     @Id // for PK
