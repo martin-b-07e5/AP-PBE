@@ -8,8 +8,8 @@ import java.time.LocalDate;
 import java.util.Set;
 
 @Entity
-@Table(name = "Experience")
-public class Experience {
+@Table(name = "Technology")
+public class Technology {
 
     // ------------------------------------------------------------
     // https://www.baeldung.com/jpa-many-to-many
@@ -19,8 +19,8 @@ public class Experience {
 
     @Id  // for PK
     @GeneratedValue(strategy = GenerationType.IDENTITY) // for AI
-    @Column(name = "id_experience")
-    private Long idExperience;
+    @Column(name = "id_technology")
+    private Long idTechnology;
 
     @NotBlank(message = "Name is mandatory")
     @Size(min = 1, max = 50)
@@ -36,11 +36,11 @@ public class Experience {
 
 
     //     constructors
-    public Experience() {
+    public Technology() {
     }
 
-    public Experience(Long idExperience, String name, String description, LocalDate createdAt) {
-        this.idExperience = idExperience;
+    public Technology(Long idTechnology, String name, String description, LocalDate createdAt) {
+        this.idTechnology = idTechnology;
         this.name = name;
         this.description = description;
         this.createdAt = createdAt;
@@ -48,8 +48,8 @@ public class Experience {
 
 
     //     getters and setters
-    public Long getIdExperience() {
-        return idExperience;
+    public Long getIdTechnology() {
+        return idTechnology;
     }
 
     public String getName() {

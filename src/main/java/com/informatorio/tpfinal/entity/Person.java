@@ -37,7 +37,14 @@ public class Person {
             inverseJoinColumns = @JoinColumn(name = "id_experience")
     )
     Set<Experience> experienceSet;
-
+    // ----------------------------------------
+    @ManyToMany
+    @JoinTable(
+            name = "person_technology",
+            joinColumns = @JoinColumn(name = "id_person"),
+            inverseJoinColumns = @JoinColumn(name = "id_technology")
+    )
+    Set<Technology> technologySet;
     // ------------------------------------------------------------
 
     @Id // for PK
