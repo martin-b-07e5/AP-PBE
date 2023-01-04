@@ -46,6 +46,11 @@ public class Person {
     )
     Set<Technology> technologySet;
     // ------------------------------------------------------------
+    // https://www.baeldung.com/hibernate-one-to-many
+    @ManyToOne
+    @JoinColumn(name = "id_project")
+    Project project;
+    // ------------------------------------------------------------
 
     @Id // for PK
     @GeneratedValue(strategy = GenerationType.IDENTITY) // for AI
