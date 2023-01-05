@@ -8,7 +8,7 @@
         <version>2.7.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.informatorio</groupId>
+    <groupId>com.ap</groupId>
     <artifactId>news-app-v01</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>news-app-v01</name>
