@@ -29,6 +29,8 @@ public class Technology {
     @Size(min = 1, max = 50)
     private String description;
 
+    private int percentage;
+
     // https://www.baeldung.com/javax-validation
     @PastOrPresent
     @Column(name = "created_at")
