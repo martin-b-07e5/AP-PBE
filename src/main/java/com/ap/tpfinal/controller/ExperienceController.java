@@ -1,9 +1,13 @@
 package com.ap.tpfinal.controller;
 
+import com.ap.tpfinal.dto.ExperienceDto;
 import com.ap.tpfinal.entity.Experience;
 import com.ap.tpfinal.repository.ExperienceRepository;
 import com.ap.tpfinal.service.ExperienceService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,7 +21,6 @@ public class ExperienceController {
     private ExperienceService experienceService;
 
     @Autowired
-//    private SourceRepository sourceRepository; // for /findAll()
     private ExperienceRepository experienceRepository; // for /findAll()
 
     //    ------------------------
@@ -32,9 +35,27 @@ public class ExperienceController {
     }
 
     // CREATE ------------------------
-    @PostMapping("/add")
+    @PostMapping("/addOld")
     public Experience createExperience(@RequestBody Experience experience) {
         return experienceService.add(experience);
+    }
+
+    @PostMapping("/add")
+    public ResponseEntity<?> createExperience(@RequestBody ExperienceDto experienceDto) {
+        // validations
+        if (StringUtils.isBlank(experienceDto.getName())) {
+            return new ResponseEntity(new Mensaje("NAME REQUIRED"), HttpStatus.BAD_REQUEST);
+        }
+        if (experienceService.existByName(experienceDto.getName())) {
+            return new ResponseEntity(new Mensaje("EXPERIENCE ALREADY EXIST"), HttpStatus.BAD_REQUEST);
+        }
+        if (experienceDto.getName().length() < 3) {
+            return new ResponseEntity(new Mensaje("NAME TO SHORT"), HttpStatus.BAD_REQUEST);
+        }
+
+        Experience experience = new Experience(experienceDto.getName(), experienceDto.getDescription());
+        experienceService.add(experience);
+        return new ResponseEntity<>(new Mensaje("ADDED EXPERIENCE"), HttpStatus.ACCEPTED);
     }
 
     // UPDATE ------------------------

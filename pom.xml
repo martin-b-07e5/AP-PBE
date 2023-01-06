@@ -73,6 +73,12 @@
             <scope>test</scope>
         </dependency>-->
         <!-- __________________________________________________ -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.9</version>
+        </dependency>
+        <!-- __________________________________________________ -->
     </dependencies>
 
     <build>

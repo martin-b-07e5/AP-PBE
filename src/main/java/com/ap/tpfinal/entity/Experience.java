@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.util.Set;
 
 @Entity
-@Table(name = "Experience")
+//@Table(name = "Experience")
 public class Experience {
 
     // ------------------------------------------------------------
@@ -46,6 +46,10 @@ public class Experience {
         this.createdAt = createdAt;
     }
 
+    public Experience(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
 
     //     getters and setters
     public Long getIdExperience() {
