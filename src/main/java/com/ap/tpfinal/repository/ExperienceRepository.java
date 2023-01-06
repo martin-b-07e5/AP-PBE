@@ -14,4 +14,7 @@ public interface ExperienceRepository extends JpaRepository<Experience, Long> {
 
     List<Experience> findByCreatedAtGreaterThanEqual(LocalDate createdAt);
 
+    // ------------------------
+    boolean existsByName(String name);
+
 }
