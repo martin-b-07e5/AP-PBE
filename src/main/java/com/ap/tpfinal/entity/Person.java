@@ -12,7 +12,7 @@ import java.time.LocalDate;
 import java.util.Set;
 
 @Entity
-@Table(name = "Person")  // table name
+//@Table(name = "Person")  // table name
 @Getter
 @Setter
 public class Person {
@@ -22,6 +22,7 @@ public class Person {
      The joinColumn attribute will connect to the owner side of the relationship,
        and the inverseJoinColumn to the other side.
      */
+//    @ManyToMany(fetch = FetchType.EAGER)
     @ManyToMany
     @JoinTable(
             name = "person_education",
@@ -80,11 +81,9 @@ public class Person {
     public Person() {
     }
 
-    public Person(String firstName, String lastName, String email, LocalDate publishedAt) {
+    public Person(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.publishedAt = publishedAt;
     }
-
 }

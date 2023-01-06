@@ -11,6 +11,8 @@ import java.util.List;
 public interface PersonRepository extends JpaRepository<Person, Long> {
 
     List<Person> findByFirstNameContainingOrLastNameContaining(String firstName, String lastName);
-//  List<Article> findByFirstNameContainingAndLastNameContaining(String firstName, String lastName);
+
+    // https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation
+    List<Person> findByFirstNameContainingAndLastNameContaining(String firstName, String lastName);
 
 }

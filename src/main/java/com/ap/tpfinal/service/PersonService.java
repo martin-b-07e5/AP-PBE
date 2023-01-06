@@ -19,17 +19,17 @@ public class PersonService {
     private PersonRepository personRepository;
 
     //  Below functions are called from the controller
-    //    ------------------------
+    // READ ------------------------------
     public List<Person> findAll() {
         return personRepository.findAll();
     }
 
-    public Person findById(Long id) {
-//        return personRepository.findById(id).get();
-        return personRepository.findById(id).orElse(null);
+    public Person findById(Long idPerson) {
+//        return personRepository.findById(idPerson).get();
+        return personRepository.findById(idPerson).orElse(null);
     }
 
-    //    ------------------------
+    // CREATE ------------------------------
     public Person add(Person person) {
         return personRepository.save(person);
     }

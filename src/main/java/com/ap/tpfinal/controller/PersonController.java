@@ -10,6 +10,7 @@ import java.util.List;
 @RestController  //https://www.baeldung.com/spring-controller-vs-restcontroller
 //@RequestMapping(value = "/person")
 @RequestMapping(value = "/api/v1/person")  //https://www.baeldung.com/spring-requestmapping
+@CrossOrigin(origins = "http://localhost:4200")
 public class PersonController {
 
     //    private HelloService helloService = new HelloService();
@@ -20,7 +21,7 @@ public class PersonController {
     @Autowired
     private PersonService personService;
 
-    //    ------------------------
+    // READ ------------------------------
     @GetMapping("")
     public String helloE() {
         return "HELLO from the PersonController";
@@ -31,23 +32,24 @@ public class PersonController {
         return "HELLO from the PersonController/";
     }
 
-    //    ------------------------
+    // CREATE ------------------------------
     @PostMapping("/add")
     public Person addPerson(@RequestBody Person person) {
         return personService.add(person);
     }
 
+    // UPDATE ------------------------------
     @PutMapping("/update")
     public Person updateArticle(@RequestBody Person person) {
         return personService.update(person);
     }
-
+    // DELETE ------------------------------
     @DeleteMapping("/delete/{id}")
     public String deleteById(@PathVariable Long id) {
         return personService.deleteById(id);
     }
 
-    //    ------------------------
+    // READ ------------------------------
     @GetMapping("/findAll")
     public List<Person> findAll() {
         return personService.findAll();
