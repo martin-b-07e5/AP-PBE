@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController  //https://www.baeldung.com/spring-controller-vs-restcontroller
 @RequestMapping(value = "/api/v1/education")  //https://www.baeldung.com/spring-requestmapping
+@CrossOrigin(origins = "http://localhost:4200")
 public class EducationController {
 
     @Autowired

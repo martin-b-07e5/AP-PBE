@@ -3,6 +3,7 @@
 .directory
 *.sql
 .gitignore
+favicon.ico
 
 # folders
 bck/

@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController  //https://www.baeldung.com/spring-controller-vs-restcontroller
 @RequestMapping(value = "/api/v1/project")  //https://www.baeldung.com/spring-requestmapping
+@CrossOrigin(origins = "http://localhost:4200")
 public class ProjectController {
 
     @Autowired
