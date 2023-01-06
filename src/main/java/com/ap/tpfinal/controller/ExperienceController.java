@@ -11,7 +11,6 @@ import java.util.List;
 @RestController  //https://www.baeldung.com/spring-controller-vs-restcontroller
 @RequestMapping(value = "/api/v1/experience")  //https://www.baeldung.com/spring-requestmapping
 @CrossOrigin(origins = "http://localhost:4200")
-
 public class ExperienceController {
 
     @Autowired
@@ -32,23 +31,25 @@ public class ExperienceController {
         return "HELLO from the ExperienceController/";
     }
 
-    //    ------------------------
+    // CREATE ------------------------
     @PostMapping("/add")
     public Experience createExperience(@RequestBody Experience experience) {
         return experienceService.add(experience);
     }
 
+    // UPDATE ------------------------
     @PutMapping("/update")
     public Experience updateExperience(@RequestBody Experience experience) {
         return experienceService.update(experience);
     }
 
+    // DELETE ------------------------
     @DeleteMapping("/delete/{id}")
     public String deleteExperience(@PathVariable Long id) {
         return experienceService.deleteById(id);
     }
 
-    //    ------------------------
+    // READ ------------------------
     @RequestMapping(value = "/findAll", method = RequestMethod.GET)
     public @ResponseBody Iterable<Experience> findExperience() {
         return experienceRepository.findAll();
