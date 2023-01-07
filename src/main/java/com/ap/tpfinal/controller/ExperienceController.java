@@ -88,8 +88,8 @@ public class ExperienceController {
     }
 
     //    ------------------------
-    // it must be @RequestParam
     @GetMapping("/findByNameContaining")
+    // it must be @RequestParam
     public List<Experience> findByNameContaining(@RequestParam String name) {
         return experienceService.findByNameContaining(name);
     }
