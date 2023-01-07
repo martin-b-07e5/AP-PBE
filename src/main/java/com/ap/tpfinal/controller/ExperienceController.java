@@ -44,18 +44,18 @@ public class ExperienceController {
     public ResponseEntity<?> createExperience(@RequestBody ExperienceDto experienceDto) {
         // validations
         if (StringUtils.isBlank(experienceDto.getName())) {
-            return new ResponseEntity(new Mensaje("NAME REQUIRED"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new MessageValidations("NAME REQUIRED"), HttpStatus.BAD_REQUEST);
         }
         if (experienceService.existByName(experienceDto.getName())) {
-            return new ResponseEntity(new Mensaje("EXPERIENCE ALREADY EXIST"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new MessageValidations("EXPERIENCE ALREADY EXIST"), HttpStatus.BAD_REQUEST);
         }
         if (experienceDto.getName().length() < 3) {
-            return new ResponseEntity(new Mensaje("NAME TO SHORT"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new MessageValidations("NAME TO SHORT"), HttpStatus.BAD_REQUEST);
         }
 
         Experience experience = new Experience(experienceDto.getName(), experienceDto.getDescription());
         experienceService.add(experience);
-        return new ResponseEntity<>(new Mensaje("ADDED EXPERIENCE"), HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(new MessageValidations("ADDED EXPERIENCE"), HttpStatus.OK);
     }
 
     // UPDATE ------------------------
