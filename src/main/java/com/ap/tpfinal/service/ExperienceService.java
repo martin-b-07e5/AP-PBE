@@ -26,8 +26,19 @@ public class ExperienceService {
     }
 
     // CREATE ------------------------
-    public Experience add(Experience experience) {
+    /*public Experience add(Experience experience) {
         return experienceRepository.save(experience);
+    }*/
+
+    public Experience add(Experience experience) {
+        int query = experience.getName().length();
+        if (query >= 3) {
+            return experienceRepository.save(experience);
+        } else
+            throw new IllegalArgumentException(
+                    "The name must be 3 characters or more: " +
+                            "experience Name: " + experience.getName()
+            );
     }
 
     // UPDATE ------------------------
