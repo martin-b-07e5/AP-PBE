@@ -22,11 +22,11 @@ public class Experience {
     private Long id;
 
     @NotBlank(message = "Name is mandatory")
-    @Size(min = 1, max = 50)
+    @Size(min = 1, max = 60)
     private String name;
 
     @NotBlank(message = "Description is mandatory")
-    @Size(min = 1, max = 50)
+    @Size(min = 1, max = 160)
     private String description;
 
     // https://www.baeldung.com/javax-validation
