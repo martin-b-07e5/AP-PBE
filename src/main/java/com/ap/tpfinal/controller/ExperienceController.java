@@ -36,7 +36,7 @@ public class ExperienceController {
 
     // CREATE ----------------------------------------
     @PostMapping("/add")
-    public Experience createExperience(@RequestBody Experience experience) {
+    public Experience create(@RequestBody Experience experience) {
         return experienceService.add(experience);
     }
 
@@ -53,28 +53,66 @@ public class ExperienceController {
     }*/
 
     // UPDATE ----------------------------------------
-    @PutMapping("/updateOld")
-    public Experience updateOld(@RequestBody Experience experience) {
-        return experienceService.update(experience);
-    }
-
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(
             @PathVariable("id") Long id,
             @RequestBody ExperienceDto experienceDto) {
 
-//        Experience experienceN = experienceService.getById(id);
-        Experience experience = experienceService.getOne(id).get();
+        //Validamos si existe el ID
+        if (!experienceService.existById(id)) {
+            return new ResponseEntity(
+                    new MessageValidations("El ID no existe"),
+                    HttpStatus.BAD_REQUEST);
+        }
 
-        experience.setName(experienceDto.getName());
-        experience.setDescription(experienceDto.getDescription());
+        //Compara nombre de experiencias
+        /*if(sExperiencia.existsByNombreE(dtoexp.getNombreE()) &&
+                sExperiencia
+                        .getByNombreE(dtoexp.getNombreE())
+                        .get()
+                        .getId() != id) {
+            return new ResponseEntity(
+                    new Mensaje("Esa experiencia ya existe"),
+                    HttpStatus.BAD_REQUEST);
+        }*/
 
-        experienceService.save(experience);
+        //No puede estar vacio
+        /*if(StringUtils.isBlank(dtoexp.getNombreE())) {
+            return new ResponseEntity(new Mensaje(
+                    "El nombre es obligatorio"),
+                    HttpStatus.BAD_REQUEST);
+        }*/
+
+        Experience experiencia = experienceService.getOne(id).get();
+
+        experiencia.setName(experienceDto.getName());
+        experiencia.setDescription((experienceDto.getDescription()));
+
+        experienceService.save(experiencia);
 
         return new ResponseEntity(
-                new MessageValidations("Experience updated"),
+                new MessageValidations("Experiencia actualizada"),
                 HttpStatus.OK);
     }
+
+
+
+    /*@PutMapping("/update")
+    public Experience updateOld(@RequestBody Experience experience) {
+        return experienceService.update(experience);
+    }*/
+
+    //    https://www.baeldung.com/spring-boot-react-crud
+    /*@PutMapping("/update/`{id}`")
+    public ResponseEntity update(@PathVariable Long id, @RequestBody Experience experience) {
+        Experience currentExperience = experienceRepository.findById(id).orElseThrow(RuntimeException::new);
+        currentExperience.setName(experience.getName());
+        currentExperience.setDescription(experience.getDescription());
+        currentExperience = experienceRepository.save(experience);
+
+        return ResponseEntity.ok(currentExperience);
+    }*/
+
 
     // DELETE ------------------------
     @DeleteMapping("/delete/{id}")
@@ -95,20 +133,21 @@ public class ExperienceController {
     }
 
     @GetMapping("/getById/{id}")
-    public Experience getByIdOld(@PathVariable Long id) {
+    public Experience getById(@PathVariable Long id) {
         return experienceService.getById(id);
     }
 
     @GetMapping("/detail/{id}")
-    public ResponseEntity<Experience> getById(
+    public ResponseEntity<Experience> detail(
             @PathVariable("id") Long id) {
-
+        // validation
         if (!experienceService.existById(id)) {
             return new ResponseEntity(new MessageValidations("no existe"), HttpStatus.NOT_FOUND);
         }
 
-        Experience experiencia = experienceService.getOne(id).get();
-        return new ResponseEntity(experiencia, HttpStatus.OK);
+        // Experience experienceN = experienceService.getById(id);
+        Experience experience = experienceService.getOne(id).get();
+        return new ResponseEntity(experience, HttpStatus.OK);
     }
 
     @GetMapping("/findByNameContaining")

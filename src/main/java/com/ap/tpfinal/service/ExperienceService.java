@@ -13,7 +13,7 @@ import java.util.Optional;
 public class ExperienceService {
 
     @Autowired
-    private ExperienceRepository experienceRepository;
+    ExperienceRepository experienceRepository;
 
     //  Below functions are called from the controller
 
@@ -23,30 +23,29 @@ public class ExperienceService {
     }
 
     public Experience getById(Long id) {
-        return experienceRepository.findById(id).orElse(null);
+        return experienceRepository.findById(id).get();
     }
 
     public Optional<Experience> getOne(Long id) {
         return experienceRepository.findById(id);
     }
 
-    public Optional<Experience> getByName(String name) {
+    /*public Optional<Experience> getByName(String name) {
         return experienceRepository.findByName(name);
-    }
+    }*/
 
     // CREATE ----------------------------------
-    public void save(Experience experience) {
+    /*public void save(Experience experience) {
         experienceRepository.save(experience);
-    }
-
-    /*public Experience save(Experience experience) {
-        return experienceRepository.save(experience);
     }*/
+
+    public Experience save(Experience experience) {
+        return experienceRepository.save(experience);
+    }
 
     public Experience add(Experience experience) {
         return experienceRepository.save(experience);
     }
-
 
     // UPDATE ----------------------------------
     public Experience update(Experience experience) {

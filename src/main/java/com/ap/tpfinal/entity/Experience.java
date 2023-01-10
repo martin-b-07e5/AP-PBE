@@ -44,13 +44,6 @@ public class Experience {
         this.description = description;
     }
 
-    public Experience(Long id, String name, String description, LocalDate createdAt) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.createdAt = createdAt;
-    }
-
 
     //     getters and setters
     public Long getId() {

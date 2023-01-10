@@ -1,17 +1,12 @@
 package com.ap.tpfinal.dto;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
-import java.time.LocalDate;
 
 public class ExperienceDto {
 
-    @NotBlank(message = "Name is mandatory")
-    @Size(min = 1, max = 50)
-    private String name;
 
-    @NotBlank(message = "Description is mandatory")
-    @Size(min = 1, max = 50)
+    @NotBlank
+    private String name;
     private String description;
 
 
