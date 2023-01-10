@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface ExperienceRepository extends JpaRepository<Experience, Long> {
@@ -15,6 +16,7 @@ public interface ExperienceRepository extends JpaRepository<Experience, Long> {
     List<Experience> findByCreatedAtGreaterThanEqual(LocalDate createdAt);
 
     // ------------------------
-    boolean existsByName(String name);
+    public Optional<Experience> findByName(String name);
+    // ------------------------
 
 }

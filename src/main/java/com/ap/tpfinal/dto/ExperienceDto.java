@@ -2,13 +2,18 @@ package com.ap.tpfinal.dto;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.time.LocalDate;
 
 public class ExperienceDto {
+
     @NotBlank(message = "Name is mandatory")
     @Size(min = 1, max = 50)
     private String name;
+
+    @NotBlank(message = "Description is mandatory")
     @Size(min = 1, max = 50)
     private String description;
+
 
     // constructors
     public ExperienceDto() {
@@ -18,6 +23,7 @@ public class ExperienceDto {
         this.name = name;
         this.description = description;
     }
+
 
     //    getters-setters
     public String getName() {

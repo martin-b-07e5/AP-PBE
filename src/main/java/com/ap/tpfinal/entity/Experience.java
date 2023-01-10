@@ -11,7 +11,6 @@ import java.util.Set;
 //@Table(name = "Experience")
 public class Experience {
 
-    // ------------------------------------------------------------
     // https://www.baeldung.com/jpa-many-to-many
     @ManyToMany(mappedBy = "technologySet")
     Set<Person> personSet;
@@ -20,12 +19,13 @@ public class Experience {
     @Id  // for PK
     @GeneratedValue(strategy = GenerationType.IDENTITY) // for AI
     @Column(name = "id_experience")
-    private Long idExperience;
+    private Long id;
 
     @NotBlank(message = "Name is mandatory")
     @Size(min = 1, max = 50)
     private String name;
 
+    @NotBlank(message = "Description is mandatory")
     @Size(min = 1, max = 50)
     private String description;
 
@@ -39,21 +39,26 @@ public class Experience {
     public Experience() {
     }
 
-    public Experience(Long idExperience, String name, String description, LocalDate createdAt) {
-        this.idExperience = idExperience;
-        this.name = name;
-        this.description = description;
-        this.createdAt = createdAt;
-    }
-
     public Experience(String name, String description) {
         this.name = name;
         this.description = description;
     }
 
+    public Experience(Long id, String name, String description, LocalDate createdAt) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.createdAt = createdAt;
+    }
+
+
     //     getters and setters
-    public Long getIdExperience() {
-        return idExperience;
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -75,6 +80,10 @@ public class Experience {
 
     public LocalDate getCreatedAt() {
         return createdAt;
+    }
+
+    public void setCreatedAt(LocalDate createdAt) {
+        this.createdAt = createdAt;
     }
 
 }

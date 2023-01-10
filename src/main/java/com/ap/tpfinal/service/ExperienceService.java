@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 //@Transactional
@@ -16,7 +17,7 @@ public class ExperienceService {
 
     //  Below functions are called from the controller
 
-    // READ ------------------------
+    // READ ----------------------------------
     public List<Experience> getAll() {
         return experienceRepository.findAll();
     }
@@ -25,28 +26,34 @@ public class ExperienceService {
         return experienceRepository.findById(id).orElse(null);
     }
 
-    // CREATE ------------------------
-    /*public Experience add(Experience experience) {
+    public Optional<Experience> getOne(Long id) {
+        return experienceRepository.findById(id);
+    }
+
+    public Optional<Experience> getByName(String name) {
+        return experienceRepository.findByName(name);
+    }
+
+    // CREATE ----------------------------------
+    public void save(Experience experience) {
+        experienceRepository.save(experience);
+    }
+
+    /*public Experience save(Experience experience) {
         return experienceRepository.save(experience);
     }*/
 
     public Experience add(Experience experience) {
-        int query = experience.getName().length();
-        if (query >= 3) {
-            return experienceRepository.save(experience);
-        } else
-            throw new IllegalArgumentException(
-                    "The name must be 3 characters or more: " +
-                            "experience Name: " + experience.getName()
-            );
+        return experienceRepository.save(experience);
     }
 
-    // UPDATE ------------------------
+
+    // UPDATE ----------------------------------
     public Experience update(Experience experience) {
         return experienceRepository.save(experience);
     }
 
-    // DELETE ------------------------
+    // DELETE ----------------------------------
     public String deleteById(Long id) {
         experienceRepository.deleteById(id);
         return "experience " + id + " deleted";
@@ -67,10 +74,6 @@ public class ExperienceService {
     // ------------------------
     public boolean existById(Long id) {
         return experienceRepository.existsById(id);
-    }
-
-    public boolean existByName(String name) {
-        return experienceRepository.existsByName(name);
     }
 
 }
