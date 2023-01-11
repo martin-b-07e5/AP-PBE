@@ -12,9 +12,9 @@ import java.util.Set;
 public class Experience {
 
     // https://www.baeldung.com/jpa-many-to-many
-    @ManyToMany(mappedBy = "technologySet")
+    @ManyToMany(mappedBy = "experienceSet")
     Set<Person> personSet;
-    // ------------------------------------------------------------
+    // -------------------------------------------------------
 
     @Id  // for PK
     @GeneratedValue(strategy = GenerationType.IDENTITY) // for AI

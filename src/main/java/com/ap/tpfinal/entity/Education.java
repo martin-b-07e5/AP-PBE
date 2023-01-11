@@ -11,22 +11,22 @@ import java.util.Set;
 @Table(name = "Education")
 public class Education {
 
-    // ------------------------------------------------------------
     // https://www.baeldung.com/jpa-many-to-many
     @ManyToMany(mappedBy = "educationSet")
     Set<Person> personSet;
-    // ------------------------------------------------------------
+    // -------------------------------------------------------
 
     @Id  // for PK
     @GeneratedValue(strategy = GenerationType.IDENTITY) // for AI
     @Column(name = "id_education")
-    private Long idEducation;
+    private Long id;
 
     @NotBlank(message = "Name is mandatory")
-    @Size(min = 1, max = 50)
+    @Size(min = 1, max = 60)
     private String name;
 
-    @Size(min = 1, max = 50)
+    @NotBlank(message = "Description is mandatory")
+    @Size(min = 1, max = 160)
     private String description;
 
     // https://www.baeldung.com/javax-validation
@@ -39,17 +39,18 @@ public class Education {
     public Education() {
     }
 
-    public Education(Long idEducation, String name, String description, LocalDate createdAt) {
-        this.idEducation = idEducation;
+    public Education(String name, String description) {
         this.name = name;
         this.description = description;
-        this.createdAt = createdAt;
     }
 
-
     //     getters and setters
-    public Long getIdEducation() {
-        return idEducation;
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -71,6 +72,10 @@ public class Education {
 
     public LocalDate getCreatedAt() {
         return createdAt;
+    }
+
+    public void setCreatedAt(LocalDate createdAt) {
+        this.createdAt = createdAt;
     }
 
 }

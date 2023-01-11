@@ -4,6 +4,7 @@ import com.ap.tpfinal.repository.EducationRepository;
 import com.ap.tpfinal.entity.Education;
 import com.ap.tpfinal.service.EducationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,31 +18,51 @@ public class EducationController {
     private EducationService educationService;
 
     @Autowired
-//    private SourceRepository sourceRepository; // for /findAll()
     private EducationRepository educationRepository; // for /findAll()
 
-    //    ------------------------
+    // ----------------------------------------
     @GetMapping("")
     public String helloE() {
-        return "HELLO from the EducationController";
+        return "HELLO from the EducationController empty";
     }
 
     @GetMapping("/")
     public String helloR() {
-        return "HELLO from the EducationController/";
+        return "HELLO from the EducationController root /";
     }
 
-    //    ------------------------
+    // CREATE ----------------------------------------
     @PostMapping("/add")
-    public Education createEducation(@RequestBody Education education) {
-        return educationService.add(education);
+    public Education create(@RequestBody Education education) {
+        return educationService.save(education);
     }
 
-    @PutMapping("/update")
-    public Education updateEducation(@RequestBody Education education) {
-        return educationService.update(education);
+    // UPDATE ----------------------------------------
+    @PutMapping("/updateOld")
+    public Education updateOld(@RequestBody Education education) {
+        return educationService.save(education);
     }
 
+    //    https://www.baeldung.com/spring-boot-react-crud
+    @PutMapping("/update/{id}")
+    public ResponseEntity update(
+            @PathVariable Long id,
+            @RequestBody Education education) {
+        Education educationUpdate = educationRepository.findById(id).orElseThrow(RuntimeException::new);
+        educationUpdate.setName(education.getName());
+        educationUpdate.setDescription(education.getDescription());
+        educationUpdate = educationRepository.save(education);
+        return ResponseEntity.ok(educationUpdate);
+    }
+
+    @GetMapping("/detail/{id}")
+    public ResponseEntity detail(
+            @PathVariable Long id) {
+        Education educationDetail = educationService.getById(id);
+        return ResponseEntity.ok(educationDetail);
+    }
+
+    // DELETE ----------------------------------------
     @DeleteMapping("/delete/{id}")
     public String deleteEducation(@PathVariable Long id) {
         return educationService.deleteById(id);
@@ -64,9 +85,8 @@ public class EducationController {
         return educationService.getById(id);
     }
 
-    //    ------------------------
-    // it must be @RequestParam
     @GetMapping("/findByNameContaining")
+    // it must be @RequestParam
     public List<Education> findByNameContaining(@RequestParam String name) {
         return educationService.findByNameContaining(name);
     }

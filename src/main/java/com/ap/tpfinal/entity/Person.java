@@ -22,7 +22,6 @@ public class Person {
      The joinColumn attribute will connect to the owner side of the relationship,
        and the inverseJoinColumn to the other side.
      */
-//    @ManyToMany(fetch = FetchType.EAGER)
     @ManyToMany
     @JoinTable(
             name = "person_education",

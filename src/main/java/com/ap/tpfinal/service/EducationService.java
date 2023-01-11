@@ -13,8 +13,7 @@ public class EducationService {
     @Autowired
     private EducationRepository educationRepository;
 
-    //  Below functions are called from the controller
-    //    ------------------------
+    // READ ----------------------------------
     public List<Education> getAll() {
         return educationRepository.findAll();
     }
@@ -23,21 +22,18 @@ public class EducationService {
         return educationRepository.findById(id).orElse(null);
     }
 
-    //    ------------------------
-    public Education add(Education education) {
+    // CREATE/UPDATE ----------------------------------
+    public Education save(Education education) {
         return educationRepository.save(education);
     }
 
-    public Education update(Education education) {
-        return educationRepository.save(education);
-    }
-
+    // DELETE ----------------------------------
     public String deleteById(Long id) {
         educationRepository.deleteById(id);
         return "education " + id + " deleted";
     }
 
-    //    ------------------------
+    // ----------------------------------
     public List<Education> findByNameContaining(String name) {
         int query = name.length();
         if (query >= 3) {
