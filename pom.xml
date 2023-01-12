@@ -8,13 +8,13 @@
         <version>2.7.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.ap</groupId>
-    <artifactId>springApTp-final</artifactId>
+    <groupId>com.portfolio</groupId>
+    <artifactId>mb</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>MB-portfolio-v01</name>
-    <description>AP tpFinal project for Spring Boot</description>
+    <name>mb.portfolio</name>
+    <description>AP tpFinal portfolio project for Spring Boot</description>
     <properties>
-        <java.version>17</java.version>
+        <java.version>1.8</java.version>
     </properties>
     <dependencies>
         <dependency>
@@ -45,7 +45,6 @@
             <scope>runtime</scope>
         </dependency>
         <!-- __________________________________________________ -->
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -87,13 +86,6 @@
             <artifactId>commons-lang3</artifactId>
         </dependency>
         <!-- __________________________________________________ -->
-        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-resources-plugin -->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.maven.plugins</groupId>-->
-<!--            <artifactId>maven-resources-plugin</artifactId>-->
-<!--            <version>3.2.0</version>-->
-<!--        </dependency>-->
-        <!-- __________________________________________________ -->
     </dependencies>
 
     <build>
@@ -110,18 +102,6 @@
                     </excludes>
                 </configuration>
             </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.10.1</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>3.3.0</version>
-            </plugin>
-
         </plugins>
     </build>
 
