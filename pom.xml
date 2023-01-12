@@ -5,13 +5,13 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.2</version>
+        <version>2.7.7</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.ap</groupId>
-    <artifactId>news-app-v01</artifactId>
+    <artifactId>springApTp-final-v01</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>news-app-v01</name>
+    <name>MB-portfolio-v01</name>
     <description>AP tpFinal project for Spring Boot</description>
     <properties>
         <java.version>11</java.version>
