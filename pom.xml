@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.ap</groupId>
-    <artifactId>springApTp-final-v01</artifactId>
+    <artifactId>springApTp-final</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>MB-portfolio-v01</name>
     <description>AP tpFinal project for Spring Boot</description>
@@ -101,6 +101,14 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
             </plugin>
 <!--            <plugin>-->
 <!--                <groupId>org.apache.maven.plugins</groupId>-->
