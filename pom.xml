@@ -31,7 +31,7 @@
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
-
+        <!-- __________________________________________________ -->
         <!-- local -->
 <!--        <dependency>-->
 <!--            <groupId>org.mariadb.jdbc</groupId>-->
@@ -44,6 +44,7 @@
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
+        <!-- __________________________________________________ -->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -85,6 +86,14 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>
+        <!-- __________________________________________________ -->
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-resources-plugin -->
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-resources-plugin</artifactId>
+            <version>3.2.0</version>
+        </dependency>
+
         <!-- __________________________________________________ -->
     </dependencies>
 
