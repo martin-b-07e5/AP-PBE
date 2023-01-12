@@ -4,6 +4,7 @@
 *.sql
 .gitignore
 favicon.ico
+Dockerfile*
 
 # folders
 bck/
