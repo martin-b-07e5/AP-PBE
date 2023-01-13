@@ -11,15 +11,10 @@ import java.util.List;
 //@RequestMapping(value = "/person")
 @RequestMapping(value = "/api/v1/person")  //https://www.baeldung.com/spring-requestmapping
 //@CrossOrigin(origins = "http://localhost:4200")
-//@CrossOrigin(origins = "https://ap-front--2023-01-12--firebase.web.app")
-@CrossOrigin(origins = "https://ap-pbe-production.up.railway.app")
+@CrossOrigin(origins = "https://ap-front--2023-01-12--firebase.web.app")
+//@CrossOrigin(origins = "https://ap-pbe-production.up.railway.app")
 public class PersonController {
 
-    //    private HelloService helloService = new HelloService();
-    /*  Aplico el concepto de INYECCIÓN DE DEPENDENCIA,
-      no lo instancio, lo delego.
-      Ya no tengo el control, invierto el control (con @Autowired)
-      y el que tiene el control es SPRING */
     @Autowired
     private PersonService personService;
 
