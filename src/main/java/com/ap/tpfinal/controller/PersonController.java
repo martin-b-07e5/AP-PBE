@@ -62,9 +62,9 @@ public class PersonController {
     }
 
     //    ------------------------
-    @GetMapping("/findByFirstNameContainingOrLastNameContaining")
+    /*@GetMapping("/findByFirstNameContainingOrLastNameContaining")
     public List<Person> findByFirstNameContainingOrLastNameContaining(@RequestParam String firstName, String lastName) {
         return personService.findByFirstNameContainingOrLastNameContaining(firstName, lastName);
-    }
+    }*/
 
 }

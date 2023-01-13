@@ -44,12 +44,12 @@ public class PersonService {
     }
 
     //    ------------------------
-    public List<Person> findByFirstNameContainingOrLastNameContaining(String firstName, String lastName) {
+    /*public List<Person> findByFirstNameContainingOrLastNameContaining(String firstName, String lastName) {
         int query = firstName.length() + lastName.length();
         if (query >= 3) {
             return personRepository.findByFirstNameContainingOrLastNameContaining(firstName, lastName);
         } else
             throw new IllegalArgumentException("The query must be 3 characters or more: " + "firstName = " + firstName + ", " + " lastName = " + lastName);
-    }
+    }*/
 
 }
