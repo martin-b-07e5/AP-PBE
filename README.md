@@ -1,6 +1,6 @@
 # AP tp final
 
-### url: 
+### front url: 
 https://ap-front--2023-01-12--firebase.web.app/
 
 <hr/>
@@ -8,6 +8,8 @@ https://ap-front--2023-01-12--firebase.web.app/
 #### MER
 ![img.png](mer.png)
 
+
+### some queries: 
 https://ap-pbe-production.up.railway.app/api/v1/person/findAll
 
 https://ap-pbe-production.up.railway.app/api/v1/education/findAll
