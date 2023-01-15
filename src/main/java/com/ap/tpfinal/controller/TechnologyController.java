@@ -12,7 +12,6 @@ import java.util.List;
 @RequestMapping(value = "/api/v1/technology")  //https://www.baeldung.com/spring-requestmapping
 //@CrossOrigin(origins = "http://localhost:4200")
 @CrossOrigin(origins = "https://ap-front--2023-01-12--firebase.web.app")
-//@CrossOrigin(origins = "https://ap-pbe-production.up.railway.app")
 public class TechnologyController {
 
     @Autowired
