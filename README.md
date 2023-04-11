@@ -2,6 +2,10 @@
 
 ### front url: 
 https://ap-front--2023-01-12--firebase.web.app/
+<br>
+(Site available from the 5th to the 20th of each month.)
+<br>
+If it doesn't work let me know
 
 <hr/>
 
