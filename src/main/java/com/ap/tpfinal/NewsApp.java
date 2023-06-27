@@ -20,5 +20,10 @@ public class NewsApp {
     public static void main(String[] args) {
         SpringApplication.run(NewsApp.class, args);
         System.out.println("ok");
+//        http://localhost:8080/api/v1/education
+//        http://localhost:8080/api/v1/experience
+//        http://localhost:8080/api/v1/person
+//        http://localhost:8080/api/v1/project
+//        http://localhost:8080/api/v1/technology
     }
 }
