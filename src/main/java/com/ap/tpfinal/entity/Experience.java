@@ -29,6 +29,17 @@ public class Experience {
     @Size(min = 1, max = 160)
     private String description;
 
+    // asked for --------------------------------------------------
+    @PastOrPresent
+    @Column(name = "started_at")
+    private LocalDate startedAt;
+
+    @PastOrPresent
+    @Column(name = "finished_at")
+    // private LocalDate finishedAt = LocalDate.now();
+    private LocalDate finishedAt;
+    // --------------------------------------------------
+
     // https://www.baeldung.com/javax-validation
     @PastOrPresent
     @Column(name = "created_at")
@@ -44,6 +55,12 @@ public class Experience {
         this.description = description;
     }
 
+    public Experience(String name, String description, LocalDate startedAt, LocalDate finishedAt) {
+        this.name = name;
+        this.description = description;
+        this.startedAt = startedAt;
+        this.finishedAt = finishedAt;
+    }
 
     //     getters and setters
     public Long getId() {
@@ -69,6 +86,22 @@ public class Experience {
 
     public void setDescription(String name) {
         this.description = name.toLowerCase().replace(" ", "-");
+    }
+
+    public LocalDate getStartedAt() {
+        return startedAt;
+    }
+
+    public void setStartedAt(LocalDate startedAt) {
+        this.startedAt = startedAt;
+    }
+
+    public LocalDate getFinishedAt() {
+        return finishedAt;
+    }
+
+    public void setFinishedAt(LocalDate finishedAt) {
+        this.finishedAt = finishedAt;
     }
 
     public LocalDate getCreatedAt() {
