@@ -10,8 +10,8 @@ import java.util.List;
 @RestController  //https://www.baeldung.com/spring-controller-vs-restcontroller
 //@RequestMapping(value = "/person")
 @RequestMapping(value = "/api/v1/person")  //https://www.baeldung.com/spring-requestmapping
-@CrossOrigin(origins = "http://localhost:4200")
-//@CrossOrigin(origins = "https://ap-front--2023-01-12--firebase.web.app")
+//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://ap-front--2023-01-12--firebase.web.app")
 public class PersonController {
 
     @Autowired
