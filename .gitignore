@@ -1,7 +1,7 @@
 # ----------------------------------------------------------------------
 # files
 .directory
-*.sql
+#*.sql
 .gitignore
 favicon.ico
 Dockerfile*
